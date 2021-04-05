@@ -14,11 +14,11 @@ The overall purpose of my local file transfer idea is to make it easier to trans
 
 These cases lead to several ideas I have for file transfer. Maybe we can implement all of them.
 
-## QR code / animated QR code
+## QR code / Animated QR Code
 
 QR codes can be used to send small things like text between two machines. This just requires camera access and should be relatively easy to implement. For slightly larger files, we can animate the qr code so that the data becomes a sequence of codes. This is has a limited bandwidth though.
 
-## Network transfer
+## Network Transfer
 
 This is likely the fastest way to transfer files. There are several methods though. 
 
