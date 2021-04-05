@@ -6,7 +6,7 @@
 
 # Project Ideas
 
-The overall purpose of my local file transfer idea is to make it easier to transfer files wirelessly between machines. I have found several edge type cases with this.
+The overall purpose of my local file transfer idea is to make it easier to transfer files wirelessly between machines without the ability/necessity of uploading to an external server. I have found several edge type cases with this.
 
 1. User has no wireless capability - e.g. on airplane.
 2. User can connect to a network and be discovered - e.g. at home or a network that allows discovery.
