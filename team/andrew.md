@@ -22,7 +22,7 @@ QR codes can be used to send small things like text between two machines. This j
 
 This is likely the fastest way to transfer files. There are several methods though. 
 
-- https server
+- https server (maybe the most universal?)
 - sftp server
 - samba server
 
