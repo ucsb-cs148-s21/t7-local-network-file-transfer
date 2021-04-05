@@ -1,7 +1,7 @@
 # Norms
 
-- We should be available for scheduled class and section times.
-- We should be available when non-class time is scheduled and mutually agreed upon.
+- We should be present for scheduled class and section times.
+- We should be present when non-class time is scheduled and mutually agreed upon.
 - We sould have goals set with deadlines to keep track of our progress.
 
 # Project Ideas
