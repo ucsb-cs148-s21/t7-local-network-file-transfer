@@ -1,3 +1,7 @@
+# About me
+
+Hi I'm Andrew! Currently I'm a 2nd year Computer Science Major. I haven't had much experience building entire programs, so hopefully this is the next step for me to actually do some "real" programming. I look forward to working and learning with everybody. In my spare time I enjoy photography and messing around with Linux.
+
 # Norms
 
 - We should be present for scheduled class and section times.
