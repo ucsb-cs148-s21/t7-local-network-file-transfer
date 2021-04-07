@@ -1,6 +1,6 @@
 # Me
 
-Hello everyone, my name is Kevin. I am a third year CS major. I switched into this major from Electrical Engineering during my second year. A couple of my interests outside of school are anime, basketball, and selling sneakers.
+Hello everyone, my name is Kevin. I am a third year CS major. I switched into this major from Electrical Engineering during my second year. A couple of my interests outside of school are anime, basketball, and selling sneakers. I look forward to working with everyone and learning about how to create an app.
 
 # Ideas
 
