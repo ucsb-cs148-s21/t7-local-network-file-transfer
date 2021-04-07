@@ -4,7 +4,7 @@ Hey team! My name is Douglas, but you can call me Doug. I'm a third-year CS majo
 
 # Ideas
 
-The idea of the project is to allow devices on the same local network to transfer files in a similar fashion to Airdrop. I don't have enough knowledge about this topic to speak technically, but I'm envisioning this could be done through the devices logging on to the web app on the same network. The app could display all the connected to the app and allow some drag-and-drop action similar to Airdrop.
+The idea of the project is to allow devices on the same local network to transfer files in a similar fashion to Airdrop. I don't have enough knowledge about this topic to speak technically, but I'm thinking this could be done through the devices logging on to the web app on the same network. The app could display all the devices connected to the app and allow some drag-and-drop action similar to Airdrop.
 
 # Norms
 
