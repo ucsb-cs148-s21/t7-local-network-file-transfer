@@ -1,0 +1,1 @@
+Our file transfer program will work similar to Apple's AirDrop but will be compatible with all devices. The files will only be able to be transfered between devices on the same local network. The program will not run in the background but will only work when both devices intiate a transfer.

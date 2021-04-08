@@ -39,4 +39,3 @@ Maybe we could use the PC to generate the wireless network itself? I haven't loo
 ## Network but with no discovery
 
 All I can think of for this case is Bluetooth which can be slow and annoying. Alternatively we'd have to figure out how to directly connect two machines on a network like UCSB's eduroam with some sort of peer to peer connection that doesn't require traversing an external server. (web sockets?)
-
