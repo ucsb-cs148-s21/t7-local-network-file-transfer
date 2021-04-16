@@ -1,19 +1,37 @@
 # LEARNING #
 
-Some people don't know Python; we all need to read documentation for Flask etc.
-
-Depending on needs, we might want to use a front-end framework but for now no change is needed.
-
+## Present Experience
 | Tech        | Ethan | Andrew  | Kevin | Zack | Douglas |
 |-------------|-------|---------|-------|------|---------|
-| Python      | 6/10  | 6/10    | 4/10  | 3/10 | 4/10    | 
+| Python      | 6/10  | 5/10    | 4/10  | 3/10 | 4/10    | 
 | HTML/CSS/JS | 7/10  | 2/10    | 6/10  | 2/10 | 2/10    |
-| Networking  | 0/10  | 6/10    | 0/10  | 0/10 | 0/10    |
-| Security    | 0/10  | 5/10    | 0/10  | 0/10 | 0/10    |
+| Networking  | 0/10  | 4/10    | 0/10  | 0/10 | 0/10    |
+| Security    | 0/10  | 4/10    | 0/10  | 0/10 | 0/10    |
 
-When working on features, we can divide up into groups based on our experience and interests.
+## Skills and Tech Summary
+- Most have some knowledge of Python,
+- For front end, Ethan and Kevin have the most experience.
+- We all did not have any experience with Flask.\
+- Most are unfamiliar with networking and security. Andrew has some basic knowledge about both.\
 
-## Topics
+When working on features, we plan to divide up into groups based on our experience and interests.
+
+## Learning Plan for First Iteration
+
+For the remainder of this week and next week (week 4), we will be working on learning the following:
+- Learn about front end styling, functions, error messages, file download button, file upload button, etc.
+  - html, css, vanilla javascript
+- Learn about Flask interfacing with front end.
+- Learn about Flask accessing file system/serving a directory
+  - Andrew
+- Learn about web servers like Gunicorn for exposing webapp on local network.
+  - Andrew
+- Learn about packaging app for Linux with Appimage.
+  - Andrew
+- Learn about packaging app for Mac.
+- Learn about packaging app for Windows.
+
+## Topics List
 
 - Networking 
   - How to get two machines on the same network to see each other.
@@ -21,8 +39,8 @@ When working on features, we can divide up into groups based on our experience a
 - Front End (HTML, CSS, Javascript)
   - How to get front end to display files from a folder
   - How to send requests to backend to modify backend
-  - How to download from the backend
-  - How to upload to the backend
+  - How to download from the backend and save to device
+  - How to view files and upload to the backend
 - Back End (Flask)
   - How to serve a folder to the front end
   - How to modify the server with an input from the front end (stopping local visibility)
