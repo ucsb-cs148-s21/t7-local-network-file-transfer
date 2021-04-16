@@ -20,13 +20,17 @@ When working on features, we plan to divide up into groups based on our experien
 
 For the remainder of this week and next week (week 4), we will be working on learning the following:
 - Learn about front end styling, functions, error messages, file download button, file upload button, etc.
-  - html, css, vanilla javascript
+  - Work on tutorial or app with html, css, vanilla javascript.
 - Learn about Flask interfacing with front end.
+  - Work on Flask + front end tutorials.
 - Learn about Flask accessing file system/serving a directory
+  - Read Flask documentation and any relevant modules
   - Andrew
 - Learn about web servers like Gunicorn for exposing webapp on local network.
+  - Read Gunicorn documentation
   - Andrew
 - Learn about packaging app for Linux with Appimage.
+  - Package hello world into appimage with something like python-appimage.
   - Andrew
 - Learn about packaging app for Mac.
 - Learn about packaging app for Windows.
