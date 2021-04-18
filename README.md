@@ -26,7 +26,7 @@ $ python src
 ```
 
 ### Dependencies ###
-Loft requires `pyqt5`, `flask`, and `waitress`.
+Loft requires `pyqt5`, `flask`, and `gevent`.
 
 Install dependencies
 ```
