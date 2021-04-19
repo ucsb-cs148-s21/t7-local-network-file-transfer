@@ -28,9 +28,22 @@ $ python src
 ### Dependencies ###
 Loft requires `pyqt5`, `flask`, and `gevent`.
 
-Install dependencies
+#### Setting Up a Virtual Environment ####
+It is recommended that you set up a python virtual environment before installing
+dependencies. You can set one up and activate it as follows:
 ```
-python -m pip install -r .
+# on Linux and macOS
+$ python -m venv .venv
+$ source .venv/bin/activate
+# on Windows
+$ py -m venv .venv
+$ .venv/Scripts/activate
+```
+
+#### Installing Dependencies ####
+Install dependencies:
+```
+python -m pip install -r requirements.txt
 ```
 
 ### Dev-Dependencies ###
