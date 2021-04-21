@@ -9,9 +9,6 @@ from werkzeug.utils import secure_filename
 from werkzeug.middleware.shared_data import SharedDataMiddleware
 
 UPLOAD_FOLDER = 'uploads'
-if(~os.path.isfile(UPLOAD_FOLDER)):
-    os.mkdir('uploads')
-
 APP_NAME = 'loft'
 HOST = '0.0.0.0'
 PORT = 2402
@@ -26,6 +23,8 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 def start_server(app, window):
     '''Start the web server and close the GUI window.'''
     def callback():
+        if not(os.path.exists(UPLOAD_FOLDER)):
+            os.mkdir(UPLOAD_FOLDER)
         window.close()
         webbrowser.open('http://localhost:{}'.format(PORT))
         # server.run(host=HOST, port=PORT)
@@ -83,9 +82,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            #return render_template('index.html')
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+            return render_template('index.html')
     return '''
     <!doctype html>
     <title>Upload new File</title>
