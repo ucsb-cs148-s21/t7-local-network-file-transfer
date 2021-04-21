@@ -27,7 +27,7 @@ def stop_server(server_thread):
     pass
 
 def start_process_server():
-    server = Thread(target=start_server, daemon=True)
+    server = Thread(target=start_server, daemon=True)   # Run as daemon so that closing kills server.
     # server = Process(target=start_server, daemon=True)
     server.start()
     #server.join()
