@@ -6,6 +6,8 @@ from flask import Flask, render_template, request
 from gevent.pywsgi import WSGIServer
 from PyQt5.QtWidgets import QApplication, QGridLayout, QLabel, QPushButton, QWidget
 
+from multiprocessing import Process
+
 APP_NAME = 'loft'
 HOST = '0.0.0.0'
 PORT = 2402
@@ -24,8 +26,7 @@ def start_server(app, window):
         server.serve_forever()
     return callback
 
-
-def main():
+def host_gui(): 
     window = QWidget()
     window.setWindowTitle('loft')
     window.setGeometry(0, 0, 400, 300)
@@ -36,12 +37,25 @@ def main():
     button = QPushButton(text='start server', parent=window)
     button.clicked.connect(start_server(app, window))
 
+    # button = QPushButton(text='stop server', parent=window)
+    # button.clicked.connect(quit_server(app, window))
+
     layout = QGridLayout(window)
     layout.addWidget(hello, 0, 0)
     layout.addWidget(button, 1, 0)
 
     window.show()
     sys.exit(gui.exec_())
+
+
+
+def main():
+    # host_gui_process = Process(target=host_gui)
+    # host_gui_process.start()
+    # host_gui_process.join()
+    host_gui()
+
+    
 
 
 @app.route('/')
