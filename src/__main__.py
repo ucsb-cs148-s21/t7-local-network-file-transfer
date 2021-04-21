@@ -15,7 +15,6 @@ gui = QApplication(sys.argv)
 app = Flask(APP_NAME)
 # server = WSGIServer((HOST, PORT), app)
 
-
 def start_server():
     webbrowser.open('http://localhost:{}'.format(PORT))
     # server.serve_forever()
@@ -32,7 +31,6 @@ def start_process_server():
     server.start()
     #server.join()
 
-
 def host_gui(): 
     window = QWidget()
     window.setWindowTitle('loft')
@@ -44,14 +42,14 @@ def host_gui():
     start_button = QPushButton(text='start server', parent=window)
     start_button.clicked.connect(start_process_server)
 
-    label=QLabel()
-    label.setText('<a href="http://localhost:2402/">Click to open client web interface</a>')    ## Remove hardcoded link
-    label.setOpenExternalLinks(True)
-
     stop_button = QPushButton(text='stop server', parent=window)
     #stop_button.clicked.connect(stop_server(server_thread))
 
     stop_msg = QLabel('Stop Button above does not work.\nClose window to stop serving.')
+
+    label=QLabel()
+    label.setText('<a href="http://localhost:2402/">Click to open client web interface</a>')    ## Remove hardcoded link
+    label.setOpenExternalLinks(True)
 
     layout = QGridLayout(window)
     layout.addWidget(hello, 0, 0)
