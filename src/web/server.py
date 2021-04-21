@@ -1,7 +1,8 @@
 
 import os
+from threading import Thread
 
-from flask import Flask
+from flask import Flask, request
 from gevent.pywsgi import WSGIServer
 
 
@@ -13,7 +14,9 @@ class Server:
     def __init__(self, host: str, port: int):
         # the flask WSGI application
         self.flask = Flask(__name__)
-        self.server = WSGIServer((host, port), self.flask)
+        # self.server = WSGIServer((host, port), self.flask)
+        self.thread = Thread(
+            target=lambda *args: self.flask.run(*args, host=host, port=port), daemon=True)
 
         register_blueprints(self.flask)
 
@@ -22,13 +25,13 @@ class Server:
 
     def run(self):
         '''Run the server.'''
-        # TODO: Run in a separate process.
-
-        self.server.serve_forever()
+        if not self.thread.is_alive():
+            self.thread.start()
+        # self.server.serve_forever()
 
     def stop(self):
-        '''Stop the server.'''
-        self.server.stop()
+        '''TODO: Stop the server.'''
+        # self.server.stop()
 
     def open_index_in_browser(self):
         '''Open the index in the user's default browser.'''

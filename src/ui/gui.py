@@ -20,20 +20,11 @@ class Gui:
         self.server = Server(host, port)
         self.gui = QApplication(sys.argv)
 
-        def start_callback():
-            '''
-            Close the GUI, start the server, and open the index page in the
-            default browser.
-
-            TODO: When multiprocessing is implemented, the GUI should stay open
-            to control the server, and the browser page should be designed to be
-            opened exclusively by the guest machine.
-            '''
-            self.main_window.close()
-            self.server.open_index_in_browser()
-            self.server.run()
-
-        self.main_window = create_main_window(name, start_callback)
+        self.main_window = create_main_window(name, {
+            'start': self.server.run,
+            'stop': self.server.stop,
+            'link': self.server.open_index_in_browser,
+        })
         self.main_window.show()
 
     def run_and_exit(self):

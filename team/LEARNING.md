@@ -23,9 +23,11 @@ For the remainder of this week and next week (week 4), we will be working on lea
   - Work on tutorial or app with html, css, vanilla javascript.
 - Learn about Flask interfacing with front end.
   - Work on Flask + front end tutorials.
+  - Ethan
 - Learn about Flask accessing file system/serving a directory
   - Read Flask documentation and any relevant modules
   - Andrew
+  - Ethan
 - Learn about web servers like Gunicorn for exposing webapp on local network.
   - Read Gunicorn documentation
   - Andrew
