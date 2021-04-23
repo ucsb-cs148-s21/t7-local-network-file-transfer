@@ -14,10 +14,6 @@ def index():
     return render_template('pages/index.html')
 
 
-def allowed_file(filename):
-    return True
-
-
 @landing.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -28,11 +24,12 @@ def upload_file():
         file = request.files['file']
         # if user does not select file, browser also
         # submit an empty part without filename
-        if file.filename == '':
+        if not file or file.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(current_app.config['downloads_folder'], filename))
-            return render_template('pages/index.html')
+
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(
+            current_app.config['downloads_folder'], filename))
+        return render_template('pages/index.html')
     return render_template('pages/index.html')
