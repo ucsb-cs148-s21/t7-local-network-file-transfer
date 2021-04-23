@@ -43,7 +43,8 @@ $ .venv/Scripts/activate
 #### Installing Dependencies ####
 Install dependencies:
 ```
-python -m pip install -r requirements.txt
+# on Linux and macOS
+$ python -m pip install -r requirements.txt
 ```
 
 ### Dev-Dependencies ###
