@@ -21,7 +21,7 @@ def upload_file():
         if 'upload' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        file = request.files['file']
+        file = request.files['upload']
         # if user does not select file, browser also
         # submit an empty part without filename
         if not file or file.filename == '':
@@ -31,5 +31,5 @@ def upload_file():
         filename = secure_filename(file.filename)
         file.save(os.path.join(
             current_app.config['downloads_folder'], filename))
-        return render_template('pages/index.html')
+
     return render_template('pages/index.html')
