@@ -1,7 +1,8 @@
 
 import os
 
-from flask import abort,  Blueprint, current_app, flash, Flask, render_template, request, send_from_directory
+from flask import abort, Blueprint, current_app, flash, Flask, \
+    render_template, request, send_from_directory
 from jinja2 import TemplateNotFound
 from werkzeug.utils import secure_filename
 from werkzeug.middleware.shared_data import SharedDataMiddleware
