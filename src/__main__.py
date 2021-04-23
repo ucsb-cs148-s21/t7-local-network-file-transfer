@@ -1,10 +1,8 @@
 import sys
 import webbrowser
 from flask import Flask, render_template, request
-# from gevent.pywsgi import WSGIServer
 from PyQt5.QtWidgets import QApplication, QGridLayout, QLabel, QPushButton, QWidget
 from threading import Thread
-# from multiprocessing import Process
 from werkzeug.serving import run_simple
 
 APP_NAME = 'loft'
@@ -13,11 +11,9 @@ PORT = 2402
 
 gui = QApplication(sys.argv)
 app = Flask(APP_NAME)
-# server = WSGIServer((HOST, PORT), app)
 
 def start_server():
     webbrowser.open('http://localhost:{}'.format(PORT))
-    # server.serve_forever()
     run_simple(HOST, PORT, app) 
 
 def stop_server(server_thread):
@@ -27,9 +23,7 @@ def stop_server(server_thread):
 
 def start_process_server():
     server = Thread(target=start_server, daemon=True)   # Run as daemon so that closing kills server.
-    # server = Process(target=start_server, daemon=True)
     server.start()
-    #server.join()
 
 def host_gui(): 
     window = QWidget()
@@ -43,7 +37,7 @@ def host_gui():
     start_button.clicked.connect(start_process_server)
 
     stop_button = QPushButton(text='stop server', parent=window)
-    #stop_button.clicked.connect(stop_server(server_thread))
+    # stop_button.clicked.connect(stop_server(server_thread))
 
     stop_msg = QLabel('Stop Button above does not work.\nClose window to stop serving.')
 
@@ -71,7 +65,6 @@ def index():
 @app.route('/quit')
 def quit_server():
     request.environ.get('werkzeug.server.shutdown')()
-    # server.stop()
     return 'good-bye'
 
 if __name__ == '__main__':
