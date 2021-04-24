@@ -11,9 +11,10 @@ class Server:
     Abstract layer over the server.
     '''
 
-    def __init__(self, host: str, port: int):
+    def __init__(self, host: str='localhost', port: int=5000, config: dict=None):
         # the flask WSGI application
         self.flask = Flask(__name__)
+        self.flask.config.update(config)
         # self.server = WSGIServer((host, port), self.flask)
         self.thread = Thread(
             target=lambda *args: self.flask.run(*args, host=host, port=port), daemon=True)

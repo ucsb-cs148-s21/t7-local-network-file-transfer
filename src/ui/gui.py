@@ -12,12 +12,12 @@ class Gui:
     Wrapper class handling the GUI.
     '''
 
-    def __init__(self, name: str, host: str = 'localhost', port: int = 5000):
+    def __init__(self, name: str, *args, **kwargs):
         '''
         Initialize the native GUI. Requires the host and port for the server to
         listen on.
         '''
-        self.server = Server(host, port)
+        self.server = Server(*args, **kwargs)
         self.gui = QApplication(sys.argv)
 
         self.main_window = create_main_window(name, {
