@@ -15,6 +15,7 @@ class Server:
         # the flask WSGI application
         self.flask = Flask(__name__)
         self.flask.config.update(config)
+        
         self.thread = Thread(
             target=lambda: run_simple(host, port, self.flask), daemon=True)
 
