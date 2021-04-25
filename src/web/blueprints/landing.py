@@ -31,6 +31,6 @@ def upload_file():
 
         filename = secure_filename(file.filename)
         file.save(os.path.join(
-            current_app.config['downloads_folder'], filename))
+            current_app.config['received_folder'], filename))
 
     return render_template('pages/index.html')
