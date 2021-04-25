@@ -1,7 +1,6 @@
 import netifaces
 import socket
 
-
 def get_ip_thru_gateway():
     '''
     Opens a socket to the user's router (gateway) that allows the broadcast ip
@@ -15,4 +14,4 @@ def get_ip_thru_gateway():
     s.connect((gateway, 80))					# Connect to gateway (router) to get local facing ipaddress
     address = s.getsockname()[0]
     s.close()
-    return address
+    return address+':2402'   # TODO REMOVE HARD CODE
