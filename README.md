@@ -26,7 +26,7 @@ $ python src
 ```
 
 ### Dependencies ###
-Loft requires `pyqt5`, `flask`, and `gevent`.
+Loft requires `pyqt5` and `flask`.
 
 #### Setting Up a Virtual Environment ####
 It is recommended that you set up a python virtual environment before installing
