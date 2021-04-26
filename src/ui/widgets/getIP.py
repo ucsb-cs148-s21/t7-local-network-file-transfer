@@ -14,4 +14,4 @@ def get_ip_thru_gateway():
     s.connect((gateway, 80))					# Connect to gateway (router) to get local facing ipaddress
     address = s.getsockname()[0]
     s.close()
-    return address+':2402'   # TODO REMOVE HARD CODE
+    return address
