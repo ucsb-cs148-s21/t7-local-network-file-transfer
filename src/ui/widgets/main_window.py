@@ -23,13 +23,8 @@ def create_main_window(title: str, callbacks) -> QWidget:
     connect_msg = QLabel(
         'Connection Instructions\n'
         '1. Start Connection\n'
-        '2. On your other device, open a browser\n and go to http://'+ get_ip() + ':2402')   # TODO REMOVE HARD CODE
+        '2. On your other device, open a browser\n and go to http://'+ get_ip() + ':2402')   # TODO REMOVE HARD CODE  
     
-    connect_msg.textFormat = 0
-    
-    stop_button = QPushButton(text='Stop Server')
-    stop_button.clicked.connect(callbacks['stop'])
-
     done_button = QPushButton(text = 'Done Transferring')
     done_button.clicked.connect(lambda: window.close())
 
