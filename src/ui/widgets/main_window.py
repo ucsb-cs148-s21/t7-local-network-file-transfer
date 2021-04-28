@@ -1,6 +1,7 @@
 
 from PyQt5.QtWidgets import *
-from .getIP import get_ip_thru_gateway as get_ip
+from util.net import get_ip_thru_gateway as get_ip
+
 
 def create_main_window(title: str, callbacks) -> QWidget:
     '''
@@ -45,3 +46,5 @@ def create_main_window(title: str, callbacks) -> QWidget:
 
     window.setTabOrder(start_button, select_to_send)
     return window
+
+
