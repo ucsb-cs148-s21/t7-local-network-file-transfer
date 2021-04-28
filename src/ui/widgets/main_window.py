@@ -21,13 +21,12 @@ def create_main_window(title: str, callbacks) -> QWidget:
     start_button = QPushButton(text='Start Connection')
     start_button.clicked.connect(callbacks['start'])
 
+    address = ('<font color="blue">http://{ip}:2402'    # TODO REMOVE HARD CODED PORT
+                '</font color="blue">'.format(ip=get_ip()))
+    instructions = (
+        'On your other device, open a browser and go to ' + address)
 
-    connect_msg = QLabel(
-        text='Connection Instructions\n'
-        '1. Start Connection\n'
-        '2. On your other device, open a browser and go to <http://'+ get_ip() + ':2402>')   # TODO REMOVE HARD CODED PORT
-
-
+    connect_msg = QLabel(instructions)
 
     stop_button = QPushButton(text='Stop Server')
     stop_button.clicked.connect(callbacks['stop'])
