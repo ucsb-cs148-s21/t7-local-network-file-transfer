@@ -21,22 +21,18 @@ def create_main_window(title: str, callbacks) -> QWidget:
     start_button = QPushButton(text='Start Connection')
     start_button.clicked.connect(callbacks['start'])
 
-    address = ('<font color="blue">http://{ip}:2402'    # TODO REMOVE HARD CODED PORT
-                '</font color="blue">'.format(ip=get_ip()))
-    instructions = (
-        '1. Start connection.<br>' +
-        '2. On your other device, open ' + address)
+    connect_msg = QLabel(text='''
+<ol>
+    <li>Start connection.</li>
+    <li>On your other device, open <font color="#0000ee">http://{}:2402</font>.</li>
+<ol>'''.format(get_ip()))   # TODO: remove hardcoded port
 
-    connect_msg = QLabel(text = instructions)
 
-    stop_button = QPushButton(text='Stop Server')
-    stop_button.clicked.connect(callbacks['stop'])
-
-    done_button = QPushButton(text = 'Done Transferring')
+    done_button = QPushButton(text='Done Transferring')
     done_button.clicked.connect(lambda: window.close())
 
-    open_received = QPushButton(text = 'Open Downloads')
-    select_to_send = QPushButton(text = 'Select Files to Send...')
+    open_received = QPushButton(text='Open Downloads')
+    select_to_send = QPushButton(text='Send Files…')
 
     layout.addWidget(start_button, 0, 0, 1, 2)
     layout.addWidget(connect_msg, 1, 0, 1, 2)
@@ -45,4 +41,6 @@ def create_main_window(title: str, callbacks) -> QWidget:
     layout.addWidget(done_button, 3, 0, 1, 2)
 
     window.setTabOrder(start_button, select_to_send)
+    window.setTabOrder(select_to_send, open_received)
+    window.setTabOrder(open_received, done_button)
     return window

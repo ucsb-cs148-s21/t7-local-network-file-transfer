@@ -6,16 +6,37 @@
 {% block content %}
 
 <div id="upload">
+    {% with errors = get_flashed_messages(category_filter = ['upload_error']) %}
+    {% if errors %}
+    <div class="error">
+        {%- for msg in errors %}
+        <div class="flash">{{ msg }}</div>
+        {% endfor -%}
+    </div>
+    {% endif %}
+    {% endwith %}
     <form method="POST" enctype="multipart/form-data">
-        <label for="file-selector" class="button button-secondary">Select File</label>
+        <label for="file-selector" class="button button-secondary" tabindex=0 title="Select File to Send">Select
+            File…</label>
         <input id="file-selector" type="file" name="upload" />
-        <label for="upload-file" class="button">Upload</label>
-        <input id="upload-file" type="submit" class="button" value="Upload" />
+        <label for="upload-file" class="button" tabindex=0 title="Send Selected File">Upload</label>
+        <input id="upload-file" type="submit" />
     </form>
 </div>
 
 <div id="download">
-    <a class="button" href="#">Download</a>
+    {% with errors = get_flashed_messages(category_filter = ['download_error']) %}
+    {% if errors %}
+    <div class="error">
+        <ul>
+            {%- for msg in errors %}
+            <li>{{ msg }}</li>
+            {% endfor -%}
+        </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+    <a class="button" href="#" tabindex=0 title="Download File">Download</a>
 </div>
 
 {% endblock %}
