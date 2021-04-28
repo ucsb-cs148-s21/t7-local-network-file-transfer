@@ -32,11 +32,19 @@ def create_main_window(title: str, callbacks) -> QWidget:
     open_server_button = QPushButton(text='Open Server Page')
     open_server_button.clicked.connect(callbacks['link'])
 
+    def select():
+        filename = QFileDialog.getOpenFileName(window, 'Open File!', '.')
+        print('Path file is:', filename)
+
+    select_to_send = QPushButton(text = 'Send to Other Device')
+    select_to_send.clicked.connect(select)
+
     layout.addWidget(welcome, 0, 0)
     layout.addWidget(start_button, 1, 0)
     layout.addWidget(connect_msg, 2, 0)
-    layout.addWidget(stop_button, 3, 0)
-    layout.addWidget(open_server_button, 4, 0)
+    layout.addWidget(select_to_send, 3, 0)
+    layout.addWidget(stop_button, 4, 0)
+    layout.addWidget(open_server_button, 5, 0)
 
     window.setTabOrder(start_button, welcome)
     return window

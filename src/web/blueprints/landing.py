@@ -36,3 +36,15 @@ def upload_file():
         save(file, current_app.config['downloads_folder'])
 
     return render_template('pages/index.html')
+
+DOWNLOAD_DIRECTORY = "/Users/ZackM/OneDrive/Documents/107T/Test"
+test = "Final_Revisions.docx"
+
+@landing.route('/download/',methods = ['GET','POST'])
+def download():
+
+    """Download a file."""
+    try:
+        return send_from_directory(DOWNLOAD_DIRECTORY, test, as_attachment=True)
+    except FileNotFoundError:
+        abort(404)
