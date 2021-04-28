@@ -23,8 +23,7 @@ def create_main_window(title: str, callbacks) -> QWidget:
 
     address = ('<font color="blue">http://{ip}:2402'    # TODO REMOVE HARD CODED PORT
                 '</font color="blue">'.format(ip=get_ip()))
-    instructions = (
-        'On your other device, open a browser and go to ' + address)
+    instructions = ('On your other device, open a browser and go to ' + address)
 
     connect_msg = QLabel(instructions)
 
