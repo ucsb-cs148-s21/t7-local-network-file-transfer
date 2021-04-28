@@ -1,5 +1,6 @@
 
 from PyQt5.QtWidgets import *
+from util.net import get_ip_thru_gateway as get_ip
 
 
 def create_main_window(title: str, callbacks) -> QWidget:
@@ -17,20 +18,33 @@ def create_main_window(title: str, callbacks) -> QWidget:
     window.move(400, 400)
     layout = QGridLayout(window)
 
-    welcome = QLabel(text='<p>Welcome to Loft!</p>')
-    start_button = QPushButton(text='Start Server')
+    start_button = QPushButton(text='Start Connection')
     start_button.clicked.connect(callbacks['start'])
+
+    address = ('<font color="blue">http://{ip}:2402'    # TODO REMOVE HARD CODED PORT
+                '</font color="blue">'.format(ip=get_ip()))
+    instructions = (
+        '1. Start connection.<br>' +
+        '2. On your other device, open ' + address)
+
+    connect_msg = QLabel(text = instructions)
 
     stop_button = QPushButton(text='Stop Server')
     stop_button.clicked.connect(callbacks['stop'])
 
-    open_server_button = QPushButton(text='Open Server Page')
-    open_server_button.clicked.connect(callbacks['link'])
+    done_button = QPushButton(text = 'Done Transferring')
+    done_button.clicked.connect(lambda: window.close())
 
-    layout.addWidget(welcome, 0, 0)
-    layout.addWidget(start_button, 1, 0)
-    layout.addWidget(stop_button, 2, 0)
-    layout.addWidget(open_server_button, 3, 0)
+    open_received = QPushButton(text = 'Open Downloads')
+    select_to_send = QPushButton(text = 'Select Files to Send...')
 
-    window.setTabOrder(start_button, welcome)
+    layout.addWidget(start_button, 0, 0, 1, 2)
+    layout.addWidget(connect_msg, 1, 0, 1, 2)
+    layout.addWidget(select_to_send, 2, 0, 1, 1)
+    layout.addWidget(open_received, 2, 1, 1, 1)
+    layout.addWidget(done_button, 3, 0, 1, 2)
+
+    window.setTabOrder(start_button, select_to_send)
     return window
+
+
