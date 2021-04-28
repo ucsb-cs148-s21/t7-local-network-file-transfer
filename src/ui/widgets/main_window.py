@@ -43,3 +43,5 @@ def create_main_window(title: str, callbacks) -> QWidget:
 
     window.setTabOrder(start_button, welcome)
     return window
+
+
