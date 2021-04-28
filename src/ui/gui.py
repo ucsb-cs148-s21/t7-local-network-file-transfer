@@ -23,7 +23,6 @@ class Gui:
         self.main_window = create_main_window(name, {
             'start': self.server.run,
             'stop': self.server.stop,
-            'link': self.server.open_index_in_browser,
         })
         self.main_window.show()
 

@@ -32,12 +32,6 @@ class Server:
     def stop(self):
         '''TODO: Stop the server.'''
 
-    def open_index_in_browser(self):
-        '''Open the index in the user's default browser.'''
-        import webbrowser
-        webbrowser.open('http://localhost:{}'.format(self.port))
-
-
 def register_blueprints(app: Flask):
     '''Register the blueprints for the Flask application.'''
     from .blueprints import landing
