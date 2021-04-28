@@ -34,8 +34,8 @@ def create_main_window(title: str, callbacks) -> QWidget:
     done_button = QPushButton(text = 'Done Transferring')
     done_button.clicked.connect(lambda: window.close())
 
-    open_received = QPushButton(text = 'Open Files received Here from There')
-    select_to_send = QPushButton(text = 'Select files to Send from Here to There')
+    open_received = QPushButton(text = 'Open Received...')
+    select_to_send = QPushButton(text = 'Select to Send...')
 
     layout.addWidget(start_button, 0, 0, 1, 2)
     layout.addWidget(connect_msg, 1, 0, 1, 2)
