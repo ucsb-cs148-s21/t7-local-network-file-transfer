@@ -23,6 +23,7 @@ class Gui:
         self.main_window = create_main_window(name, {
             'start': self.server.run,
             'stop': self.server.stop,
+            'open_downloads': self.server.open_downloads,
         })
         self.main_window.show()
 

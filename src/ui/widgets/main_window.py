@@ -10,7 +10,7 @@ def create_main_window(title: str, callbacks) -> QWidget:
     Accepts a dictionary of callbacks, with the following names:
     - `start`: "Start Server" button
     - `stop`: "Stop Server" button
-    - `link`: "Open Server Page" button
+    - `open_downloads`: "Open Downloads" button
     '''
     window = QWidget()
     window.setWindowTitle(title)
@@ -29,9 +29,10 @@ def create_main_window(title: str, callbacks) -> QWidget:
 
 
     done_button = QPushButton(text='Done Transferring')
-    done_button.clicked.connect(lambda: window.close())
+    done_button.clicked.connect(window.close)
 
     open_received = QPushButton(text='Open Downloads')
+    open_received.clicked.connect(callbacks['open_downloads'])
     select_to_send = QPushButton(text='Send Files…')
 
     layout.addWidget(start_button, 0, 0, 1, 2)

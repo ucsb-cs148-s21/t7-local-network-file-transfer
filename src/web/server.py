@@ -36,6 +36,10 @@ class Server:
     def stop(self):
         '''TODO: Stop the server.'''
 
+    def open_downloads(self):
+        '''Open the Downloads folder.'''
+        os.startfile(self.flask.config['downloads_folder'])
+
 
 def register_blueprints(app: Flask):
     '''Register the blueprints for the Flask application.'''
