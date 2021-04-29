@@ -1,4 +1,4 @@
-
+import os
 from PyQt5.QtWidgets import *
 from .getIP import get_ip_thru_gateway as get_ip
 
@@ -25,7 +25,7 @@ def create_main_window(title: str, callbacks) -> QWidget:
         text=('Connection Instructions\n'
         '1. Start Connection\n'
         '2. On your other device, open a browser and go to http://'+ get_ip() + ':2402'))   # TODO REMOVE HARD CODE
-    
+
     stop_button = QPushButton(text='Stop Server')
     stop_button.clicked.connect(callbacks['stop'])
 
@@ -33,10 +33,15 @@ def create_main_window(title: str, callbacks) -> QWidget:
     open_server_button.clicked.connect(callbacks['link'])
 
     def select():
-        filepath = QFileDialog.getOpenFileName(window, 'Open File!', '.')
-        print('Path file is:', filepath)
+        fileNameTuple = QFileDialog.getOpenFileName(None, 'Open File!', '.')
+        fileName = os.path.basename(fileNameTuple[0])
+        filePath = os.path.dirname(fileNameTuple[0])
+        filePathWithSlash = os.path.join(filePath, '')
+        print('File path is:', filePathWithSlash)
+        print('File name is:', fileName)
 
-    select_to_send = QPushButton(text = 'Send to Other Device')
+
+    select_to_send = QPushButton(text = 'Send File to Other Device')
     select_to_send.clicked.connect(select)
 
     layout.addWidget(welcome, 0, 0)
@@ -48,5 +53,3 @@ def create_main_window(title: str, callbacks) -> QWidget:
 
     window.setTabOrder(start_button, welcome)
     return window
-
-
