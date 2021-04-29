@@ -1,4 +1,4 @@
-
+import os
 from PyQt5.QtWidgets import *
 from .getIP import get_ip_thru_gateway as get_ip
 
@@ -34,8 +34,12 @@ def create_main_window(title: str, callbacks) -> QWidget:
 
     def select():
         fileNameTuple = QFileDialog.getOpenFileName(None, 'Open File!', '.')
-        fileName = fileNameTuple[0]
-        print('Path file is:', fileName)
+        fileName = os.path.basename(fileNameTuple[0])
+        filePath = os.path.dirname(fileNameTuple[0])
+        filePathWithSlash = os.path.join(filePath, '')
+        print('File path is:', filePathWithSlash)
+        print('File name is:', fileName)
+
 
     select_to_send = QPushButton(text = 'Send File to Other Device')
     select_to_send.clicked.connect(select)
