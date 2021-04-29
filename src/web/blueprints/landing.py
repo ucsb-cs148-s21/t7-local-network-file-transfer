@@ -2,7 +2,7 @@
 import os
 
 from flask import abort, Blueprint, current_app, flash, Flask, \
-    render_template, request, send_from_directory
+    render_template, request, send_file
 from jinja2 import TemplateNotFound
 from werkzeug.middleware.shared_data import SharedDataMiddleware
 from werkzeug.utils import redirect
@@ -37,14 +37,13 @@ def upload_file():
 
     return render_template('pages/index.html')
 
-DOWNLOAD_DIRECTORY = "/Users/ZackM/OneDrive/Documents/107T/Test"
-test = "Final_Revisions.docx"
+filepath = "C:/Users/ZackM/OneDrive/Documents/107T/Test/Final_Revisions.docx"
 
 @landing.route('/download/',methods = ['GET','POST'])
 def download():
 
     """Download a file."""
     try:
-        return send_from_directory(DOWNLOAD_DIRECTORY, test, as_attachment=True)
+        return send_file(filepath, as_attachment=True)
     except FileNotFoundError:
         abort(404)

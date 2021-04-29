@@ -33,8 +33,8 @@ def create_main_window(title: str, callbacks) -> QWidget:
     open_server_button.clicked.connect(callbacks['link'])
 
     def select():
-        filename = QFileDialog.getOpenFileName(window, 'Open File!', '.')
-        print('Path file is:', filename)
+        filepath = QFileDialog.getOpenFileName(window, 'Open File!', '.')
+        print('Path file is:', filepath)
 
     select_to_send = QPushButton(text = 'Send to Other Device')
     select_to_send.clicked.connect(select)
