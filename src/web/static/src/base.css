@@ -1,0 +1,142 @@
+
+:root {
+    --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-header: 'Courier New', Courier, monospace;
+
+    /* color scheme */
+    --color-bg: white;
+    --color-base: var(--color-blue-1);
+    --color-primary-fg: var(--color-base);
+    --color-primary-bg: var(--color-blue-3);
+    --color-secondary-fg: var(--color-gray-3);
+    --color-secondary-bg: var(--color-bg);
+    --color-accent-fg: var(--color-base);
+    --color-accent-bg: var(--color-green-3);
+    --color-accent-active: var(--color-green-45);
+    --color-secondary-active: var(--color-gray-45);
+    --color-error-fg: var(--color-red-3);
+    --color-error-bg: var(--color-base);
+
+    --color-blue-1: #e9f4fa;
+    --color-blue-3: #6792aa;     /* 3.0 contrast ratio */
+    --color-blue-45: #557384;    /* 4.5 contrast ratio */
+
+    --color-red-3: #e1665f;  /* 3.0 contrast ratio */
+    --color-red-45: #c14541; /* 4.5 contrast ratio */
+
+    --color-green-3: #309c95;     /* 3.0 contrast ratio */
+    --color-green-45: #367a75;    /* 4.5 contrast ratio */
+
+    --color-gray-3: #8d8c8c;   /* 3.0 contrast ratio */
+    --color-gray-45: #6f6f6f;  /* 4.5 contrast ratio */
+}
+
+html {
+    font-family: var(--font-base);
+    background-color: var(--color-bg);
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-header);
+}
+
+h1 {
+    margin-top: .5em;
+    padding-top: 0;
+    font-size: 16pt;
+    font-weight: bold;
+    color: var(--color-error-fg);
+    background-color: var(--color-error-bg);
+}
+
+.button, .flash {
+    width: 100%;
+    margin: .25em;
+    padding: .5em 1em;
+    display: block;
+
+    box-sizing: border-box;
+}
+
+.button {
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    color: var(--color-primary-fg);
+    background-color: var(--color-primary-bg);
+    border: none;
+    border-radius: 4px;
+
+    transition: color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+
+.button-secondary {
+    font-style: italic;
+    color: var(--color-secondary-fg);
+    background-color: var(--color-secondary-bg);
+    border: 4px solid var(--color-secondary-fg);
+    box-sizing: border-box;
+}
+
+.button:hover, .button:focus {
+    color: var(--color-accent-fg);
+    background-color: var(--color-accent-bg);
+}
+
+.button:active {
+    color: var(--color-base);
+    background-color: var(--color-accent-active);
+}
+
+.button-secondary:hover, .button-secondary:focus {
+    color: var(--color-secondary-bg);
+    background-color: var(--color-secondary-fg);
+}
+
+.button-secondary:active {
+    background-color: var(--color-secondary-active);
+}
+
+.content {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error {
+    color: var(--color-error-fg);
+    background-color: var(--color-error-bg);
+
+    border-radius: 4px;
+}
+
+.error div {
+    text-align: center;
+
+    font-style: italic;
+}
+
+.group {
+    width: 60vw;
+    margin: .5rem;
+    padding: 1.5rem;
+
+    border-radius: 1rem;
+    background-color: var(--color-base);
+
+    box-sizing: border-box;
+}
+
+/* medium screens and larger */
+@media screen and (min-width: 36em) {
+    .group {
+        width: 24em;
+    }
+}

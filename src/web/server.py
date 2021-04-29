@@ -2,7 +2,7 @@
 import os
 from threading import Thread
 
-from flask import Flask
+from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
 
@@ -25,6 +25,9 @@ class Server:
         self.host = host
         self.port = port
 
+        self.flask.register_error_handler(
+            404, lambda err: (render_template('404.html'), str(err)))
+
     def run(self):
         '''Run the server.'''
         if not self.thread.is_alive():
@@ -32,6 +35,7 @@ class Server:
 
     def stop(self):
         '''TODO: Stop the server.'''
+
 
 def register_blueprints(app: Flask):
     '''Register the blueprints for the Flask application.'''
