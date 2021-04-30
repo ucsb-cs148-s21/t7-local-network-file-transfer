@@ -9,8 +9,8 @@ Our app allows users to transfer files wirelessly on a local network.
 - Frontend: HTML/JS, Qt
 
 ## User Roles ##
-- Those looking to send files to another user/device.
-- Those looking to receive files from another user/device.
+- Those looking to send files from a computer to another device connected to the same router.
+- Those looking to receive files to their computer from another device connected to the same router.
 
 ## Installation ##
 
