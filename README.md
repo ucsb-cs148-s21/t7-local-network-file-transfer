@@ -69,6 +69,25 @@ Format source with `autopep8`.
 
 ## Installation Steps ##
 ### Linux ###
+1. Install the Prerequisite's Software Requirements
+2. Clone the directory
+```
+git clone 
+```
+3. Create and start a python virtual environment
+```
+python3 -m venv venv
+. venv\bin\activate
+```
+4. Install dependencies
+```
+python3 -m pip install -r requirements.txt
+```
+
+5. Run Loft
+```
+python3 src
+```
 
 
 ### Windows ###
