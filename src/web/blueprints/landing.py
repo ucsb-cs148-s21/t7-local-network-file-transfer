@@ -28,7 +28,7 @@ def upload_file():
         # if user does not select file, browser also
         # submit an empty part without filename
         if not file:
-            flash('No file was selected.', 'upload_error')
+            flash('No file was selected.', 'error')
             return redirect(url_for('landing.index'))
 
         save(file, current_app.config['downloads_folder'])

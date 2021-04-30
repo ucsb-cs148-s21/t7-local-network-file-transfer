@@ -6,6 +6,16 @@
 {% block content %}
 
 <section id="upload" class="group">
+    <section class="messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for cat, msg in messages %}
+        <div class="{{ cat }}">{{ msg }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+
     <form method="POST" enctype="multipart/form-data">
         <label for="file-selector" class="button button-secondary" title="Select File to Upload" tabindex=0>Select
             File…</label>
