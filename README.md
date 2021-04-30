@@ -137,8 +137,18 @@ python3 src
 ```
 
 ## Functionality ##
-
-
+#### TO UPLOAD: ####
+1. Start Connection
+2. On your other device open <link>
+3. Upload file, after each file the page will reload, upload as many files as desired
+4. The uploaded files will be on the device that the server is being hosted on
+#### TO DOWNLOAD ####
+1. If the Send Files button is greyed out, restart the program by pressing done transferring, and running python src again
+2. Click "Send Files..."
+3. Select the file you want to download.
+4. Click start connection
+5. On your second device, open <link>
+6. Click received File
 ## Known Problems ##
 
 
