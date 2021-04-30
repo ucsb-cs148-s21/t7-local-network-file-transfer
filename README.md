@@ -137,6 +137,9 @@ python3 src
 ```
 
 ## Functionality ##
+### To Start The Program ###
+1. Navigate to the folder in your terminal.
+2. run "python3 src" (mac/linux) or "py src" (windows)
 #### TO UPLOAD: ####
 1. Start Connection
 2. On your other device open <link>
