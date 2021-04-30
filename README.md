@@ -59,7 +59,8 @@ Format source with `autopep8`.
 - One of the two devices must be a computer running Linux, Windows, or Mac to serve as the "host".
 - The "host" computer must have port 2402 open.
 ### "host" computer software requirements
-- python3
+- python3. To install python, follow the instructions here. https://www.python.org/downloads/
+- virtualenv. Install after installing python. https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
 - git
 - (Windows only) Build Tools for Visual Studio https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
   - When installing, select the C++ Build Tools to install
