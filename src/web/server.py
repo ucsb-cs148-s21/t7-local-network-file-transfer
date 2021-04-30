@@ -22,7 +22,8 @@ class Server:
         self.thread = Thread(
             target=lambda: run_simple(host, port, self.flask), daemon=True)
 
-        self.send_file_name_address = []
+        # A list containing 
+        self.send_name_path = {'file_name': '', 'file_path': ''}
 
         self.host = host
         self.port = port
@@ -32,12 +33,13 @@ class Server:
 
     def run(self):
         '''Run the server.'''
-        register_blueprints(self.flask, self.send_file_name_address)
+        register_blueprints(self.flask, self.send_name_path)
         if not self.thread.is_alive():
             self.thread.start()
 
-    def set_send_file_name_address(self, send_file_name_address):
-        self.send_file_name_address = send_file_name_address
+    def set_send_name_path(self, send_name, send_path):
+        self.send_name_path['file_name'] = send_name
+        self.send_name_path['file_path'] = send_path
 
     def stop(self):
         '''TODO: Stop the server.'''
@@ -47,8 +49,8 @@ class Server:
         open_(self.flask.config['downloads_folder'])
 
 
-def register_blueprints(app: Flask, send_file_name_address):
+def register_blueprints(app: Flask, send_name_path):
     '''Register the blueprints for the Flask application.'''
     from .blueprints import create_blueprint
 
-    app.register_blueprint(create_blueprint(send_file_name_address))
+    app.register_blueprint(create_blueprint(send_name_path))

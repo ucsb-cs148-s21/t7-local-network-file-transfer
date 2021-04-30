@@ -9,7 +9,7 @@ from werkzeug.utils import redirect
 
 from util.file import save
 
-def create_blueprint(send_file_name_address):
+def create_blueprint(send_name_path):
     landing = Blueprint('landing', __name__)
 
     @landing.route('/')
@@ -38,9 +38,8 @@ def create_blueprint(send_file_name_address):
     @landing.route('/download/')
     def download():
         """Download a file."""
-        print(send_file_name_address)
-        file_name = send_file_name_address[0]
-        file_path = send_file_name_address[1]
+        file_name = send_name_path['file_name']
+        file_path = send_name_path['file_path']
 
         try:
             return send_from_directory(file_path, file_name, as_attachment=True)

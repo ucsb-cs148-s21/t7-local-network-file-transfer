@@ -49,7 +49,7 @@ def create_main_window(title: str, callbacks) -> QWidget:
         file_name = os.path.basename(file_name_tuple[0])
         file_path = os.path.dirname(file_name_tuple[0])
         file_path_with_slash = os.path.join(file_path, '')
-        callbacks['set_send_file_name_address']([file_name, file_path])
+        callbacks['set_send_name_path'](file_name, file_path)
 
 
     select_to_send.clicked.connect(select)
