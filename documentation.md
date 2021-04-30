@@ -6,6 +6,7 @@ Our app allows users to transfer files wirelessly on a local network.
 
 ## Prequisites ##
 Users must already have python installed. To install python, follow the instructions here. https://www.python.org/downloads/
+
 Windows users must also install VS Code with developer build tools. VS code and the developer build tools can be found here. https://code.visualstudio.com/download
 
 ### Dependencies ###
