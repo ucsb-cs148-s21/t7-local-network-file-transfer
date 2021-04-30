@@ -80,7 +80,7 @@ git clone
 3. Create and start a python virtual environment
 ```
 py -m venv .venv
-venv/Scripts/activate
+.venv\Scripts\activate
 ```
 
 4. Install dependencies
