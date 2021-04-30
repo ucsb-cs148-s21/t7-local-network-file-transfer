@@ -77,7 +77,7 @@ git clone
 3. Create and start a python virtual environment
 ```
 python3 -m venv venv
-. venv\bin\activate
+. venv/bin/activate
 ```
 4. Install dependencies
 ```
