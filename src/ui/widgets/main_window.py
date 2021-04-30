@@ -1,6 +1,7 @@
 
 from PyQt5.QtWidgets import *
 from util.net import get_ip_thru_gateway as get_ip
+from PyQt5 import QtCore
 
 
 def create_main_window(title: str, callbacks) -> QWidget:
@@ -16,6 +17,8 @@ def create_main_window(title: str, callbacks) -> QWidget:
     window.setWindowTitle(title)
     window.setGeometry(0, 0, 400, 300)
     window.move(400, 400)
+    # Keep the window on top so that user remembers to close when they're done
+    window.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint)
     layout = QGridLayout(window)
 
     start_button = QPushButton(text='Start Connection')
