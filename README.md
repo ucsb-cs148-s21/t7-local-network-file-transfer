@@ -62,6 +62,7 @@ Format source with `autopep8`.
 - python3
 - git
 - (Windows only) Build Tools for Visual Studio https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
+  - When installing, select the C++ Build Tools to install
 
 ## Dependencies ##
 - netifaces
