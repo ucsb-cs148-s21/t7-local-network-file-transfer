@@ -106,6 +106,17 @@ Warning: Security is not yet implemented. Anybody on the same network can access
 
 The Host is the machine that runs the Loft application. The Client is the other device that will send or receive files.
 
+#### First, enter a virtual environment.
+Instructions for creating one are provided in the installation steps above.\
+Linux/Mac:
+```
+. venv/bin/activate
+```
+Windows:
+```
+.venv\Scripts\activate
+```
+
 ### To send a file from the Host computer to the other device (Client): ###
 1. Run Loft.
 2. On the Host, Click on the `Send Files...` Button and select the file to send. (Close and restart if greyed)
