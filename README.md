@@ -25,7 +25,9 @@ Our app allows users to transfer files wirelessly on a local network.
   - When installing, select the C++ Build Tools to install
 
 ## Dependencies ##
-- netifaces
+- PyQt5: Desktop Interface.
+- Flask: Web Framework and server for serving client UI.
+- Netifaces: Getting user's local ip address.
 
 ## Installation Steps ##
 Warning: Security is not yet implemented. Anybody on the same network can access the webpage without any authentication. \
