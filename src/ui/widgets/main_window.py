@@ -60,10 +60,10 @@ Please Close Loft and restart to make changes.
     full_instr.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
     full_instr.setOpenExternalLinks(True)
 
-    layout.addWidget(start_button, 0, 0, 1, 2)
-    layout.addWidget(connect_msg, 1, 0, 1, 2)
-    layout.addWidget(select_to_send, 2, 0, 1, 1)
-    layout.addWidget(open_received, 2, 1, 1, 1)
+    layout.addWidget(start_button, 2, 0, 1, 2)
+    layout.addWidget(connect_msg, 0, 0, 1, 2)
+    layout.addWidget(select_to_send, 1, 0, 1, 1)
+    layout.addWidget(open_received, 1, 1, 1, 1)
     layout.addWidget(done_button, 3, 0, 1, 2)
     layout.addWidget(full_instr)
 
