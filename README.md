@@ -12,47 +12,7 @@ Our app allows users to transfer files wirelessly on a local network.
 - Those looking to send files to another user/device.
 - Those looking to receive files from another user/device.
 
-### Members ###
-- Andrew Tran (`at527`)
-- Ethan Wu (`ethwu`)
-- Douglas Yuan (`dougyuan`)
-- Zackery Mondin (`zmondin`)
-- Kevin Pham (`kevbbn`)
-
-## Running ##
-Run the application with:
-```
-$ python src
-```
-
-### Dependencies ###
-Loft requires `pyqt5` and `flask`.
-
-#### Setting Up a Virtual Environment ####
-It is recommended that you set up a python virtual environment before installing
-dependencies. You can set one up and activate it as follows:
-```
-# on Linux and macOS
-$ python -m venv .venv
-$ source .venv/bin/activate
-# on Windows
-$ py -m venv .venv
-$ .venv/Scripts/activate
-```
-
-#### Installing Dependencies ####
-Install dependencies:
-```
-# on Linux and macOS
-$ python -m pip install -r requirements.txt
-```
-
-### Dev-Dependencies ###
-Format source with `autopep8`.
-
-
 ## Installation ##
-
 
 ## Prerequisites ##
 - Two devices connected to the same router.
@@ -169,7 +129,15 @@ The Host is the machine that runs the Loft application. The Client is the other 
 ## Contributing ##
 
 1. Fork it!
-2. Create your feature branch: git checkout -b my-new-feature
-3. Commit your changes: git commit -am 'Add some feature'
-4. Push to the branch: git push origin my-new-feature
-5. Submit a pull request :D
+2. Create your feature branch: `git checkout -b my-new-feature`
+4. Commit your changes: `git commit -am 'Add some feature'`
+5. Push to the branch: `git push origin my-new-feature`
+6. Submit a pull request :D
+
+
+### Members ###
+- Andrew Tran (`at527`)
+- Ethan Wu (`ethwu`)
+- Douglas Yuan (`dougyuan`)
+- Zackery Mondin (`zmondin`)
+- Kevin Pham (`kevbbn`)
