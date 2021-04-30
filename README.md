@@ -49,3 +49,30 @@ $ python -m pip install -r requirements.txt
 
 ### Dev-Dependencies ###
 Format source with `autopep8`.
+
+
+## Installation ##
+
+
+## Prerequisites ##
+
+
+## Dependencies ##
+
+
+## Installation Steps ##
+### Linux ###
+
+
+### Windows ###
+
+
+### Mac ###
+
+## Functionality ##
+
+
+## Known Problems ##
+
+
+## Contributing ##
