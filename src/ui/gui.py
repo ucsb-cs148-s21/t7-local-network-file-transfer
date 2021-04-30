@@ -24,6 +24,7 @@ class Gui:
             'start': self.server.run,
             'set_send_file_name_address': self.server.set_send_file_name_address,
             'stop': self.server.stop,
+            'open_downloads': self.server.open_downloads,
         })
         self.main_window.show()
 

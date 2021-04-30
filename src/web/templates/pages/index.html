@@ -5,18 +5,29 @@
 {% endblock %}
 {% block content %}
 
-<div id="upload">
+<section id="upload" class="group">
+    <section class="messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for cat, msg in messages %}
+        <div class="{{ cat }}">{{ msg }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+
     <form method="POST" enctype="multipart/form-data">
-        <label for="file-selector" class="button button-secondary">Select File</label>
+        <label for="file-selector" class="button button-secondary" title="Select File to Upload" tabindex=0>Select
+            File…</label>
         <input id="file-selector" type="file" name="upload" />
-        <label for="upload-file" class="button">Upload</label>
+        <label for="upload-file" class="button" title="Send Selected File" tabindex=0>Send Selected File</label>
         <input id="upload-file" type="submit" class="button" value="Upload" />
     </form>
-</div>
+</section>
 
-<div id="download">
-    <a class="button" href="/download/">Download</a>
-</div>
+<section id="download" class="group">
+    <a class="button" href="download" title="Get File" tabindex=0>Get File</a>
+</section>
 
 {% endblock %}
 {% block scripts %}
