@@ -37,7 +37,7 @@ def upload_file():
 
     return render_template('pages/index.html')
 
-filepath = "C:/Users/ZackM/OneDrive/Documents/107T/Test/Final_Revisions.docx"
+filepath = "/home/andrewtran/Downloads/spcnClapboard.pdf"
 
 @landing.route('/download/',methods = ['GET','POST'])
 def download():
