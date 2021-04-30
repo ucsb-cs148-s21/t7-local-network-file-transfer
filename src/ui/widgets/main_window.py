@@ -43,7 +43,7 @@ Please Close Loft and restart to make changes.
 
     open_received = QPushButton(text='Open Downloads')
     open_received.clicked.connect(callbacks['open_downloads'])
-    select_to_send = QPushButton(text='Send Files…')
+    select_to_send = QPushButton(text='Send File…')
 
     def select():
         documents = os.path.expanduser('~{}Documents'.format(os.sep))
