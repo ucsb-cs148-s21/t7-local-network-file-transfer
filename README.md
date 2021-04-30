@@ -61,7 +61,7 @@ Format source with `autopep8`.
 ### "host" computer software requirements
 - python3
 - git
-- 
+- (Windows only) Build Tools for Visual Studio https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
 
 ## Dependencies ##
 - netifaces
