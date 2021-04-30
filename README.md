@@ -56,9 +56,9 @@ Format source with `autopep8`.
 
 ## Prerequisites ##
 - Two devices connected to the same router.
-- One of the two devices must be a computer running Linux, Windows, or Mac to serve as the "host".
-- The "host" computer must have port 2402 open.
-### "host" computer software requirements
+- One of the two devices must be a computer running Linux, Windows, or Mac to serve as the "Host".
+- The "Host" computer must have port 2402 open.
+### "Host" computer software requirements
 - python3. To install python, follow the instructions here. https://www.python.org/downloads/
 - virtualenv. Install after installing python. https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
 - git
@@ -70,7 +70,7 @@ Format source with `autopep8`.
 
 ## Installation Steps ##
 Warning: Security is not yet implemented. Anybody on the same network can access the webpage without any authentication. \
-Do not leave Loft running while not in use.
+**Do not leave Loft running while not in use.**
 
 ### Linux ###
 1. Install the Prerequisite's Software Requirements
@@ -141,15 +141,15 @@ python3 src
 
 ## Functionality (Full Instructions) ##
 Warning: Security is not yet implemented. Anybody on the same network can access the webpage without any authentication. \
-Do not leave Loft running while not in use.
+**Do not leave Loft running while not in use.**
 
 The Host is the machine that runs the Loft application. The Client is the other device that will send or receive files.
 
 ### To send a file from the Host computer to the other device (Client): ###
 1. Run Loft.
-2. Select the file to send. (Close and restart if greyed)
+2. On the Host, Click on the `Send Files...` Button and select the file to send. (Close and restart if greyed)
 3. Click on the `Start Connection` Button.
-4. Open the shown address in the Client device's browser.
+4. On the Client device's browser, open the shown address.
 5. Select the `Receive File` button to download the file.
 6. Back on the Host machine, select `Done Transferring`.
 
