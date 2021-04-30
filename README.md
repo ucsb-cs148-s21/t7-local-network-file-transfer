@@ -138,7 +138,7 @@ python3 -m pip install -r requirements.txt
 python3 src
 ```
 
-## Functionality ##
+## Functionality (Full Instructions) ##
 The Host is the machine that runs the Loft application. The Client is the other device that will send or receive files.
 
 ### To send a file from the Host computer to the other device (Client): ###
