@@ -5,6 +5,8 @@ from threading import Thread
 from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
+from util.file import open_
+
 
 class Server:
     '''
@@ -38,7 +40,7 @@ class Server:
 
     def open_downloads(self):
         '''Open the Downloads folder.'''
-        os.startfile(self.flask.config['downloads_folder'])
+        open_(self.flask.config['downloads_folder'])
 
 
 def register_blueprints(app: Flask):
