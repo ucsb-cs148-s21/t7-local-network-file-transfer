@@ -59,8 +59,7 @@ Format source with `autopep8`.
 - One of the two devices must be a computer running Linux, Windows, or Mac to serve as the "host".
 - The "host" computer must have port 2402 open.
 ### "host" computer software requirements
-- python3. To install python, follow the instructions here. https://www.python.org/downloads/
-- virtualenv. Install after installing python. https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
+- python3
 - git
 - (Windows only) Build Tools for Visual Studio https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
   - When installing, select the C++ Build Tools to install
@@ -137,22 +136,26 @@ python3 src
 ```
 
 ## Functionality ##
-### To Start The Program ###
-1. Navigate to the folder in your terminal.
-2. run "python3 src" (mac/linux) or "py src" (windows)
-#### TO UPLOAD: ####
-1. Start Connection
-2. On your other device open <link>
-3. Upload file, after each file the page will reload, upload as many files as desired
-4. The uploaded files will be on the device that the server is being hosted on
-#### TO DOWNLOAD ####
-1. If the Send Files button is greyed out, restart the program by pressing done transferring, and running python src again
-2. Click "Send Files..."
-3. Select the file you want to download.
-4. Click start connection
-5. On your second device, open <link>
-6. Click received File
+The Host is the machine that runs the Loft application. The Client is the other device that will send or receive files.
+
+To send a file from the Host computer to the other device (Client):
+1. Run Loft.
+2. Select the file to send.
+3. Click on the `Start Connection` Button.
+4. Open the shown address in the Client device's browser.
+5. Select the `Receive File` button to download the file.
+6. Back on the Host machine, select `Done Transferring`.
+
+To receive a file to the Host computer from the other device (Client):
+1. Run Loft.
+3. Click on the `Start Connection` Button.
+4. Open the shown address in the Client device's browser.
+5. Select `Select File...` and choose the file.
+6. Select `Send Selected File` 
+7. Back on the Host machine, select `Open Downloads` to view the directory containing the received file.
+8. Select `Done Transfering`
+
 ## Known Problems ##
-- Closing the GUI to download is not optimal
+1. Selecting/Reselecting a file to send is not supported after the connection is started.
 
 ## Contributing ##
