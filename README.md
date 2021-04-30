@@ -139,7 +139,7 @@ python3 src
 ## Functionality ##
 The Host is the machine that runs the Loft application. The Client is the other device that will send or receive files.
 
-### To send a file from the Host computer to the other device (Client):###
+### To send a file from the Host computer to the other device (Client): ###
 1. Run Loft.
 2. Select the file to send.
 3. Click on the `Start Connection` Button.
