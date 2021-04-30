@@ -8,7 +8,7 @@ The Host is the machine that runs the Loft application. The Client is the other 
 1. Run Loft.
 2. On the Host, Click on the `Send Files...` Button and select the file to send. (Close and restart if greyed)
 3. Click on the `Start Connection` Button.
-4. On the Client device's browser, pen the shown address.
+4. On the Client device's browser, open the shown address.
 5. Select the `Receive File` button to download the file.
 6. Back on the Host machine, select `Done Transferring`.
 
