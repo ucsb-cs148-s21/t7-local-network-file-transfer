@@ -69,6 +69,8 @@ Format source with `autopep8`.
 - netifaces
 
 ## Installation Steps ##
+Warning: Security is not yet implemented. Anybody on the same network can access the webpage without any authentication.
+
 ### Linux ###
 1. Install the Prerequisite's Software Requirements
 2. Clone the directory
@@ -158,6 +160,7 @@ The Host is the machine that runs the Loft application. The Client is the other 
 
 ## Known Problems ##
 1. Selecting/Reselecting a file to send is not supported after the connection is started.
+2. There's no security
 
 ## Contributing ##
 
