@@ -22,7 +22,11 @@ def create_main_window(title: str, callbacks) -> QWidget:
     layout = QGridLayout(window)
 
     start_button = QPushButton(text='Start Connection')
-    start_button.clicked.connect(callbacks['start'])
+    start_button.setCheckable(True)
+    start_button.toggled.connect(callbacks['start'])
+    start_button.toggled.connect(lambda: start_button.setDisabled(True))
+    start_button.toggled.connect(lambda: select_to_send.setDisabled(True))
+
 
     connect_msg = QLabel(text='''
 <ol>
@@ -38,14 +42,13 @@ def create_main_window(title: str, callbacks) -> QWidget:
     open_received.clicked.connect(callbacks['open_downloads'])
     select_to_send = QPushButton(text='Send Files…')
 
+
     def select():
         documents = os.path.expanduser('~{}Documents'.format(os.sep))
         file_name_tuple = QFileDialog.getOpenFileName(None, 'Select File to Send', documents)
         file_name = os.path.basename(file_name_tuple[0])
         file_path = os.path.dirname(file_name_tuple[0])
         file_path_with_slash = os.path.join(file_path, '')
-        print('File path is:', file_path_with_slash)
-        print('File name is:', file_name)
         callbacks['set_send_file_name_address']([file_name, file_path])
 
 
