@@ -55,16 +55,41 @@ Format source with `autopep8`.
 
 
 ## Prerequisites ##
-
+- Two devices connected to the same router.
+- One of the two devices must be a computer running Linux, Windows, or Mac to serve as the "host".
+- The "host" computer must have port 2402 open.
+### "host" computer software requirements
+- python3
+- git
+- 
 
 ## Dependencies ##
-
+- netifaces
 
 ## Installation Steps ##
 ### Linux ###
 
 
 ### Windows ###
+1. Install the Prerequisite's Software Requirements
+2. Clone the directory
+```
+git clone 
+```
+
+3. Create and start a python virtual environment
+```
+py -m venv .venv
+venv/Scripts/activate
+```
+
+4. Install dependencies
+```
+py -m pip install -r requirements.txt
+```
+
+5. Run Loft
+```py src```
 
 
 ### Mac ###
