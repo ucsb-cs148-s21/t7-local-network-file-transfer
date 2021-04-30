@@ -1,6 +1,6 @@
 ## Functionality (Full Instructions) ##
 Warning: Security is not yet implemented. Anybody on the same network can access the webpage without any authentication. \
-Do not leave Loft running while not in use.
+**Do not leave Loft running while not in use.**
 
 The Host is the machine that runs the Loft application. The Client is the other device that will send or receive files.
 
