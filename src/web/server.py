@@ -19,21 +19,25 @@ class Server:
         self.thread = Thread(
             target=lambda: run_simple(host, port, self.flask), daemon=True)
 
-        register_blueprints(self.flask)
+        self.send_file_name_address = []
 
         self.host = host
         self.port = port
 
     def run(self):
         '''Run the server.'''
+        register_blueprints(self.flask, self.send_file_name_address)
         if not self.thread.is_alive():
             self.thread.start()
+
+    def set_send_file_name_address(self, send_file_name_address):
+        self.send_file_name_address = send_file_name_address
 
     def stop(self):
         '''TODO: Stop the server.'''
 
-def register_blueprints(app: Flask):
+def register_blueprints(app: Flask, send_file_name_address):
     '''Register the blueprints for the Flask application.'''
-    from .blueprints import landing
+    from .blueprints import create_blueprint
 
-    app.register_blueprint(landing)
+    app.register_blueprint(create_blueprint(send_file_name_address))

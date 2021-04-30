@@ -39,12 +39,15 @@ def create_main_window(title: str, callbacks) -> QWidget:
     select_to_send = QPushButton(text = 'Select Files to Send...')
 
     def select():
-        fileNameTuple = QFileDialog.getOpenFileName(None, 'Open File!', '.')
-        fileName = os.path.basename(fileNameTuple[0])
-        filePath = os.path.dirname(fileNameTuple[0])
-        filePathWithSlash = os.path.join(filePath, '')
-        print('File path is:', filePathWithSlash)
-        print('File name is:', fileName)
+        documents = os.path.expanduser('~{}Documents'.format(os.sep))
+        file_name_tuple = QFileDialog.getOpenFileName(None, 'Select File to Send', documents)
+        file_name = os.path.basename(file_name_tuple[0])
+        file_path = os.path.dirname(file_name_tuple[0])
+        file_path_with_slash = os.path.join(file_path, '')
+        print('File path is:', file_path_with_slash)
+        print('File name is:', file_name)
+        callbacks['set_send_file_name_address']([file_name, file_path])
+
 
     select_to_send.clicked.connect(select)
 
