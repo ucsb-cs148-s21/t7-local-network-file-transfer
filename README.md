@@ -73,7 +73,7 @@ Format source with `autopep8`.
 1. Install the Prerequisite's Software Requirements
 2. Clone the directory
 ```
-git clone 
+git clone https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git
 ```
 3. Create and start a python virtual environment
 ```
@@ -95,7 +95,7 @@ python3 src
 1. Install the Prerequisite's Software Requirements
 2. Clone the directory
 ```
-git clone 
+git clone https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git
 ```
 
 3. Create and start a python virtual environment
@@ -119,7 +119,7 @@ py src
 1. Install the Prerequisite's Software Requirements
 2. Clone the directory
 ```
-git clone 
+git clone https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git
 ```
 3. Create and start a python virtual environment
 ```
