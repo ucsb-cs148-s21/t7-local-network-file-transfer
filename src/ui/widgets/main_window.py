@@ -29,21 +29,13 @@ def create_main_window(title: str, callbacks) -> QWidget:
 
 
     connect_msg = QLabel(text='''
-<h3>To Upload</h3>
+Note: Send file cannot be modified after starting.<br>
+Please Close Loft and restart to make changes.
 <ol>
+    <li>Select Send Files if sending.</li>
     <li>Start connection.</li>
     <li>On your other device, open <font color="#0000ee">http://{}:2402</font>.</li>
-    <li>Upload file, after each file the page will reload, upload as many files as desired</li>
-    <li>The uploaded files will be in the <b>downloads</b> folder on the device that the server is being hosted on</li>
-</ol>
-<h3>To Download</h3>
-<ol>
-    <li>If the Send Files button is greyed out, restart the program by pressing done transferring, and running python src again</li>
-    <li>Click "Send Files..."</li>
-    <li>Select the file you want to download.</li>
-    <li>Click start connection</li>
-    <li>On your other device, open <font color="#0000ee">http://{}:2402</font>.</li>
-    <li>Click "Received File" and download file.</li>
+    <li>Close Loft after transfering.</li>
 </ol>
 '''.format(get_ip(),get_ip()))   # TODO: remove hardcoded port
 
