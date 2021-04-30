@@ -150,6 +150,6 @@ python3 src
 5. On your second device, open <link>
 6. Click received File
 ## Known Problems ##
-
+- Closing the GUI to download is not optimal
 
 ## Contributing ##
