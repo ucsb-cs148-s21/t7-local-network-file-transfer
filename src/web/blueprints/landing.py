@@ -9,28 +9,42 @@ from werkzeug.utils import redirect
 
 from util.file import save
 
-landing = Blueprint('landing', __name__)
+def create_blueprint(send_name_path):
+    landing = Blueprint('landing', __name__)
+
+    @landing.route('/')
+    def index():
+        return render_template('pages/index.html')
 
 
-@landing.route('/')
-def index():
-    return render_template('pages/index.html')
+    @landing.route('/', methods=['POST'])
+    def upload_file():
+        if request.method == 'POST':
+            # check if the post request has the file part
+            if 'upload' not in request.files:
+                # POST request received, but no file attached
+                return redirect(url_for('landing.index'))
+            file = request.files['upload']
+            # if user does not select file, browser also
+            # submit an empty part without filename
+            if not file:
+                flash('No file was selected.', 'error')
+                return redirect(url_for('landing.index'))
 
+            save(file, current_app.config['downloads_folder'])
 
-@landing.route('/', methods=['POST'])
-def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'upload' not in request.files:
-            # POST request received, but no file attached
-            return redirect(url_for('landing.index'))
-        file = request.files['upload']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if not file:
-            flash('No file was selected.', 'error')
-            return redirect(url_for('landing.index'))
+        return render_template('pages/index.html')
 
-        save(file, current_app.config['downloads_folder'])
+    @landing.route('/download/')
+    def download():
+        """Download a file."""
+        file_name = send_name_path['file_name']
+        file_path = send_name_path['file_path']
 
-    return render_template('pages/index.html')
+        try:
+            return send_from_directory(file_path, file_name, as_attachment=True)
+        except FileNotFoundError:
+            abort(404)
+    
+    return landing
+

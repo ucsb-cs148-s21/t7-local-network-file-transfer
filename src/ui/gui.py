@@ -22,6 +22,7 @@ class Gui:
 
         self.main_window = create_main_window(name, {
             'start': self.server.run,
+            'set_send_name_path': self.server.set_send_name_path,
             'stop': self.server.stop,
             'open_downloads': self.server.open_downloads,
         })

@@ -1,2 +1,2 @@
 
-from .landing import landing
+from .landing import create_blueprint
