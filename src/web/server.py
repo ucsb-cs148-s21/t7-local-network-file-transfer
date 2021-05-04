@@ -5,6 +5,7 @@ from threading import Thread
 from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
+from config import Config
 from util.file import open_
 
 
@@ -13,20 +14,22 @@ class Server:
     Abstract layer over the server.
     '''
 
-    def __init__(self, host: str = 'localhost', port: int = 5000, config: dict = {}):
+    def __init__(self, config: Config):
+        self.config = config
+
         # the flask WSGI application
         self.flask = Flask(__name__)
-        self.flask.config.update(config)
-        self.flask.secret_key = 'bf7fe7847aa5f10778de0340d4b7cb5163d2727f95801ba0'
+        self.flask.config.from_object(config)
+        try:
+            self.flask.config.from_envvar(config.config_filepath)
+        except RuntimeError:    # env var is not set
+            pass
 
         self.thread = Thread(
-            target=lambda: run_simple(host, port, self.flask), daemon=True)
+            target=lambda: run_simple(config.HOST, config.PORT, self.flask), daemon=True)
 
-        # A list containing 
+        # A list containing
         self.send_name_path = {'file_name': '', 'file_path': ''}
-
-        self.host = host
-        self.port = port
 
         self.flask.register_error_handler(
             404, lambda err: (render_template('404.html'), str(err)))
@@ -43,10 +46,10 @@ class Server:
 
     def stop(self):
         '''TODO: Stop the server.'''
-    
+
     def open_downloads(self):
         '''Open the Downloads folder.'''
-        open_(self.flask.config['downloads_folder'])
+        open_(self.config.downloads_folder)
 
 
 def register_blueprints(app: Flask, send_name_path):
