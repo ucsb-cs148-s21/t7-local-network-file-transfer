@@ -49,7 +49,7 @@ class Server:
 
     def open_downloads(self):
         '''Open the Downloads folder.'''
-        open_(self.config.downloads_folder)
+        open_(self.config.DOWNLOADS_FOLDER)
 
 
 def register_blueprints(app: Flask, send_name_path):
