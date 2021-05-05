@@ -16,17 +16,30 @@
         {% endwith %}
     </section>
 
-    <form method="POST" enctype="multipart/form-data">
+    <form action="/api" method="POST" enctype="multipart/form-data">
         <label for="file-selector" class="button button-secondary" title="Select File to Upload" tabindex=0>Select
             File…</label>
         <input id="file-selector" type="file" name="upload" />
         <label for="upload-file" class="button" title="Send Selected File" tabindex=0>Send Selected File</label>
-        <input id="upload-file" type="submit" class="button" value="Upload" />
+        <input id="upload-file" type="submit" />
     </form>
 </section>
 
 <section id="download" class="group">
-    <a class="button" href="download" title="Receive File" tabindex=0>Receive File</a>
+    <section class="messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for cat, msg in messages %}
+        <div class="{{ cat }}">{{ msg }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
+
+    <form action="{{ url_for('api.send') }}" method="GET">
+        <label for="download-file" class="button" title="Receive File" tabindex=0>Receive File</label>
+        <input id="download-file" type="submit" />
+    </form>
 </section>
 
 {% endblock %}

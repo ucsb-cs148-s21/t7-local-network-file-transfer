@@ -5,6 +5,13 @@
 <section class="group">
     <h1>404 Not Found</h1>
     <p>Oh, no! Something went wrong.</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for cat, msg in messages %}
+    <div class="{{ cat }}">{{ msg }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
     <a class="button" href="/">Go Back</a>
 </section>
 {% endblock %}

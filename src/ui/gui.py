@@ -20,15 +20,16 @@ class Gui:
         self.server = Server(*args, **kwargs)
         self.gui = QApplication(sys.argv)
 
-        self.main_window = create_main_window(name, {
-            'start': self.server.run,
-            'set_send_name_path': self.server.set_send_name_path,
-            'stop': self.server.stop,
-            'open_downloads': self.server.open_downloads,
-        })
+        self.main_window = create_main_window(name, self)
         self.main_window.show()
 
     def run_and_exit(self):
         '''Run the GUI.'''
         # if we want PyQt4 compat, replace with `sys.exit(self.main_window.exec_())`
         self.gui.exec()
+
+    def send_file_dialog(self, parent: QWidget = None):
+        '''Open up the file dialog to select files to send.'''
+        files, _ = QFileDialog.getOpenFileName(
+            parent, 'Select Files to Send', self.server.flask.config['documents_folder'])
+        self.server.add_sends(files)
