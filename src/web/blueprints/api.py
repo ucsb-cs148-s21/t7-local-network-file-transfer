@@ -1,4 +1,19 @@
+'''
+The Loft API
+============
 
+Available Operations
+--------------------
+
+``POST``
+  Send a file to the host. Send files through ``enctype="multipart/form-data"``.
+``GET``
+  Receive a file from the host. The parameter ``id`` specifies which file to
+  receive. The contents of the file are sent as the body of the response.
+``LIST``
+  List a mapping of file ids to available file names. The listing is on the
+  ``available`` field of the response object.
+'''
 import os
 
 from flask import abort, Blueprint, current_app, flash, Flask, jsonify, \
@@ -18,7 +33,6 @@ def api(available: Inventory):
     @api.route('/api', methods=['POST'])
     def receive():
         '''Receive a file via a POST request.'''
-        assert request.method == 'POST'
 
         if not request.files:
             flash('No file was selected.', 'error')
@@ -27,33 +41,37 @@ def api(available: Inventory):
 
         for file_input in request.files:
             for f in file_input:
-                save(f, current_app.config['downloads_folder'])
+                save(f, current_app.config['DOWNLOADS_FOLDER'])
 
-        # 200 OK
-        return redirect('landing.index'), 200
+        return jsonify(), 200
 
     @api.route('/api', methods=['GET'])
     def send():
-        '''Send a file via a GET request.'''
-        args = request.args
-        if 'id' in args and available.contains(int(args['id'])):
-            file_path = available.get(int(args['id']))
-            assert file_path
-            dirname = os.path.dirname(file_path)
-            basename = os.path.basename(file_path)
+        '''Send a requested file in response to a GET request.'''
+        if 'id' not in request.args:
+            abort(400, description='No file ID specified.')
+        try:
+            file_id = int(request.args['id'])
+        except ValueError:
+            abort(400, description='Bad file ID `{}`.'.format(
+                request.args['id']))
 
-            try:
-                return send_from_directory(dirname, basename, as_attachment=True), 200
-            except FileNotFoundError:
-                abort(
-                    404, description='File ID {} not available for download.'.format(args['id']))
-        else:
-            abort(400, description='File ID not provided or invalid.')
+        if not available.contains(file_id):
+            abort(404, description='Invalid file ID {}.'.format(file_id))
 
-    @api.route('/api')
-    def unimplemented():
-        '''Catch-all for unimplemented requests.'''
-        # 501 Not Implemented
-        return {}, 501, {'ContentType': 'application/json'}
+        file_path = available.get(file_id)
+        assert file_path
+        dirname = os.path.dirname(file_path)
+        basename = os.path.basename(file_path)
+
+        try:
+            return send_from_directory(dirname, basename, as_attachment=True, cache_timeout=0), 200
+        except FileNotFoundError:
+            abort(404, description='File ID {} not available.'.format(file_id))
+
+    @api.route('/api', methods=['LIST'])
+    def inspect():
+        '''Inspect what files are currently available.'''
+        return jsonify(available={k: os.path.basename(v) for k, v in available.items()})
 
     return api

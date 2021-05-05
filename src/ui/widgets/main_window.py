@@ -39,7 +39,7 @@ Please Close Loft and restart to make changes.
 
     open_received = QPushButton(text='Open Downloads')
     open_received.clicked.connect(gui.server.open_downloads)
-    select_to_send = QPushButton(text='Send File…')
+    select_to_send = QPushButton(text='Send Files…')
 
     select_to_send.clicked.connect(lambda: gui.send_file_dialog(window))
 

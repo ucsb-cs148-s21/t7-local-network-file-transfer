@@ -47,3 +47,6 @@ class Inventory:
         del self.contents[file_id]
 
         return True
+
+    def items(self):
+        return self.contents.items()
