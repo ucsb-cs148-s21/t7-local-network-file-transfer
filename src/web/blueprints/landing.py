@@ -42,7 +42,7 @@ def create_blueprint(send_name_path):
         file_path = send_name_path['file_path']
 
         try:
-            return send_from_directory(file_path, file_name, as_attachment=True)
+            return send_from_directory(file_path, file_name, as_attachment=True, cache_timeout=0)
         except FileNotFoundError:
             abort(404)
 
