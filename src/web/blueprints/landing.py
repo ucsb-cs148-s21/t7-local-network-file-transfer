@@ -9,13 +9,13 @@ from werkzeug.utils import redirect
 
 from util.file import save
 
+
 def create_blueprint(send_name_path):
     landing = Blueprint('landing', __name__)
 
     @landing.route('/')
     def index():
         return render_template('pages/index.html')
-
 
     @landing.route('/', methods=['POST'])
     def upload_file():
@@ -31,7 +31,7 @@ def create_blueprint(send_name_path):
                 flash('No file was selected.', 'error')
                 return redirect(url_for('landing.index'))
 
-            save(file, current_app.config['downloads_folder'])
+            save(file, current_app.config['DOWNLOADS_FOLDER'])
 
         return render_template('pages/index.html')
 
@@ -45,6 +45,5 @@ def create_blueprint(send_name_path):
             return send_from_directory(file_path, file_name, as_attachment=True, cache_timeout=0)
         except FileNotFoundError:
             abort(404)
-    
-    return landing
 
+    return landing
