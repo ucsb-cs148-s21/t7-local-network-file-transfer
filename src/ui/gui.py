@@ -3,6 +3,7 @@ import sys
 
 from PyQt5.QtWidgets import *
 
+from config import Config
 from web import Server
 from .widgets import create_main_window
 
@@ -12,12 +13,12 @@ class Gui:
     Wrapper class handling the GUI.
     '''
 
-    def __init__(self, name: str, *args, **kwargs):
+    def __init__(self, config: Config, *args, **kwargs):
         '''
         Initialize the native GUI. Requires the host and port for the server to
         listen on.
         '''
-        self.server = Server(*args, **kwargs)
+        self.server = Server(config, *args, **kwargs)
         self.gui = QApplication(sys.argv)
 
         self.main_window = create_main_window(name, self)

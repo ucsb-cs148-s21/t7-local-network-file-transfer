@@ -6,7 +6,11 @@ import typing
 from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
+<<<<<<< HEAD
 from .inventory import Inventory
+=======
+from config import Config
+>>>>>>> origin/main
 from util.file import open_
 
 
@@ -15,11 +19,16 @@ class Server:
     Abstract layer over the server.
     '''
 
-    def __init__(self, host: str = 'localhost', port: int = 5000, config: dict = {}):
+    def __init__(self, config: Config):
+        self.config = config
+
         # the flask WSGI application
-        self.flask: Flask = Flask(__name__)
-        self.flask.config.update(config)
-        self.flask.secret_key = 'bf7fe7847aa5f10778de0340d4b7cb5163d2727f95801ba0'
+        self.flask = Flask(__name__)
+        self.flask.config.from_object(config)
+        try:
+            self.flask.config.from_envvar(config.config_filepath)
+        except RuntimeError:    # env var is not set
+            pass
 
         self.thread: Thread = Thread(target=lambda: run_simple(
             host, port, self.flask), daemon=True)
@@ -49,7 +58,7 @@ class Server:
 
     def open_downloads(self):
         '''Open the Downloads folder.'''
-        open_(self.flask.config['downloads_folder'])
+        open_(self.config.DOWNLOADS_FOLDER)
 
     def register(self):
         '''Register blueprints and resources.'''

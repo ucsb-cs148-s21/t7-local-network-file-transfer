@@ -1,21 +1,22 @@
 
 import os
 
-from __init__ import APP_NAME, DOCUMENTS_FOLDER, DOWNLOADS_FOLDER, HOST, PORT
+from config import Config
 from ui import Gui
 
-DOCUMENTS_FOLDER = os.path.expanduser(DOCUMENTS_FOLDER)
-DOWNLOADS_FOLDER = os.path.expanduser(DOWNLOADS_FOLDER)
 
 
 def main():
     '''Entry point for the application.'''
 
-    if not os.path.exists(DOWNLOADS_FOLDER):
-        os.makedirs(DOWNLOADS_FOLDER, exist_ok=True)
+    config = Config()
 
-    gui = Gui(APP_NAME, HOST, PORT, {
-              'documents_folder': DOCUMENTS_FOLDER, 'downloads_folder': DOWNLOADS_FOLDER})
+    if not os.path.exists(config.DOWNLOADS_FOLDER):
+        os.makedirs(config.DOWNLOADS_FOLDER, exist_ok=True)
+    if not os.path.exists(config.DOCUMENTS_FOLDER):
+        os.makedirs(config.DOWNLOADS_FOLDER, exist_ok=True)
+
+    gui = Gui(config)
     gui.run_and_exit()
 
 
