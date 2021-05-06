@@ -51,8 +51,10 @@ Please Close Loft and restart to make changes.
         file_name = os.path.basename(file_name_tuple[0])
         file_path = os.path.dirname(file_name_tuple[0])
         callbacks['set_send_name_path'](file_name, file_path)
-        select_to_send.setText(file_name + ' selected')
-
+        if(file_name):
+            select_to_send.setText(file_name + ' selected')
+        else:
+            select_to_send.setText('No file selected')
     select_to_send.clicked.connect(select)
 
     full_instr = QLabel(
