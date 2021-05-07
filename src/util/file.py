@@ -7,13 +7,22 @@ from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
 
-def dup_name(name: str, i: int):
-    '''Add duplicate tag to name if necessary.'''
-    if i <= 0:
+def dup_name(name: str, duplicates: int):
+    """Add duplicate tag to name if necessary.
+
+    Args:
+        name (str): [file name]
+        duplicates (int): [number of duplicates]
+
+    Returns:
+        [string]: [the file name with an appended '_x' tag
+                    if there is a duplicate]
+    """
+    if duplicates <= 0:
         return name
 
     name, ext = os.path.splitext(name)
-    return secure_filename('{}_{}{}'.format(name, i, ext))
+    return secure_filename('{}_{}{}'.format(name, duplicates, ext))
 
 
 def save(file: FileStorage, dest: str):
