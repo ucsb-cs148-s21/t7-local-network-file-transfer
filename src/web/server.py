@@ -42,10 +42,14 @@ class Server:
         if not self.thread.is_alive():
             self.thread.start()
 
-    def add_sends(self, paths: typing.List[str]):
-        '''Add files to send.'''
-        for path in paths:
-            self.available.add(path)
+    def add_sends(self, path: str):
+        '''Add a single file to send.'''
+        self.available.add(path)
+
+    # def add_sends(self, paths: typing.List[str]):
+    #     '''Add files to send.'''
+    #     for path in paths:
+    #         self.available.add(path)
 
     def stop(self):
         '''TODO: Stop the server.'''

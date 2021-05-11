@@ -31,6 +31,10 @@ class Gui:
 
     def send_file_dialog(self, parent: QWidget = None):
         '''Open up the file dialog to select files to send.'''
-        files, _ = QFileDialog.getOpenFileNames(parent, 'Select Files to Send',
-                                                self.server.config.DOCUMENTS_FOLDER)
-        self.server.add_sends(files)
+        file_, _ = QFileDialog.getOpenFileName(parent, 'Select File to Send',
+                                               self.server.config.DOCUMENTS_FOLDER)
+        self.server.add_sends(file_)
+
+        # files, _ = QFileDialog.getOpenFileNames(parent, 'Select Files to Send',
+        #                                         self.server.config.DOCUMENTS_FOLDER)
+        # self.server.add_sends(files)
