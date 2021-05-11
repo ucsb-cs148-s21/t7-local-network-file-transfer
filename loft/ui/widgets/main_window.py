@@ -1,7 +1,9 @@
 import os
 from PyQt5.QtWidgets import *
-from util.net import get_ip_thru_gateway as get_ip
 from PyQt5 import QtCore, Qt
+
+from loft.util.net import get_ip_thru_gateway as get_ip
+
 
 def create_main_window(title: str, callbacks) -> QWidget:
     '''
@@ -47,7 +49,8 @@ Please Close Loft and restart to make changes.
 
     def select():
         documents = os.path.expanduser('~{}Documents'.format(os.sep))
-        file_name_tuple = QFileDialog.getOpenFileName(None, 'Select File to Send', documents)
+        file_name_tuple = QFileDialog.getOpenFileName(
+            None, 'Select File to Send', documents)
         file_name = os.path.basename(file_name_tuple[0])
         file_path = os.path.dirname(file_name_tuple[0])
         callbacks['set_send_name_path'](file_name, file_path)
@@ -56,7 +59,8 @@ Please Close Loft and restart to make changes.
 
     full_instr = QLabel(
         '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/usage.md>Full Instructions</a>')
-    full_instr.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
+    full_instr.setTextInteractionFlags(
+        QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
     full_instr.setOpenExternalLinks(True)
 
     layout.addWidget(start_button, 2, 0, 1, 2)
@@ -65,7 +69,6 @@ Please Close Loft and restart to make changes.
     layout.addWidget(open_received, 1, 1, 1, 1)
     layout.addWidget(done_button, 3, 0, 1, 2)
     layout.addWidget(full_instr)
-
 
     window.setTabOrder(start_button, select_to_send)
     window.setTabOrder(select_to_send, open_received)
