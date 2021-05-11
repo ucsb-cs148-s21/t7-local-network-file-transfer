@@ -7,7 +7,7 @@ from jinja2 import TemplateNotFound
 from werkzeug.middleware.shared_data import SharedDataMiddleware
 from werkzeug.utils import redirect
 
-from util.file import save
+from src.util.file import save
 
 
 def create_blueprint(send_name_path):

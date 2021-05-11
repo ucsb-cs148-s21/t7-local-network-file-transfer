@@ -5,8 +5,8 @@ from threading import Thread
 from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
-from config import Config
-from util.file import open_
+from src.config import Config
+from src.util.file import open_
 
 
 class Server:

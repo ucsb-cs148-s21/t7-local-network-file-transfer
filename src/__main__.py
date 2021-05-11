@@ -1,8 +1,8 @@
 
 import os
 
-from config import Config
-from ui import Gui
+from src.config import Config
+from src.ui import Gui
 
 
 def main():
