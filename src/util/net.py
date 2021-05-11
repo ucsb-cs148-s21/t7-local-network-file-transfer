@@ -2,7 +2,7 @@ import netifaces
 import socket
 
 
-def get_ip_thru_gateway():
+def get_ip_thru_gateway() -> str:
     '''
     Opens a socket to the user's router (gateway) that allows the broadcast ip
     to be determined.
