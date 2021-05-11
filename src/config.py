@@ -41,18 +41,25 @@ class TestingConfig(Config):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.downloads_ctx = tempfile.TemporaryDirectory()
-        self.documents_ctx = tempfile.TemporaryDirectory()
+        self.downloads_ctx = None
+        self.documents_ctx = None
 
     @property
     def DOWNLOADS_FOLDER(self) -> str:
+        assert self.downloads, 'Cannot use temporary Downloads before opening of context (use `with`).'
         return self.downloads_ctx.name
 
     @property
     def DOCUMENTS_FOLDER(self) -> str:
+        assert self.downloads, 'Cannot use temporary Documents before opening of context (use `with`).'
         return self.documents_ctx.name
 
-    def __del__(self):
+    def __enter__(self):
+        self.downloads_ctx = tempfile.TemporaryDirectory()
+        self.documents_ctx = tempfile.TemporaryDirectory()
+        return self
+
+    def __exit__(self):
         self.downloads_ctx.close()
         self.documents_ctx.close()
 

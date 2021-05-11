@@ -29,13 +29,14 @@ class TestApi(unittest.TestCase):
         i.add('foo')
         i.add('bar')
 
-        with client(config, api(i)) as c:
-            response = c.open('/api', method='LIST')
-            data = response.get_json()
-            self.assertIn('available', data)
-            self.assertEqual(data['available'][0], 'foo')
-            self.assertEqual(data['available'][1], 'bar')
-            self.assertEqual(len(data['available']), 2)
+        with config:
+            with client(config, api(i)) as c:
+                response = c.open('/api', method='LIST')
+                data = response.get_json()
+                self.assertIn('available', data)
+                self.assertEqual(data['available'][0], 'foo')
+                self.assertEqual(data['available'][1], 'bar')
+                self.assertEqual(len(data['available']), 2)
 
     def test_list_empty(self):
         config = TestingConfig()
