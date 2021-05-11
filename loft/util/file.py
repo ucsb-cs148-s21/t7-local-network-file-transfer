@@ -1,6 +1,5 @@
 
 import os
-from os.path import split
 import subprocess
 import sys
 import typing
