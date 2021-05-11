@@ -23,14 +23,11 @@ class Config:
     APP_NAME: str = 'loft'
 
     # Folder where files uploaded on the web client are downloaded to.
-    @property
-    def DOWNLOADS_FOLDER(self) -> str:
-        return home_slash(['Downloads'])
+    DOWNLOADS_FOLDER: str = home_slash(['Downloads'])
 
     # Folder where we search for files to send.
-    @property
-    def DOCUMENTS_FOLDER(self) -> str:
-        return home_slash(['Documents']) if os.name == 'nt' else HOME
+    DOCUMENTS_FOLDER: str = home_slash(
+        ['Documents']) if os.name == 'nt' else HOME
 
     # Loft Environment Variables
 
@@ -42,13 +39,8 @@ class TestingConfig(Config):
     '''Configuration for testing.'''
     TESTING: bool = True
 
-    @property
-    def DOWNLOADS_FOLDER(self) -> str:
-        return tempfile.gettempdir()
-
-    @property
-    def DOCUMENTS_FOLDER(self) -> str:
-        return tempfile.gettempdir()
+    DOWNLOADS_FOLDER: str = tempfile.gettempdir()
+    DOCUMENTS_FOLDER: str = tempfile.gettempdir()
 
 
 class LocalConfig(Config):
