@@ -52,7 +52,10 @@ Please Close Loft and restart to make changes.
         file_path = os.path.dirname(file_name_tuple[0])
         callbacks['set_send_name_path'](file_name, file_path)
         if(file_name):
-            select_to_send.setText(file_name + ' selected')
+            if(len(file_name) >= 8):
+                select_to_send.setText(file_name[:8] + '...  selected')
+            else:
+                select_to_send.setText(file_name + ' selected')
         else:
             select_to_send.setText('No file selected')
     select_to_send.clicked.connect(select)

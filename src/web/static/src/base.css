@@ -59,6 +59,11 @@ h1 {
     box-sizing: border-box;
 }
 
+.file {
+    cursor: default;
+    background-color: var(--color-green-3);
+}
+
 .button {
     font-size: 100%;
     text-align: center;
