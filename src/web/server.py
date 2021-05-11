@@ -1,14 +1,12 @@
 
-import os
 from threading import Thread
-import typing
 
 from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
-from .inventory import Inventory
 from config import Config
 from util.file import open_
+from util.id_map import IdMap
 
 
 class Server:
@@ -31,7 +29,7 @@ class Server:
             config.HOST, config.PORT, self.flask), daemon=True)
 
         # A dictionary of the available files for download.
-        self.available: Inventory = Inventory()
+        self.available: IdMap[str] = IdMap()
 
         self.flask.register_error_handler(
             404, lambda err: (render_template('404.html'), str(err)))

@@ -2,17 +2,17 @@
 import random
 import unittest
 
-from ...web.inventory import Inventory
+from ..util.id_map import IdMap
 
 rand = random.Random()
 
 rand.seed(24242424)
 
 
-class TestInventory(unittest.TestCase):
+class TestIdMap(unittest.TestCase):
 
     def test_add(self):
-        i = Inventory()
+        i = IdMap()
         self.assertEqual(i.add('foo'), 0, 'First file ID should be 0.')
         self.assertEqual(i.add('bar'), 1, 'Second file ID should be 1.')
         self.assertEqual(i.get(0), 'foo', 'Should be able to get first file '
@@ -21,7 +21,7 @@ class TestInventory(unittest.TestCase):
                          'with ID 1.')
 
     def test_remove_valid_id(self):
-        i = Inventory()
+        i = IdMap()
         i.add('foo')
         i.add('bar')
         i.add('baz')
@@ -34,14 +34,14 @@ class TestInventory(unittest.TestCase):
         self.assertIsNone(i.get(1))
 
     def test_remove_invalid_id(self):
-        i = Inventory()
+        i = IdMap()
         i.add('foo')
         i.add('bar')
 
         self.assertFalse(i.remove(42))
 
     def test_contains(self):
-        i = Inventory()
+        i = IdMap()
         i.add('foo')
         i.add('bar')
         i.add('baz')
@@ -56,7 +56,7 @@ class TestInventory(unittest.TestCase):
         self.assertTrue(i.contains(3))
 
     def test_size(self):
-        i = Inventory()
+        i = IdMap()
         self.assertEqual(i.size(), 0)
 
         i.add('foo')
@@ -64,14 +64,14 @@ class TestInventory(unittest.TestCase):
         self.assertEqual(i.size(), 2)
 
     def test_get_when_empty(self):
-        i = Inventory()
+        i = IdMap()
         for _ in range(0, 1_000_000):
             self.assertIsNone(i.get(rand.uniform(0, 1_000_000)),
-                              'Inventory.get should return None for any file ID '
+                              'IdMap.get should return None for any file ID '
                               'when empty.')
 
     def test_get_invalid_ids(self):
-        i = Inventory()
+        i = IdMap()
         i.add('foo')
         i.add('bar')
 
@@ -81,7 +81,7 @@ class TestInventory(unittest.TestCase):
                               'previously inserted files should result in None.')
 
     def test_get_and_contains_removed_ids(self):
-        i = Inventory()
+        i = IdMap()
         i.add('foo')
         i.add('bar')
         i.add('baz')
@@ -94,7 +94,7 @@ class TestInventory(unittest.TestCase):
         self.assertIsNone(i.get(1))
 
     def test_items(self):
-        i = Inventory()
+        i = IdMap()
 
         files = ['foo', 'bar', 'baz', 'quo']
 

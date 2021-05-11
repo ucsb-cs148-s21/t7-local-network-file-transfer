@@ -1,6 +1,5 @@
 
 import unittest
-from unittest.mock import MagicMock
 
 from flask import Blueprint, Flask
 from flask.testing import FlaskClient
@@ -8,7 +7,7 @@ from flask.wrappers import Response
 
 from ....config import Config, TestingConfig
 from ....web.blueprints.api import api
-from ....web.inventory import Inventory
+from ....util.id_map import IdMap
 
 
 def client(config: Config, api: Blueprint) -> FlaskClient[Response]:
@@ -25,11 +24,11 @@ def client(config: Config, api: Blueprint) -> FlaskClient[Response]:
 class TestApi(unittest.TestCase):
     def test_list(self):
         config = TestingConfig()
-        i = Inventory()
+        i = IdMap()
         i.add('foo')
         i.add('bar')
 
-        with config, client(config, api(i)) as c:
+        with client(config, api(i)) as c:
             response = c.open('/api', method='LIST')
             data = response.get_json()
             self.assertIn('available', data)
@@ -39,9 +38,9 @@ class TestApi(unittest.TestCase):
 
     def test_list_empty(self):
         config = TestingConfig()
-        i = Inventory()
+        i = IdMap()
 
-        with config, client(config, api(i)) as c:
+        with client(config, api(i)) as c:
             response = c.open('/api', method='LIST')
             data = response.get_json()
             self.assertIn('available', data)

@@ -16,17 +16,13 @@ Available Operations
 '''
 import os
 
-from flask import abort, Blueprint, current_app, flash, Flask, jsonify, \
-    redirect, render_template, Request, request, send_from_directory
-from jinja2 import TemplateNotFound
-from werkzeug.middleware.shared_data import SharedDataMiddleware
-from werkzeug.utils import redirect
+from flask import abort, Blueprint, current_app, flash, jsonify, request, send_from_directory
 
-from ..inventory import Inventory
+from util.id_map import IdMap
 from util.file import save
 
 
-def api(available: Inventory):
+def api(available: IdMap):
     '''Handles upload and download requests.'''
     api = Blueprint('api', __name__)
 
