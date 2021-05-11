@@ -39,8 +39,18 @@ class TestingConfig(Config):
     '''Configuration for testing.'''
     TESTING: bool = True
 
-    DOWNLOADS_FOLDER: str = tempfile.gettempdir()
-    DOCUMENTS_FOLDER: str = tempfile.gettempdir()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.downloads_ctx = tempfile.TemporaryDirectory()
+        self.documents_ctx = tempfile.TemporaryDirectory()
+
+    @property
+    def DOWNLOADS_FOLDER(self) -> str:
+        return self.downloads_ctx.name
+
+    @property
+    def DOCUMENTS_FOLDER(self) -> str:
+        return self.documents_ctx.name
 
 
 class LocalConfig(Config):
