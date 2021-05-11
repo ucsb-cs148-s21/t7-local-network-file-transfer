@@ -1,5 +1,6 @@
 
 import os
+import tempfile
 
 from util.file import HOME, home_slash
 
@@ -40,6 +41,14 @@ class Config:
 class TestingConfig(Config):
     '''Configuration for testing.'''
     TESTING: bool = True
+
+    @property
+    def DOWNLOADS_FOLDER(self) -> str:
+        return tempfile.gettempdir()
+
+    @property
+    def DOCUMENTS_FOLDER(self) -> str:
+        return tempfile.gettempdir()
 
 
 class LocalConfig(Config):

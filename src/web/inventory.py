@@ -21,10 +21,10 @@ class Inventory:
 
     def get(self, file_id: int) -> str:
         '''
-        Get the associated file path for this file id, or an empty string if it
+        Get the associated file path for this file id, or None if it
         does not already exist.
         '''
-        return self.contents[file_id] if file_id in self.contents else ''
+        return self.contents[file_id] if file_id in self.contents else None
 
     def contains(self, file_id: int) -> bool:
         '''
@@ -41,7 +41,7 @@ class Inventory:
         Remove the file path corresponding to the given file id. Returns false
         if the id does not correspond to an actual value.
         '''
-        if not contains(file_id):
+        if not self.contains(file_id):
             return False
 
         del self.contents[file_id]
