@@ -52,6 +52,12 @@ class TestingConfig(Config):
     def DOCUMENTS_FOLDER(self) -> str:
         return self.documents_ctx.name
 
+    def __del__(self):
+        self.downloads_ctx.close()
+        self.documents_ctx.close()
+        del self.downloads_ctx
+        del self.documents_ctx
+
 
 class LocalConfig(Config):
     '''Configuration for local serving only.'''
