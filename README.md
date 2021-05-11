@@ -28,6 +28,7 @@ Our app allows users to transfer files wirelessly on a local network.
 - PyQt5: Desktop Interface.
 - Flask: Web Framework and server for serving client UI.
 - Netifaces: Getting user's local ip address.
+- Pytest: Python Testing
 
 ## Installation Steps ##
 Warning: Security is not yet implemented. Anybody on the same network can access the webpage without any authentication. \
@@ -137,6 +138,9 @@ Windows:
 ## Known Problems ##
 1. Selecting/Reselecting a file to send is not supported after the connection is started.
 2. There's no security
+
+## Testing ##
+1. Run `pytest` from the application directory.
 
 ## Contributing ##
 
