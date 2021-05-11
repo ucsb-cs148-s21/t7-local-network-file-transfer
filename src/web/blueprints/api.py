@@ -39,9 +39,8 @@ def api(available: Inventory):
             # 400 Bad Request
             abort(400, description='No files were sent.')
 
-        for file_input in request.files:
-            for f in file_input:
-                save(f, current_app.config['DOWNLOADS_FOLDER'])
+        for _, f in request.files.items():
+            save(f, current_app.config['DOWNLOADS_FOLDER'])
 
         return jsonify(), 200
 
