@@ -6,11 +6,8 @@ import typing
 from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
-<<<<<<< HEAD
 from .inventory import Inventory
-=======
 from config import Config
->>>>>>> origin/main
 from util.file import open_
 
 
@@ -31,10 +28,7 @@ class Server:
             pass
 
         self.thread: Thread = Thread(target=lambda: run_simple(
-            host, port, self.flask), daemon=True)
-
-        self.host = host
-        self.port = port
+            config.HOST, config.PORT, self.flask), daemon=True)
 
         # A dictionary of the available files for download.
         self.available: Inventory = Inventory()

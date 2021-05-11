@@ -2,12 +2,26 @@
 import os
 import subprocess
 import sys
+import typing
 
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
 
-def dup_name(name: str, duplicates: int):
+# The home directory, for convenience.
+HOME: str = os.path.expanduser('~')
+
+
+def home_slash(path: typing.List[str]) -> str:
+    '''Formats a group of paths underneath the home directory.'''
+    out = HOME
+    if path:
+        out += os.sep + os.sep.join(path)
+
+    return out
+
+
+def dup_name(name: str, duplicates: int) -> str:
     """Add duplicate tag to name if necessary.
 
     Args:

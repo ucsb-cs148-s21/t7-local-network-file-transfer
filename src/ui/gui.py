@@ -21,7 +21,7 @@ class Gui:
         self.server = Server(config, *args, **kwargs)
         self.gui = QApplication(sys.argv)
 
-        self.main_window = create_main_window(name, self)
+        self.main_window = create_main_window(config.APP_NAME, self)
         self.main_window.show()
 
     def run_and_exit(self):
@@ -31,6 +31,6 @@ class Gui:
 
     def send_file_dialog(self, parent: QWidget = None):
         '''Open up the file dialog to select files to send.'''
-        files, _ = QFileDialog.getOpenFileNames(
-            parent, 'Select Files to Send', self.server.flask.config['documents_folder'])
+        files, _ = QFileDialog.getOpenFileNames(parent, 'Select Files to Send',
+                                                self.server.config.DOCUMENTS_FOLDER)
         self.server.add_sends(files)

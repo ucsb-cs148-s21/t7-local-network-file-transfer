@@ -1,6 +1,8 @@
 
 import os
 
+from util.file import HOME, home_slash
+
 
 class Config:
     '''
@@ -22,7 +24,12 @@ class Config:
     # Folder where files uploaded on the web client are downloaded to.
     @property
     def DOWNLOADS_FOLDER(self) -> str:
-        return '{}{}Downloads'.format(os.path.expanduser('~'), os.sep)
+        return home_slash(['Downloads'])
+
+    # Folder where we search for files to send.
+    @property
+    def DOCUMENTS_FOLDER(self) -> str:
+        return home_slash(['Documents']) if os.name == 'nt' else HOME
 
     # Loft Environment Variables
 

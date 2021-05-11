@@ -32,7 +32,7 @@ Please Close Loft and restart to make changes.
     <li>On your other device, open <font color="#0000ee">http://{}:{}</font>.</li>
     <li>Close Loft after transfering.</li>
 </ol>
-'''.format(get_ip(), gui.server.port))
+'''.format(get_ip(), gui.server.config.PORT))
 
     done_button = QPushButton(text='Done Transferring')
     done_button.clicked.connect(window.close)
