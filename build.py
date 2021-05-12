@@ -29,7 +29,6 @@ In PowerShell::
 from pathlib import Path
 import platform
 import typing
-from itertools import chain
 
 import PyInstaller.__main__
 
@@ -51,6 +50,7 @@ def main():
         str(ENTRY_POINT),
         '-n', str(NAME),
         '--onefile',
+        '--noconsole',
     ] + [f(res) for res in RESOURCES for f in (lambda _: '--add-data', lambda res: f'{res}{pathsep}{res}')])
 
 
