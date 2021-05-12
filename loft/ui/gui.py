@@ -3,9 +3,9 @@ import sys
 
 from PyQt5.QtWidgets import *
 
-from src.config import Config
-from src.web import Server
-from src.ui.widgets import create_main_window
+from loft.config import Config
+from loft.web import Server
+from loft.ui.widgets import create_main_window
 
 
 class Gui:

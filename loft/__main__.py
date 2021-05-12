@@ -1,8 +1,8 @@
 
 import os
 
-from src.config import Config
-from src.ui import Gui
+from loft.config import Config
+from loft.ui import Gui
 
 
 def main():
