@@ -18,8 +18,8 @@ import os
 
 from flask import abort, Blueprint, current_app, flash, jsonify, request, send_from_directory
 
-from util.id_map import IdMap
-from util.file import save
+from loft.util.file import save
+from loft.util.id_map import IdMap
 
 
 def api(available: IdMap):

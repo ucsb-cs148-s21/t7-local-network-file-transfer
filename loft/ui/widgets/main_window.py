@@ -1,8 +1,6 @@
 
-import os
 from PyQt5.QtWidgets import *
-from util.net import get_ip_thru_gateway as get_ip
-from PyQt5 import QtCore, Qt
+from PyQt5 import QtCore
 
 
 def create_main_window(title: str, gui) -> QWidget:

@@ -1,12 +1,11 @@
 
-
 from flask import Blueprint, Flask
 from flask.testing import FlaskClient
 from flask.wrappers import Response
 
-from ....config import Config, TestingConfig
-from ....web.blueprints.api import api
-from ....util.id_map import IdMap
+from loft.config import Config, TestingConfig
+from loft.util.id_map import IdMap
+from loft.web.blueprints.api import api
 
 
 def client(config: Config, api: Blueprint) -> FlaskClient[Response]:

@@ -2,7 +2,7 @@
 import random
 import unittest
 
-from ..util.id_map import IdMap
+from loft.util.id_map import IdMap
 
 rand = random.Random()
 

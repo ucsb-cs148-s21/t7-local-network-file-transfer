@@ -4,9 +4,9 @@ from threading import Thread
 from flask import Flask, render_template
 from werkzeug.serving import run_simple
 
-from config import Config
-from util.file import open_
-from util.id_map import IdMap
+from loft.config import Config
+from loft.util.file import open_
+from loft.util.id_map import IdMap
 
 
 class Server:

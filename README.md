@@ -52,7 +52,7 @@ python3 -m pip install -r requirements.txt
 
 5. Run Loft
 ```
-python3 src
+python3 -m loft
 ```
 
 
@@ -98,7 +98,7 @@ python3 -m pip install -r requirements.txt
 
 5. Run Loft
 ```
-python3 src
+python3 -m loft
 ```
 
 ## Functionality (Full Instructions) ##
@@ -115,7 +115,7 @@ Linux/Mac:
 ```
 Windows:
 ```
-.venv\Scripts\activate
+.venv\Scripts\Activate
 ```
 
 ### To send a file from the Host computer to the other device (Client): ###
@@ -131,7 +131,7 @@ Windows:
 3. Click on the `Start Connection` Button.
 4. Open the shown address in the Client device's browser.
 5. Select `Select File...` and choose the file.
-6. Select `Send Selected File` 
+6. Select `Send Selected File`
 7. Back on the Host machine, select `Open Downloads` to view the directory containing the received file.
 8. Select `Done Transfering`
 
