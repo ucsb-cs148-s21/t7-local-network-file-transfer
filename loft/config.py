@@ -2,7 +2,7 @@
 import os
 import tempfile
 
-from util.file import HOME, home_slash
+from loft.util.file import HOME, home_slash
 
 
 class Config:

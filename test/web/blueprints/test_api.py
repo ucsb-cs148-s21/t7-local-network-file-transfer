@@ -8,7 +8,7 @@ from loft.util.id_map import IdMap
 from loft.web.blueprints.api import api
 
 
-def client(config: Config, api: Blueprint) -> FlaskClient[Response]:
+def client(config: Config, api: Blueprint):
     '''
     Create the test Flask application, register the blueprint and return the
     Flask test client.
@@ -29,9 +29,9 @@ def test_list():
         response = c.open('/api', method='LIST')
         data = response.get_json()
         assert 'available' in data
-        assert data['available'][0] == 'foo'
-        assert data['available'][1] == 'bar'
         assert len(data['available']) == 2
+        assert data['available']['0'] == 'foo'
+        assert data['available']['1'] == 'bar'
 
 
 def test_list_empty():
