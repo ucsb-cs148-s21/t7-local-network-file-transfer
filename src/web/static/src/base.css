@@ -55,7 +55,7 @@ h1 {
     background-color: var(--color-error-bg);
 }
 
-.button, .flash {
+.button, .bubble, .flash {
     width: 100%;
     margin: .25em;
     padding: .5em 1em;
@@ -148,14 +148,7 @@ h1 {
     }
 }
 
-.selected-file{
-    width: 100%;
-    margin: .25em;
-    padding: .5em 1em;
-    display: block;
-
-    box-sizing: border-box;
-
+.selected-file {
     font-size: 100%;
     text-align: center;
     text-decoration: none;
@@ -164,7 +157,4 @@ h1 {
     background-color: var(--color-primary-bg);
     border: none;
     border-radius: 4px;
-
-    transition: color 0.2s ease;
-    transition: background-color 0.2s ease;
 }
