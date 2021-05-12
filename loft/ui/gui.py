@@ -3,8 +3,8 @@ import sys
 
 from PyQt5.QtWidgets import *
 
-from config import Config
-from web import Server
+from loft.config import Config
+from loft.web import Server
 from .widgets import create_main_window
 
 
