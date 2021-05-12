@@ -5,7 +5,6 @@ from loft.config import Config
 from loft.ui import Gui
 
 
-
 def main():
     '''Entry point for the application.'''
 
@@ -14,7 +13,7 @@ def main():
     if not os.path.exists(config.DOWNLOADS_FOLDER):
         os.makedirs(config.DOWNLOADS_FOLDER, exist_ok=True)
     if not os.path.exists(config.DOCUMENTS_FOLDER):
-        os.makedirs(config.DOWNLOADS_FOLDER, exist_ok=True)
+        os.makedirs(config.DOCUMENTS_FOLDER, exist_ok=True)
 
     gui = Gui(config)
     gui.run_and_exit()

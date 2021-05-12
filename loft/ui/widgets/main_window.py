@@ -2,7 +2,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
 
-from loft.util.net import get_ip
+from loft.util.net import get_ip_thru_gateway as get_ip
 
 
 def create_main_window(title: str, gui) -> QWidget:
