@@ -14,6 +14,8 @@
     --color-accent-bg: var(--color-green-3);
     --color-accent-active: var(--color-green-45);
     --color-secondary-active: var(--color-gray-45);
+    --color-success-fg: var(--color-green-3);
+    --color-success-bg: var(--color-base);
     --color-error-fg: var(--color-red-3);
     --color-error-bg: var(--color-base);
 
@@ -57,11 +59,6 @@ h1 {
     display: block;
 
     box-sizing: border-box;
-}
-
-.file {
-    cursor: default;
-    background-color: var(--color-green-3);
 }
 
 .button {
@@ -119,6 +116,11 @@ h1 {
     border-radius: 4px;
 }
 
+.success {
+    color: var(--color-success-fg);
+    background-color: var(--color-success-bg);
+}
+
 .messages div {
     text-align: center;
 
@@ -141,4 +143,25 @@ h1 {
     .group {
         width: 24em;
     }
+}
+
+.selected-file{
+    width: 100%;
+    margin: .25em;
+    padding: .5em 1em;
+    display: block;
+
+    box-sizing: border-box;
+    
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    color: var(--color-primary-fg);
+    background-color: var(--color-primary-bg);
+    border: none;
+    border-radius: 4px;
+
+    transition: color 0.2s ease;
+    transition: background-color 0.2s ease;
 }

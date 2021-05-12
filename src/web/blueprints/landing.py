@@ -31,7 +31,7 @@ def create_blueprint(send_name_path):
                 flash('No file was selected.', 'error')
                 return redirect(url_for('landing.index'))
             save(file, current_app.config['downloads_folder'])
-            flash('File has been successfuly sent!')
+            flash('File has been successfully sent!', 'success')
 
         return render_template('pages/index.html')
 
