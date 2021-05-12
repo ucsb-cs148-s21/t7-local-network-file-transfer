@@ -2,6 +2,8 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
 
+from loft.util.net import get_ip
+
 
 def create_main_window(title: str, gui) -> QWidget:
     '''
