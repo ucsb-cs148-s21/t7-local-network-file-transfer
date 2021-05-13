@@ -43,8 +43,8 @@ class DebugConfig(Config):
     '''Configuration for testing.'''
     TESTING: bool = True
 
-    DOWNLOADS_FOLDER: Path = Path('test', 'artifacts', 'downloads')
-    DOCUMENTS_FOLDER: Path = Path('test', 'artifacts', 'documents')
+    DOWNLOADS_FOLDER: Path = Path('test', 'artifacts', 'downloads').resolve()
+    DOCUMENTS_FOLDER: Path = Path('test', 'artifacts', 'documents').resolve()
 
     def __del__(self):
         shutil.rmtree(self.DOWNLOADS_FOLDER, ignore_errors=True)
