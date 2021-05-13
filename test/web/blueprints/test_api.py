@@ -72,8 +72,18 @@ def test_get():
 
             response: Response = c.get('/api?id=0')
 
+            assert response.status_code == 200
             f.seek(0)
             assert response.get_data(as_text=True) == f.read()
+
+
+def test_get_bad_request():
+    config = DebugConfig()
+    i = IdMap()
+
+    with client(config, api(i)) as c:
+        response: Response = c.get('/api')
+        assert response.status_code == 400
 
 
 def test_get_empty():
@@ -81,4 +91,5 @@ def test_get_empty():
     i = IdMap()
 
     with client(config, api(i)) as c:
-        pass
+        response: Response = c.get('/api?id=0')
+        assert response.status_code == 404
