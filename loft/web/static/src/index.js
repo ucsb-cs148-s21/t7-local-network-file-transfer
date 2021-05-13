@@ -56,7 +56,7 @@ upload.addEventListener('submit', function (e) {
         return;
     }
 
-    fetch('/api', {
+    fetch('/api/files', {
         method: 'POST',
         body: new FormData(this),
     }).then(response => {
@@ -80,7 +80,7 @@ download.addEventListener('submit', function (e) {
     // Generate an anchor element with the `download` attribute and use that to
     // send the GET request to the api.
     const a = document.createElement('a');
-    a.href = '/api?id=' + id;
+    a.href = '/api/files/' + id;
     a.download = true;
 
     a.click();
@@ -88,8 +88,8 @@ download.addEventListener('submit', function (e) {
 
 
 function updateFileList() {
-    fetch('/api', {
-        method: 'LIST',
+    fetch('/api/files', {
+        method: 'GET',
     })
         .then(response => response.json())
         .then(data => {

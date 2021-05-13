@@ -5,7 +5,6 @@ import random
 
 from flask import Blueprint, Flask
 from flask.wrappers import Response
-from werkzeug.test import EnvironBuilder
 
 from loft.config import Config, DebugConfig
 from loft.util.id_map import IdMap
@@ -35,7 +34,7 @@ def test_post():
         dest = config.DOWNLOADS_FOLDER / 'test.txt'
         assert not dest.exists()
 
-        response: Response = c.post('/api', data={
+        response: Response = c.post('/api/files', data={
             'upload': (BytesIO('lorum ipsum dolor sit amet'.encode('utf8')), 'test.txt')
         })
         assert response.status_code == 200
@@ -58,7 +57,7 @@ def test_post_duplicate_filename():
         dest = config.DOWNLOADS_FOLDER / 'test_1.txt'
         assert not dest.exists()
 
-        response: Response = c.post('/api', data={
+        response: Response = c.post('/api/files', data={
             'upload': (BytesIO('lorum ipsum dolor sit amet'.encode('utf8')), 'test.txt')
         })
         assert response.status_code == 200
@@ -78,7 +77,7 @@ def test_post_empty_filename():
         dest = config.DOWNLOADS_FOLDER / 'Untitled'
         assert not dest.exists()
 
-        response: Response = c.post('/api', data={
+        response: Response = c.post('/api/files', data={
             'upload': (BytesIO('lorum ipsum dolor sit amet'.encode('utf8')), '')
         })
         assert response.status_code == 200
@@ -97,7 +96,7 @@ def test_list():
     i.add(Path('parent/bar.ext2'))
 
     with client(config, api(i)) as c:
-        response = c.open('/api', method='LIST')
+        response = c.get('/api/files')
         data = response.get_json()
         assert 'available' in data
         assert len(data['available']) == 2
@@ -110,7 +109,7 @@ def test_list_empty():
     i = IdMap()
 
     with client(config, api(i)) as c:
-        response = c.open('/api', method='LIST')
+        response = c.get('/api/files')
         data = response.get_json()
         assert 'available' in data
         assert len(data['available']) == 0
@@ -128,26 +127,17 @@ def test_get():
         assert i.add(path) == 0
 
         with client(config, api(i)) as c:
-            l_r: Response = c.open('/api', method='LIST')
+            l_r: Response = c.get('/api/files')
             l_data = l_r.get_json()
             assert 'available' in l_data
             assert len(l_data['available']) == 1
             assert l_data['available']['0'] == path.name
 
-            response: Response = c.get('/api?id=0')
+            response: Response = c.get('/api/files/0')
 
             assert response.status_code == 200
             f.seek(0)
             assert response.get_data(as_text=True) == f.read()
-
-
-def test_get_bad_request():
-    config = DebugConfig()
-    i = IdMap()
-
-    with client(config, api(i)) as c:
-        response: Response = c.get('/api')
-        assert response.status_code == 400
 
 
 def test_get_empty():
@@ -155,5 +145,5 @@ def test_get_empty():
     i = IdMap()
 
     with client(config, api(i)) as c:
-        response: Response = c.get('/api?id=0')
+        response: Response = c.get('/api/files/0')
         assert response.status_code == 404

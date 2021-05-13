@@ -1,4 +1,5 @@
 
+from pathlib import Path
 import sys
 
 from PyQt5.QtWidgets import *
@@ -33,8 +34,8 @@ class Gui:
         '''Open up the file dialog to select files to send.'''
         file_, _ = QFileDialog.getOpenFileName(parent, 'Select File to Send',
                                                str(self.server.config.DOCUMENTS_FOLDER))
-        self.server.add_sends(file_)
+        self.server.add_sends(Path(file_))
 
         # files, _ = QFileDialog.getOpenFileNames(parent, 'Select Files to Send',
         #                                         str(self.server.config.DOCUMENTS_FOLDER))
-        # self.server.add_sends(files)
+        # self.server.add_sends(Path(files))

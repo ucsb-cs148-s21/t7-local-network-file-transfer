@@ -17,7 +17,7 @@
         <div id="upload-msg"></div>
     </section>
 
-    <form id="upload" action="/api" method="POST" enctype="multipart/form-data">
+    <form id="upload">
         <label for="file-selector" class="button button-secondary" title="Select File to Upload" tabindex=0>Select
             Files…</label>
         <input id="file-selector" type="file" name="upload" multiple />
@@ -38,7 +38,7 @@
         <div id="download-msg"></div>
     </section>
 
-    <form id="download" action="{{ url_for('api.send') }}" method="GET">
+    <form id="download">
         <label for="download-file" class="button" title="Receive File" tabindex=0>Receive File</label>
         <input id="download-file" type="submit" />
     </form>
