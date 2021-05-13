@@ -3,6 +3,10 @@
 build:
 	python3 -OO -m build
 
+build-cx-freeze:
+	python3 setup.py bdist_mac --custom-info-plist Info-highres.plist
+
+
 .PHONY: test
 	pytest
 
