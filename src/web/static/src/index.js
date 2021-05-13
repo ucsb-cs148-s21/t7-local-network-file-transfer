@@ -1,8 +1,8 @@
 let fileInput = document.querySelector('#file-selector');
 fileInput.onchange = function (e) {
     let filename = fileInput.files[0].name;
-    if (filename.length >= 8) {
-        filename = filename.slice(0, 7) + '...';
+    if (filename.length >= 24) {
+        filename = filename.slice(0, 23) + '...';
     }
     if (!document.querySelector('#selected-file-1')) {
         let newDiv = document.createElement("div");
@@ -10,7 +10,7 @@ fileInput.onchange = function (e) {
         newDiv.innerHTML = `${filename} selected.`;
         newDiv.classList.add('selected-file');
         newDiv.classList.add('bubble');
-        document.querySelector('#file-selector-div').parentNode.insertBefore(newDiv, document.querySelector('#file-selector-div').nextSibling);
+        document.querySelector('#file-selector-div').parentNode.insertBefore(newDiv, document.querySelector('#file-selector-div'));
     }
     else {
         let newDiv = document.querySelector('#selected-file');

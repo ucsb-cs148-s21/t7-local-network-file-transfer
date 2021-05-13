@@ -7,13 +7,20 @@
     --color-bg: white;
     --color-base: var(--color-blue-1);
     --color-primary-fg: var(--color-base);
-    --color-primary-bg: var(--color-blue-3);
+    --color-primary-bg: var(--color-green-3);
     --color-secondary-fg: var(--color-base);
-    --color-secondary-bg: var(--color-gray-3);
+    --color-secondary-bg: var(--color-blue-3);
+    --color-tertiary-fg: var(--color-base);
+    --color-tertiary-bg: var(--color-gray-3);
+
     --color-accent-fg: var(--color-base);
-    --color-accent-bg: var(--color-green-3);
-    --color-accent-active: var(--color-green-45);
-    --color-secondary-active: var(--color-gray-45);
+    --color-accent-bg: var(--color-green-45);
+    --color-accent-active: var(--color-purple-3);
+
+    --color-secondary-accent-fg: var(--color-base);
+    --color-secondary-accent-bg: var(--color-blue-45);
+    --color-secondary-accent-active: var(--color-purple-3);
+
     --color-success-fg: var(--color-green-3);
     --color-success-bg: var(--color-base);
     --color-error-fg: var(--color-red-3);
@@ -96,12 +103,12 @@ h1 {
 }
 
 .button-secondary:hover, .button-secondary:focus {
-    color: var(--color-secondary-fg);
-    background-color: var(--color-secondary-active);
+    color: var(--color-secondary-accent-fg);
+    background-color: var(--color-secondary-accent-bg);
 }
 
 .button-secondary:active {
-    background-color: var(--color-accent-bg);
+    background-color: var(--color-secondary-accent-active);
 }
 
 .content {
@@ -153,8 +160,8 @@ h1 {
     text-align: center;
     text-decoration: none;
 
-    color: var(--color-primary-fg);
-    background-color: var(--color-primary-bg);
+    color: var(--color-tertiary-fg);
+    background-color: var(--color-tertiary-bg);
     border: none;
     border-radius: 4px;
 }
