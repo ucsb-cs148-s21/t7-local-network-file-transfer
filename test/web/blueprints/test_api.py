@@ -1,10 +1,11 @@
 
-from io import FileIO
+from io import BytesIO
 from pathlib import Path
 import random
 
 from flask import Blueprint, Flask
 from flask.wrappers import Response
+from werkzeug.test import EnvironBuilder
 
 from loft.config import Config, DebugConfig
 from loft.util.id_map import IdMap
@@ -24,6 +25,69 @@ def client(config: Config, api: Blueprint):
     flask.config.from_object(config)
     flask.register_blueprint(api)
     return flask.test_client()
+
+
+def test_post():
+    config = DebugConfig()
+    i = IdMap()
+
+    with client(config, api(i)) as c:
+        dest = config.DOWNLOADS_FOLDER / 'test.txt'
+        assert not dest.exists()
+
+        response: Response = c.post('/api', data={
+            'upload': (BytesIO('lorum ipsum dolor sit amet'.encode('utf8')), 'test.txt')
+        })
+        assert response.status_code == 200
+
+        assert dest.exists()
+        with open(dest, 'r') as f:
+            assert f.read() == 'lorum ipsum dolor sit amet'
+
+        dest.unlink()
+
+
+def test_post_duplicate_filename():
+    config = DebugConfig()
+    i = IdMap()
+
+    with client(config, api(i)) as c:
+        with (config.DOWNLOADS_FOLDER / 'test.txt').open('w') as f:
+            f.write('hello')
+
+        dest = config.DOWNLOADS_FOLDER / 'test_1.txt'
+        assert not dest.exists()
+
+        response: Response = c.post('/api', data={
+            'upload': (BytesIO('lorum ipsum dolor sit amet'.encode('utf8')), 'test.txt')
+        })
+        assert response.status_code == 200
+
+        assert dest.exists()
+        with open(dest, 'r') as f:
+            assert f.read() == 'lorum ipsum dolor sit amet'
+
+        dest.unlink()
+
+
+def test_post_empty_filename():
+    config = DebugConfig()
+    i = IdMap()
+
+    with client(config, api(i)) as c:
+        dest = config.DOWNLOADS_FOLDER / 'Untitled'
+        assert not dest.exists()
+
+        response: Response = c.post('/api', data={
+            'upload': (BytesIO('lorum ipsum dolor sit amet'.encode('utf8')), '')
+        })
+        assert response.status_code == 200
+
+        assert dest.exists()
+        with open(dest, 'r') as f:
+            assert f.read() == 'lorum ipsum dolor sit amet'
+
+        dest.unlink()
 
 
 def test_list():
