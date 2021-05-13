@@ -1,7 +1,7 @@
 
 import os
 from pathlib import Path
-import tempfile
+import shutil
 
 
 class Config:
@@ -10,6 +10,11 @@ class Config:
 
     Any values that need to be exposed through Flask MUST be in `UPPERCASE`.
     '''
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.DOWNLOADS_FOLDER.mkdir(parents=True, exist_ok=True)
+        self.DOCUMENTS_FOLDER.mkdir(parents=True, exist_ok=True)
 
     # Flask Configuration
 
@@ -34,22 +39,16 @@ class Config:
     config_filepath: str = 'LOFT_CONFIG'
 
 
-class TestingConfig(Config):
+class DebugConfig(Config):
     '''Configuration for testing.'''
     TESTING: bool = True
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.downloads_ctx = tempfile.TemporaryDirectory()
-        self.documents_ctx = tempfile.TemporaryDirectory()
+    DOWNLOADS_FOLDER: Path = Path('test', 'artifacts', 'downloads')
+    DOCUMENTS_FOLDER: Path = Path('test', 'artifacts', 'documents')
 
-    @property
-    def DOWNLOADS_FOLDER(self) -> Path:
-        return Path(self.downloads_ctx.name)
-
-    @property
-    def DOCUMENTS_FOLDER(self) -> Path:
-        return Path(self.documents_ctx.name)
+    def __del__(self):
+        shutil.rmtree(self.DOWNLOADS_FOLDER, ignore_errors=True)
+        shutil.rmtree(self.DOCUMENTS_FOLDER, ignore_errors=True)
 
 
 class LocalConfig(Config):

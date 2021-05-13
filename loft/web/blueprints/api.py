@@ -23,7 +23,7 @@ from loft.util.file import save
 from loft.util.id_map import IdMap
 
 
-def api(available: IdMap):
+def api(available: IdMap[Path]):
     '''Handles upload and download requests.'''
     api = Blueprint('api', __name__)
 

@@ -10,9 +10,6 @@ def main():
 
     config = Config()
 
-    config.DOWNLOADS_FOLDER.mkdir(parents=True, exist_ok=True)
-    config.DOCUMENTS_FOLDER.mkdir(parents=True, exist_ok=True)
-
     gui = Gui(config)
     gui.run_and_exit()
 
