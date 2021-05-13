@@ -15,6 +15,7 @@ Available Operations
   ``available`` field of the response object.
 '''
 import os
+from pathlib import Path
 
 from flask import abort, Blueprint, current_app, flash, jsonify, request, send_from_directory
 
@@ -54,10 +55,10 @@ def api(available: IdMap):
         if not available.contains(file_id):
             abort(404, description='Invalid file ID {}.'.format(file_id))
 
-        file_path = available.get(file_id)
+        file_path: Path = available.get(file_id)
         assert file_path
-        dirname = os.path.dirname(file_path)
-        basename = os.path.basename(file_path)
+        dirname: Path = file_path.parent
+        basename: Path = file_path.name
 
         try:
             return send_from_directory(dirname, basename, as_attachment=True, cache_timeout=0), 200
@@ -67,6 +68,6 @@ def api(available: IdMap):
     @api.route('/api', methods=['LIST'])
     def inspect():
         '''Inspect what files are currently available.'''
-        return jsonify(available={k: os.path.basename(v) for k, v in available.items()})
+        return jsonify(available={k: v.name for k, v in available.items()})
 
     return api

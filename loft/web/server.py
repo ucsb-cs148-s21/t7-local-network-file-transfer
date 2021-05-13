@@ -1,4 +1,5 @@
 
+from pathlib import Path
 from threading import Thread
 
 from flask import Flask, render_template
@@ -29,7 +30,7 @@ class Server:
             config.HOST, config.PORT, self.flask), daemon=True)
 
         # A dictionary of the available files for download.
-        self.available: IdMap[str] = IdMap()
+        self.available: IdMap[Path] = IdMap()
 
         self.flask.register_error_handler(
             404, lambda err: (render_template('404.html'), str(err)))
@@ -40,7 +41,7 @@ class Server:
         if not self.thread.is_alive():
             self.thread.start()
 
-    def add_sends(self, path: str):
+    def add_sends(self, path: Path):
         '''Add a single file to send.'''
         self.available.add(path)
 

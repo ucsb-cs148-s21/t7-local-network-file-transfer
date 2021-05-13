@@ -9,19 +9,6 @@ from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 
 
-# The home directory, for convenience.
-HOME: str = os.path.expanduser('~')
-
-
-def home_slash(path: typing.List[str]) -> str:
-    '''Formats a group of paths underneath the home directory.'''
-    out = HOME
-    if path:
-        out += os.sep + os.sep.join(path)
-
-    return out
-
-
 def split_filename(path: str) -> typing.Tuple[str, str]:
     '''Returns the filename and extensions of a path.'''
     path = Path(path)
@@ -52,21 +39,21 @@ def dup_name(name: str, duplicates: int):
     return '{}_{}{}'.format(name, duplicates, ext)
 
 
-def save(file: FileStorage, dest: str):
+def save(file: FileStorage, dest: Path):
     '''Save a file, renaming if duplicates are found.'''
     duplicates = 0
 
-    destpath = os.path.join(dest, dup_name(
-        file.filename or 'Untitled', duplicates))
+    destpath: Path = dest / \
+        secure_filename(dup_name(file.filename or 'Untitled', duplicates))
     while os.path.exists(destpath):
         duplicates += 1
-        destpath = os.path.join(dest, secure_filename(
-            dup_name(file.filename or 'Untitled', duplicates)))
+        destpath: Path = dest / \
+            secure_filename(dup_name(file.filename or 'Untitled', duplicates))
 
     file.save(destpath)
 
 
-def open_(path: str):
+def open_(path: Path):
     '''Open the given path using the appropriate native application.'''
     if sys.platform == 'win32':
         os.startfile(path)

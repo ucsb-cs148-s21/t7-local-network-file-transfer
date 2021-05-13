@@ -1,8 +1,7 @@
 
 import os
+from pathlib import Path
 import tempfile
-
-from loft.util.file import HOME, home_slash
 
 
 class Config:
@@ -23,11 +22,11 @@ class Config:
     APP_NAME: str = 'loft'
 
     # Folder where files uploaded on the web client are downloaded to.
-    DOWNLOADS_FOLDER: str = home_slash(['Downloads'])
+    DOWNLOADS_FOLDER: Path = Path(Path.home(), 'Downloads')
 
     # Folder where we search for files to send.
-    DOCUMENTS_FOLDER: str = home_slash(
-        ['Documents']) if os.name == 'nt' else HOME
+    DOCUMENTS_FOLDER: Path = Path(Path.home(),
+                                  'Documents' if os.name == 'nt' else '')
 
     # Loft Environment Variables
 
@@ -45,12 +44,12 @@ class TestingConfig(Config):
         self.documents_ctx = tempfile.TemporaryDirectory()
 
     @property
-    def DOWNLOADS_FOLDER(self) -> str:
-        return self.downloads_ctx.name
+    def DOWNLOADS_FOLDER(self) -> Path:
+        return Path(self.downloads_ctx.name)
 
     @property
-    def DOCUMENTS_FOLDER(self) -> str:
-        return self.documents_ctx.name
+    def DOCUMENTS_FOLDER(self) -> Path:
+        return Path(self.documents_ctx.name)
 
 
 class LocalConfig(Config):
