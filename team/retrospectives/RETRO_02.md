@@ -19,5 +19,4 @@ Team:
 - Next retro leader should try to help the team point out things that don't work, as the stop column is very short.
 
 ## Retro Outcome ##
-
-> **TODO**
+Multiple kanban boards are functioning well, goals are all set and completed nicely, overall experiments went well.
