@@ -1,2 +1,2 @@
 
-from .gui import Gui
+from loft.ui.gui import Gui

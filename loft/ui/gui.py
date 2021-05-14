@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import *
 
 from loft.config import Config
 from loft.web import Server
-from .widgets import create_main_window
+from loft.ui.widgets import create_main_window
 
 
 class Gui:

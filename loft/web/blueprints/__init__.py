@@ -1,3 +1,3 @@
 
-from .api import api
-from .landing import landing
+from loft.web.blueprints.api import api
+from loft.web.blueprints.landing import landing

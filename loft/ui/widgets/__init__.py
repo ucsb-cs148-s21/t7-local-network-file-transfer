@@ -1,2 +1,2 @@
 
-from .main_window import *
+from loft.ui.widgets.main_window import *

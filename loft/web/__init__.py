@@ -1,2 +1,2 @@
 
-from .server import Server
+from loft.web.server import Server
