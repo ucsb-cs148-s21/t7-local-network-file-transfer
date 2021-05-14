@@ -14,6 +14,8 @@
     --color-accent-bg: var(--color-green-3);
     --color-accent-active: var(--color-green-45);
     --color-secondary-active: var(--color-gray-45);
+    --color-success-fg: var(--color-green-3);
+    --color-success-bg: var(--color-base);
     --color-error-fg: var(--color-red-3);
     --color-error-bg: var(--color-base);
 
@@ -107,11 +109,18 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
+.error, .success {
+    border-radius: 4px;
+}
+
 .error {
     color: var(--color-error-fg);
     background-color: var(--color-error-bg);
+}
 
-    border-radius: 4px;
+.success {
+    color: var(--color-success-fg);
+    background-color: var(--color-success-bg);
 }
 
 .messages div {

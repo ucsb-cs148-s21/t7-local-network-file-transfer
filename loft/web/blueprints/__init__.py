@@ -1,2 +1,3 @@
 
-from loft.web.blueprints.landing import create_blueprint
+from .api import api
+from .landing import landing
