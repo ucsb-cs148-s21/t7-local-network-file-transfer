@@ -1,5 +1,7 @@
 # LOFT Architecture
 
+- Router
+  - Connects everything together
 - Flask web server (Locally Hosted)
   - Serves the client webpage
   - API interfaces with the Host machine's file system for sending to the client and downloading files received by client.
