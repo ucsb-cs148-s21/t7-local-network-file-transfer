@@ -16,14 +16,14 @@ Building your Loft can be challenging if you’ve never built one before, but it
   ```shell
   $ # on Linux or macOS
   $ cd ~/Desktop
-  $ git clone https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git
+  $ git clone 'https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git'
   $ cd t7-local-network-file-transfer
   ```
   
   ```powershell
   > # in Windows PowerShell
   > Set-Location $home\Desktop
-  > git clone https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git
+  > git clone 'https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git'
   > Set-Location t7-local-network-file-transfer
   ```
 2. Set up and activate a Python virtual environment (recommended).
@@ -34,7 +34,7 @@ Building your Loft can be challenging if you’ve never built one before, but it
   
   ```powershell
   > py -3 -m venv .venv
-  > .venv/Scripts/Activate.ps1
+  > .venv\Scripts\Activate.ps1
   ```
 3. Install dependencies.
   ```shell
@@ -63,4 +63,3 @@ $ rm -rf t7-local-network-file-transfer
 > Set-Location $home\Desktop
 > Remove-Item t7-local-network-file-transfer -Recurse
 ```
-
