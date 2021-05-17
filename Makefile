@@ -4,7 +4,7 @@ name := loft
 # folder where the built executable will be
 dist := dist
 
-ifeq ($(shell uname) == Darwin)
+ifeq ($(shell uname), Darwin)
 target := $(dist)/$(name).app
 else
 target := $(dist)/$(name)
