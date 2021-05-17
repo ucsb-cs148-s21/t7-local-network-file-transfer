@@ -28,6 +28,7 @@ Our app allows users to transfer files wirelessly on a local network.
 - PyQt5: Desktop Interface.
 - Flask: Web Framework and server for serving client UI.
 - Netifaces: Getting user's local ip address.
+- Pytest: Python Testing
 
 ## Installation Steps ##
 Warning: Security is not yet implemented. Anybody on the same network can access the webpage without any authentication. \
@@ -51,7 +52,7 @@ python3 -m pip install -r requirements.txt
 
 5. Run Loft
 ```
-python3 src
+python3 -m loft
 ```
 
 
@@ -97,7 +98,7 @@ python3 -m pip install -r requirements.txt
 
 5. Run Loft
 ```
-python3 src
+python3 -m loft
 ```
 
 ## Functionality (Full Instructions) ##
@@ -114,7 +115,7 @@ Linux/Mac:
 ```
 Windows:
 ```
-.venv\Scripts\activate
+.venv\Scripts\Activate
 ```
 
 ### To send a file from the Host computer to the other device (Client): ###
@@ -130,13 +131,16 @@ Windows:
 3. Click on the `Start Connection` Button.
 4. Open the shown address in the Client device's browser.
 5. Select `Select File...` and choose the file.
-6. Select `Send Selected File` 
+6. Select `Send Selected File`
 7. Back on the Host machine, select `Open Downloads` to view the directory containing the received file.
 8. Select `Done Transfering`
 
 ## Known Problems ##
 1. Selecting/Reselecting a file to send is not supported after the connection is started.
 2. There's no security
+
+## Testing ##
+1. Run `pytest` from the application directory.
 
 ## Contributing ##
 

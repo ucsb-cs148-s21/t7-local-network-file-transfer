@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Client{% endblock %}
+{% block stylesheets %}
+<link href="{{ url_for('static', filename='src/index.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+
+<section id="upload-container" class="group">
+    <section class="messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for cat, msg in messages %}
+        <div class="{{ cat }}">{{ msg }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div id="upload-msg"></div>
+    </section>
+
+    <form id="upload">
+        <label for="file-selector" class="button button-secondary" title="Select File to Upload" tabindex=0>Select
+            Files…</label>
+        <input id="file-selector" type="file" name="upload" multiple />
+        <label for="upload-file" class="button" title="Send Selected Files" tabindex=0>Send Selected Files</label>
+        <input id="upload-file" type="submit" />
+    </form>
+</section>
+
+<section id="download-container" class="group">
+    <section class="messages">
+        <div id="download-msg"></div>
+    </section>
+
+    <form id="download">
+        <label for="download-file" class="button" title="Receive File" tabindex=0>Receive File</label>
+        <input id="download-file" type="submit" />
+    </form>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='src/index.js') }}" type='module'></script>
+{% endblock %}

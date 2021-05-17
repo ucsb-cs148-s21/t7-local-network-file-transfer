@@ -17,3 +17,7 @@ Team:
 - A brief assessment of how it went: The retro went well, we were able to discuss current team issues in a constructive manner.
 - What advice would you give to the next person leading a retro
   based on what you learned today: I would suggest finding a different retro so we can try other retro templates.
+
+## Retro Outcome
+- After pointing out our flaws in communicating, we have started communicating consistantly through slack and we have our slack channel to prove this.
+- We have also begun collaborating more in zoom meetings when working on tasks.
