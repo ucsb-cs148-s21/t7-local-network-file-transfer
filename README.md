@@ -76,7 +76,7 @@ py -m pip install -r requirements.txt
 
 5. Run Loft
 ```
-py src
+py -m loft
 ```
 
 
