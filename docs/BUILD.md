@@ -12,7 +12,7 @@ Building your Loft can be challenging if you’ve never built one before, but it
 
 ## Putting it All Together ##
 
-1. Either unzip the zipped repository or clone the repository with Git. You can put them anywhere, but we’ll assume you put them on your desktop (`~/Desktop` on Linux and macOS, `C:\Users\<username>\Desktop`). If you put the repository somewhere else, change the file paths as necessary. If using Git:
+1. Either unzip the zipped repository or clone the repository with Git. You can put them anywhere, but we’ll assume you put them on your desktop (`~/Desktop` on Linux and macOS, `C:\Users\<username>\Desktop` on Windows). If you put the repository somewhere else, change the file paths as necessary. If using Git:
   ```shell
   $ # on Linux or macOS
   $ cd ~/Desktop
@@ -61,5 +61,5 @@ $ rm -rf t7-local-network-file-transfer
 
 ```powershell
 > Set-Location $home\Desktop
-> Remove-Item t7-local-network-file-transfer -Recurse
+> Remove-Item -Recurse 't7-local-network-file-transfer'
 ```
