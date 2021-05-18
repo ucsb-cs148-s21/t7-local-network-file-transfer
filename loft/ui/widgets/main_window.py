@@ -24,7 +24,7 @@ def create_main_window(title: str, gui) -> QWidget:
     start_button.toggled.connect(lambda: select_to_send.setDisabled(True))
 
     connect_msg = QLabel(text='''
-Note: Send file cannot be modified after starting.<br>
+Note: Send file cannot be modified after starting.<br />
 Please Close Loft and restart to make changes.
 <ol>
     <li>Select Send Files if sending.</li>

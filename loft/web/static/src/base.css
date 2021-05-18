@@ -7,30 +7,40 @@
     --color-bg: white;
     --color-base: var(--color-blue-1);
     --color-primary-fg: var(--color-base);
-    --color-primary-bg: var(--color-blue-3);
+    --color-primary-bg: var(--color-green-3);
     --color-secondary-fg: var(--color-base);
-    --color-secondary-bg: var(--color-gray-3);
+    --color-secondary-bg: var(--color-blue-3);
+    --color-tertiary-fg: var(--color-base);
+    --color-tertiary-bg: var(--color-gray-3);
+
     --color-accent-fg: var(--color-base);
-    --color-accent-bg: var(--color-green-3);
-    --color-accent-active: var(--color-green-45);
-    --color-secondary-active: var(--color-gray-45);
+    --color-accent-bg: var(--color-green-45);
+    --color-accent-active: var(--color-purple-3);
+
+    --color-secondary-accent-fg: var(--color-base);
+    --color-secondary-accent-bg: var(--color-blue-45);
+    --color-secondary-accent-active: var(--color-purple-3);
+
     --color-success-fg: var(--color-green-3);
     --color-success-bg: var(--color-base);
     --color-error-fg: var(--color-red-3);
     --color-error-bg: var(--color-base);
 
     --color-blue-1: #e9f4fa;
-    --color-blue-3: #6792aa;     /* 3.0 contrast ratio */
-    --color-blue-45: #557384;    /* 4.5 contrast ratio */
+    --color-blue-3: #6792aa;    /* 3.0 contrast ratio */
+    --color-blue-45: #557384;   /* 4.5 contrast ratio */
 
-    --color-red-3: #e1665f;  /* 3.0 contrast ratio */
-    --color-red-45: #c14541; /* 4.5 contrast ratio */
+    --color-red-3: #e1665f;     /* 3.0 contrast ratio */
+    --color-red-45: #c14541;    /* 4.5 contrast ratio */
 
-    --color-green-3: #309c95;     /* 3.0 contrast ratio */
-    --color-green-45: #367a75;    /* 4.5 contrast ratio */
+    --color-green-3: #309c95;   /* 3.0 contrast ratio */
+    --color-green-45: #367a75;  /* 4.5 contrast ratio */
 
-    --color-gray-3: #8d8c8c;   /* 3.0 contrast ratio */
-    --color-gray-45: #6f6f6f;  /* 4.5 contrast ratio */
+    --color-gray-3: #8d8c8c;    /* 3.0 contrast ratio */
+    --color-gray-45: #6f6f6f;   /* 4.5 contrast ratio */
+
+    --color-purple-3: #b374ca;  /* 3.0 contrast ratio */
+    --color-purple-45: #a83ccb; /* 4.5 contrast ratio */
 }
 
 html {
@@ -52,7 +62,7 @@ h1 {
     background-color: var(--color-error-bg);
 }
 
-.button, .flash {
+.button, .bubble, .flash {
     width: 100%;
     margin: .25em;
     padding: .5em 1em;
@@ -93,12 +103,12 @@ h1 {
 }
 
 .button-secondary:hover, .button-secondary:focus {
-    color: var(--color-secondary-fg);
-    background-color: var(--color-secondary-active);
+    color: var(--color-secondary-accent-fg);
+    background-color: var(--color-secondary-accent-bg);
 }
 
 .button-secondary:active {
-    background-color: var(--color-accent-bg);
+    background-color: var(--color-secondary-accent-active);
 }
 
 .content {
@@ -116,6 +126,11 @@ h1 {
 .error {
     color: var(--color-error-fg);
     background-color: var(--color-error-bg);
+}
+
+.success {
+    color: var(--color-success-fg);
+    background-color: var(--color-success-bg);
 }
 
 .success {
@@ -145,4 +160,15 @@ h1 {
     .group {
         width: 24em;
     }
+}
+
+.selected-file {
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    color: var(--color-tertiary-fg);
+    background-color: var(--color-tertiary-bg);
+    border: none;
+    border-radius: 4px;
 }
