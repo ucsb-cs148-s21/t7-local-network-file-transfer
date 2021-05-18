@@ -10,6 +10,21 @@ Do you want to build your own Loft? Get started here!
 ## Gathering the Materials ##
 Building your Loft can be challenging if you’ve never built one before, but it’s super rewarding to have a place to send your stuff! In order to build your Loft, you’ll need [Python 3.9](https://www.python.org). Install Python on your computer and download this repository. You can either download the repository as a `.zip` file or use [Git](https://git-scm.com).
 
+### The Nuts and Bolts ###
+Loft depends on:
+- `Flask`
+- `netifaces`
+- `pyinstaller`
+- `Werkzeug`
+
+#### For Security Screws ####
+On macOS, you'll need `cx-Freeze` instead of `pyinstaller`.
+
+### Hammers and Jackhammers ###
+For development, your Loft will need:
+- `autopep8`
+- `pytest`
+
 ## Putting it All Together ##
 
 1. Either unzip the zipped repository or clone the repository with Git. You can put them anywhere, but we’ll assume you put them on your desktop (`~/Desktop` on Linux and macOS, `C:\Users\<username>\Desktop` on Windows). If you put the repository somewhere else, change the file paths as necessary. If using Git:
