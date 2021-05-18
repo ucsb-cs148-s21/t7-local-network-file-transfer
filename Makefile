@@ -1,9 +1,27 @@
 
+# the name of the application
+name := loft
+# folder where the built executable will be
+dist := dist
+
+ifeq ($(shell uname), Darwin)
+target := $(dist)/$(name).app
+else
+target := $(dist)/$(name)
+endif
+
 .PHONY: build
-build:
+build: $(target)
+
+$(dist)/$(name):
 	python3 -OO -m build
 
+$(dist)/$(name).app:
+	python3 setup.py bdist_mac --custom-info-plist Info-highres.plist
+
+
 .PHONY: test
+test:
 	pytest
 
 .PHONY: clean
