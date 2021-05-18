@@ -15,6 +15,7 @@ Loft depends on:
 - `Flask`
 - `netifaces`
 - `pyinstaller`
+- `PyQt5`
 - `Werkzeug`
 
 #### For Security Screws ####
