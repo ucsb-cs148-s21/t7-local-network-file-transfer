@@ -1,16 +1,12 @@
 # LOFT: LOcal File Transfer #
-It's not the cloud. It's closer to you. It's your loft.
+> It's not the cloud. It's closer to you. It's your loft.
 
-## Description ##
-Our app allows users to transfer files wirelessly on a local network.
+Loft makes moving files _easy_, without using the Internet! Anyone who just needs a simple solution to moving files between two devices on the same network can use Loft.
 
-## Tech Stack ##
-- Backend: Python/Flask
-- Frontend: HTML/JS, Qt
-
-## User Roles ##
-- Those looking to send files from a computer to another device connected to the same router.
-- Those looking to receive files to their computer from another device connected to the same router.
+## Table of Contents ##
+- [User Manual](docs/MANUAL.md)
+- [Build Instructions](docs/BUILD.md)
+- [Design](docs/DOCS.md)
 
 # Installation #
 
