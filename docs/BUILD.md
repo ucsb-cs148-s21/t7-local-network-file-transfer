@@ -8,7 +8,9 @@ Do you want to build your own Loft? Get started here!
 - [Building](#putting-it-all-together)
 
 ## Gathering the Materials ##
-Building your Loft can be challenging if you’ve never built one before, but it’s super rewarding to have a place to send your stuff! In order to build your Loft, you’ll need [Python 3.9](https://www.python.org). Install Python on your computer and download this repository. You can either download the repository as a `.zip` file or use [Git](https://git-scm.com).
+Building your Loft can be challenging if you’ve never built one before, but it’s super rewarding to have a place to send your stuff! In order to build your Loft, you’ll need [Python 3.9](https://www.python.org). On Windows, you’ll also need the [C++ Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019). Install Python on your computer and download this repository. You can either download the repository as a `.zip` file or use [Git](https://git-scm.com).
+
+> By default, Loft uses port `2402` on your computer in order to connect. If that port is not available, set the key `PORT` in `loft/config.py` to an available port before building.
 
 ### The Nuts and Bolts ###
 Loft depends on:
@@ -18,7 +20,7 @@ Loft depends on:
 - `PyQt5`
 - `Werkzeug`
 
-#### For Security Screws ####
+#### Allen Wrenches ####
 On macOS, you'll need `cx-Freeze` instead of `pyinstaller`.
 
 ### Hammers and Jackhammers ###
