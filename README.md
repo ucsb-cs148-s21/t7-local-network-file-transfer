@@ -10,6 +10,12 @@ Loft makes moving files _easy_, without using the Internet! Anyone who just need
 
 ## Repository Structure ##
 - `loft/` Source files and assets.
+  - `loft/ui` Native UI.
+    - `loft/ui/widgets` Qt widget factories.
+  - `loft/web` Web UI.
+    - `loft/web/blueprints` API and template rendering.
+    - `loft/web/templates` Flask templates for Web UI.
+    - `loft/web/static` Static resources for Web UI.
 - `test/` Tests.
 - `docs/` Documentation.
 - `team/` Agile development notes.
@@ -21,7 +27,7 @@ Loft is built using Flask and Werkzeug to provide file transfer, and PyQt5 to re
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
-4. Commit your changes: `git commit -am 'Add some feature'`
+4. Commit your changes: `git commit -am 'Add my new feature'`
 5. Push to the branch: `git push origin my-new-feature`
 6. Submit a pull request :D
 
