@@ -1,7 +1,8 @@
 
-import os
 from pathlib import Path
 import shutil
+
+from loft.util.file import get_downloads, get_documents
 
 
 class Config:
@@ -27,11 +28,10 @@ class Config:
     APP_NAME: str = 'loft'
 
     # Folder where files uploaded on the web client are downloaded to.
-    DOWNLOADS_FOLDER: Path = Path(Path.home(), 'Downloads')
+    DOWNLOADS_FOLDER: Path = get_downloads()
 
     # Folder where we search for files to send.
-    DOCUMENTS_FOLDER: Path = Path(Path.home(),
-                                  'Documents' if os.name == 'nt' else '')
+    DOCUMENTS_FOLDER: Path = get_documents()
 
     # Loft Environment Variables
 
@@ -43,8 +43,8 @@ class DebugConfig(Config):
     '''Configuration for testing.'''
     TESTING: bool = True
 
-    DOWNLOADS_FOLDER: Path = Path('test', 'artifacts', 'downloads').resolve()
-    DOCUMENTS_FOLDER: Path = Path('test', 'artifacts', 'documents').resolve()
+    DOWNLOADS_FOLDER: Path = Path('test', 'artifacts.tmp', 'downloads').resolve()
+    DOCUMENTS_FOLDER: Path = Path('test', 'artifacts.tmp', 'documents').resolve()
 
     def __del__(self):
         shutil.rmtree(self.DOWNLOADS_FOLDER, ignore_errors=True)

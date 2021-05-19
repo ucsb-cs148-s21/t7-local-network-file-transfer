@@ -7,6 +7,22 @@ from pathlib import Path
 
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
+from PyQt5.QtCore import QStandardPaths
+
+
+def get_downloads() -> Path:
+    '''Returns a path to the system downloads folder.'''
+    return Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DownloadLocation))
+
+
+def get_documents() -> Path:
+    '''Returns a path to the system documents folder.'''
+    return Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.DocumentsLocation))
+
+
+def get_data() -> Path:
+    '''Returns a path to the application data folder.'''
+    return Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppLocalDataLocation))
 
 
 def split_filename(path: str) -> typing.Tuple[str, str]:
