@@ -22,7 +22,9 @@ def get_documents() -> Path:
 
 def get_data() -> Path:
     '''Returns a path to the application data folder.'''
-    return Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppLocalDataLocation))
+    path = Path(QStandardPaths.writableLocation(QStandardPaths.StandardLocation.AppLocalDataLocation), 'Loft')
+    path.resolve().mkdir(parents=True, exist_ok=True)
+    return path
 
 
 def split_filename(path: str) -> typing.Tuple[str, str]:
