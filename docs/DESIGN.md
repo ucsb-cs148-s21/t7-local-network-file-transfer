@@ -11,4 +11,4 @@
   - Interfaces with the Client's file system for downloading and uploading
 
 
-![design](https://user-images.githubusercontent.com/59618726/118883286-e7085980-b8a9-11eb-9dea-a1dc3c61359d.png)
+![design](https://user-images.githubusercontent.com/59618726/118883835-90e7e600-b8aa-11eb-9788-b7480f4c348c.png)
