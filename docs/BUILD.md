@@ -43,7 +43,7 @@ For development, your Loft will need:
     > git clone 'https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git'
     > Set-Location t7-local-network-file-transfer
     ```
-2. Set up and activate a Python virtual environment (recommended).
+2. Set up and activate a Python virtual environment.
     ```shell
     $ python3 -m venv .venv
     $ source .venv/bin/activate
@@ -55,11 +55,11 @@ For development, your Loft will need:
     ```
 3. Install dependencies.
     ```shell
-    $ python3 -m pip install -r requirements.txt
+    $ pip install -r requirements.txt
     ```
 
     ```powershell
-    > py -3 -m pip install -r requirements.txt
+    > pip install -r requirements.txt
     ```
 4. Build your Loft!
     ```shell
