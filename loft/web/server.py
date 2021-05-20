@@ -43,6 +43,7 @@ class Server:
 
     def add_sends(self, path: Path):
         '''Add a single file to send.'''
+        self.available.remove(0)
         self.available.add(path)
 
     # def add_sends(self, paths: typing.List[str]):

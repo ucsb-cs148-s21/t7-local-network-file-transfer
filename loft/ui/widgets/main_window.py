@@ -1,4 +1,5 @@
 
+from loft.util.file import open_
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
 
@@ -21,7 +22,7 @@ def create_main_window(title: str, gui) -> QWidget:
     start_button.setCheckable(True)
     start_button.toggled.connect(gui.server.run)
     start_button.toggled.connect(lambda: start_button.setDisabled(True))
-    start_button.toggled.connect(lambda: select_to_send.setDisabled(True))
+    # start_button.toggled.connect(lambda: select_to_send.setDisabled(True))
 
     connect_msg = QLabel(text='''
 Note: Send file cannot be modified after starting.<br />
@@ -39,9 +40,15 @@ Please Close Loft and restart to make changes.
 
     open_received = QPushButton(text='Open Downloads')
     open_received.clicked.connect(gui.server.open_downloads)
-    select_to_send = QPushButton(text='Send Files…')
-
-    select_to_send.clicked.connect(lambda: gui.send_file_dialog(window))
+    
+    display_selected_file = QLabel("Sending File: ")
+    def select_to_send_func():
+        file_name = gui.send_file_dialog(window)
+        display_selected_file.clear()
+        display_selected_file.setText("Sending File: \n" + file_name)
+    
+    select_to_send = QPushButton(text='Send File…')
+    select_to_send.clicked.connect(select_to_send_func)
 
     full_instr = QLabel(
         '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/usage.md>Full Instructions</a>')
@@ -49,15 +56,18 @@ Please Close Loft and restart to make changes.
         QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
     full_instr.setOpenExternalLinks(True)
 
+
     layout.addWidget(connect_msg, 0, 0, 1, 2)
-    layout.addWidget(select_to_send, 1, 0, 1, 1)
-    layout.addWidget(open_received, 1, 1, 1, 1)
-    layout.addWidget(start_button, 2, 0, 1, 2)
-    layout.addWidget(done_button, 3, 0, 1, 2)
+    layout.addWidget(start_button, 1, 0, 1, 2)
+    layout.addWidget(select_to_send, 2, 0, 1, 1)
+    layout.addWidget(open_received, 2, 1, 1, 1)
+    layout.addWidget(display_selected_file, 3, 0, 1, 1)
+    layout.addWidget(done_button, 4, 0, 1, 2)
     layout.addWidget(full_instr)
 
+    window.setTabOrder(start_button, select_to_send)
     window.setTabOrder(select_to_send, open_received)
-    window.setTabOrder(open_received, start_button)
-    window.setTabOrder(start_button, done_button)
+    window.setTabOrder(open_received, done_button)
     window.setTabOrder(done_button, full_instr)
+
     return window

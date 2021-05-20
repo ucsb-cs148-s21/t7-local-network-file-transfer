@@ -18,7 +18,7 @@ class IdMap(typing.Generic[T]):
         '''
         val_id = self.next_id
         self.contents[val_id] = val
-        self.next_id += 1
+        # self.next_id += 1
         return val_id
 
     def get(self, val_id: int) -> T:

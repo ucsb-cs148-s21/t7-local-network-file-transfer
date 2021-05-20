@@ -35,6 +35,7 @@ class Gui:
         file_, _ = QFileDialog.getOpenFileName(parent, 'Select File to Send',
                                                str(self.server.config.DOCUMENTS_FOLDER))
         self.server.add_sends(Path(file_))
+        return Path(file_).name
 
         # files, _ = QFileDialog.getOpenFileNames(parent, 'Select Files to Send',
         #                                         str(self.server.config.DOCUMENTS_FOLDER))
