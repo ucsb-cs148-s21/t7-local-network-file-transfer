@@ -27,7 +27,7 @@ class Server:
             pass
 
         self.thread: Thread = Thread(target=lambda: run_simple(
-            config.HOST, config.PORT, self.flask), daemon=True)
+            config.HOST, config.PORT, self.flask, threaded=True), daemon=True)
 
         # A dictionary of the available files for download.
         self.available: IdMap[Path] = IdMap()
