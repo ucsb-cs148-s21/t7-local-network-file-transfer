@@ -26,27 +26,31 @@ const existing = new Set();
 
 /** @type {HTMLFieldSetElement} */
 const fileList = download.querySelector('fieldset#available');
-export async function updateFileList() {
-    /** @type {Map<number, string>?} */
-    const available = await list(downloadFailureCallback);
-    if (available === null) return;
+export function updateFileList() {
+    list(downloadFailureCallback).then(available => {
+        if (available === null) return;
 
-    /** @type {NodeListOf<HTMLElement>} */
-    const listings = fileList.querySelectorAll('.download-listing-container');
-    for (const listing of listings) {
-        // clear existing entries no longer available
-        if (!available.has(+listing.dataset.fileId)) {
-            fileList.removeChild(listing);
-            existing.delete(+listing.dataset.fileId);
+        /** @type {NodeListOf<HTMLElement>} */
+        const listings = fileList.querySelectorAll('.download-listing-container');
+        for (const listing of listings) {
+            // clear existing entries no longer available
+            if (!available.has(+listing.dataset.fileId)) {
+                fileList.removeChild(listing);
+                existing.delete(+listing.dataset.fileId);
+            }
         }
-    }
 
-    for (const [id, name] of available) {
-        if (!existing.has(id)) {
-            fileList.append(generateListing(name, id));
-            existing.add(id);
+        for (const [id, name] of available) {
+            if (!existing.has(id)) {
+                fileList.append(generateListing(name, id));
+                existing.add(id);
+            }
         }
-    }
+    }).catch(err => {
+        if (err instanceof NetworkError) {
+            // TODO: disable the UI when the other side isn't present
+        }
+    });
 }
 
 
