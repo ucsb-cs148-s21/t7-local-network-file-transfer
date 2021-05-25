@@ -38,9 +38,6 @@ class Config:
     # location of user config file
     config_filepath: str = 'LOFT_CONFIG'
 
-    # name of file being sent from host to client
-
-
 
 class DebugConfig(Config):
     '''Configuration for testing.'''
