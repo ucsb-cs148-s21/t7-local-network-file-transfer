@@ -1,0 +1,19 @@
+
+/* The color palette. */
+:root {
+    --color-blue-1: #e9f4fa;
+    --color-blue-3: #6792aa;    /* 3.0 contrast ratio */
+    --color-blue-45: #557384;   /* 4.5 contrast ratio */
+
+    --color-red-3: #e1665f;     /* 3.0 contrast ratio */
+    --color-red-45: #c14541;    /* 4.5 contrast ratio */
+
+    --color-green-3: #309c95;   /* 3.0 contrast ratio */
+    --color-green-45: #367a75;  /* 4.5 contrast ratio */
+
+    --color-gray-3: #8d8c8c;    /* 3.0 contrast ratio */
+    --color-gray-45: #6f6f6f;   /* 4.5 contrast ratio */
+
+    --color-purple-3: #b374ca;  /* 3.0 contrast ratio */
+    --color-purple-45: #a83ccb; /* 4.5 contrast ratio */
+}

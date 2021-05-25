@@ -1,0 +1,51 @@
+
+@import './variables.css';
+
+.button, .bubble, .flash {
+    width: 100%;
+    margin: .25em;
+    padding: .5em 1em;
+    display: block;
+
+    box-sizing: border-box;
+}
+
+.button {
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    color: var(--color-primary-fg);
+    background-color: var(--color-primary-bg);
+    border: none;
+    border-radius: 4px;
+
+    transition: color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+
+.button-secondary {
+    color: var(--color-secondary-fg);
+    background-color: var(--color-secondary-bg);
+}
+
+.button:hover, .button:focus {
+    color: var(--color-accent-fg);
+    background-color: var(--color-accent-bg);
+}
+
+.button:active {
+    color: var(--color-base);
+    background-color: var(--color-accent-active);
+}
+
+.button-secondary:hover, .button-secondary:focus {
+    color: var(--color-secondary-accent-fg);
+    background-color: var(--color-secondary-accent-bg);
+}
+
+.button-secondary:active {
+    background-color: var(--color-secondary-accent-active);
+}

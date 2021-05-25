@@ -1,0 +1,13 @@
+
+@import './variables.css';
+
+.selected-file {
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    color: var(--color-tertiary-fg);
+    background-color: var(--color-tertiary-bg);
+    border: none;
+    border-radius: 4px;
+}
