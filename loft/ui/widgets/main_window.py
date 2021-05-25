@@ -46,7 +46,7 @@ Please Close Loft and restart to make changes.
 
     file_list: QGroupBox = build_file_list()
 
-    select_to_send = QPushButton(text='Send File…')
+    select_to_send = QPushButton(text='Send Files…')
     select_to_send.clicked.connect(lambda: select_file(window, file_list, gui))
 
     full_instr = QLabel(
