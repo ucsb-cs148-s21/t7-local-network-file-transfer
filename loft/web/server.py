@@ -1,5 +1,6 @@
 
 from pathlib import Path
+import typing
 from threading import Thread
 
 from flask import Flask, render_template
@@ -41,15 +42,11 @@ class Server:
         if not self.thread.is_alive():
             self.thread.start()
 
-    def add_sends(self, path: Path):
-        '''Add a single file to send.'''
-        self.available.remove(0)
-        self.available.add(path)
-
-    # def add_sends(self, paths: typing.List[str]):
-    #     '''Add files to send.'''
-    #     for path in paths:
-    #         self.available.add(path)
+    def add_sends(self, paths: typing.List[Path]):
+        '''Add files to send.'''
+        self.available.clear()
+        for path in paths:
+            self.available.add(path)
 
     def stop(self):
         '''TODO: Stop the server.'''

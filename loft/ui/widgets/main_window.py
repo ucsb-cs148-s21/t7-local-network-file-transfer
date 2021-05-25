@@ -1,8 +1,11 @@
 
-from loft.util.file import open_
+from pathlib import Path
+
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
 
+from loft.util.file import open_
+from loft.util.id_map import IdMap
 from loft.util.net import get_ip_thru_gateway as get_ip
 
 
@@ -40,15 +43,11 @@ Please Close Loft and restart to make changes.
 
     open_received = QPushButton(text='Open Downloads')
     open_received.clicked.connect(gui.server.open_downloads)
-    
-    display_selected_file = QLabel("Sending File: ")
-    def select_to_send_func():
-        file_name = gui.send_file_dialog(window)
-        display_selected_file.clear()
-        display_selected_file.setText("Sending File: \n" + file_name)
-    
+
+    file_list: QGroupBox = build_file_list()
+
     select_to_send = QPushButton(text='Send File…')
-    select_to_send.clicked.connect(select_to_send_func)
+    select_to_send.clicked.connect(lambda: select_file(window, file_list, gui))
 
     full_instr = QLabel(
         '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/usage.md>Full Instructions</a>')
@@ -56,12 +55,11 @@ Please Close Loft and restart to make changes.
         QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
     full_instr.setOpenExternalLinks(True)
 
-
     layout.addWidget(connect_msg, 0, 0, 1, 2)
     layout.addWidget(start_button, 1, 0, 1, 2)
     layout.addWidget(select_to_send, 2, 0, 1, 1)
     layout.addWidget(open_received, 2, 1, 1, 1)
-    layout.addWidget(display_selected_file, 3, 0, 1, 1)
+    layout.addWidget(file_list, 3, 0, 1, 1)
     layout.addWidget(done_button, 4, 0, 1, 2)
     layout.addWidget(full_instr)
 
@@ -71,3 +69,27 @@ Please Close Loft and restart to make changes.
     window.setTabOrder(done_button, full_instr)
 
     return window
+
+
+def build_file_list() -> QGroupBox:
+    '''Create the file list.'''
+
+    return QLabel(text='No files selected.')
+
+
+def update_file_list(file_list: QWidget, available: IdMap[Path]):
+    '''Update the given file list.'''
+    if available.size() < 1:
+        contents = 'No files selected.'
+    else:
+        contents = 'To Send:\n'
+        for _id, name in available.items():
+            contents += '\t' + name.name + '\n'
+
+    file_list.setProperty('text', contents)
+
+
+def select_file(window: QWidget, file_list: QWidget, gui):
+    '''Callback for file selection.'''
+    gui.send_file_dialog(window)
+    update_file_list(file_list, gui.server.available)

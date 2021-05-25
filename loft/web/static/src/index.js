@@ -110,18 +110,44 @@ download.addEventListener('submit', function (e) {
 });
 
 
+/** @type {HTMLFormElement} */
+const fileList = download.querySelector('#available');
 function updateFileList() {
+    console.log('updating file list');
     fetch('/api/files', {
         method: 'GET',
     })
         .then(response => response.json())
         .then(data => {
-            for (const key of Object.keys(data.available)) {
-                // const radio = document.createElement('input',)
-                // download.childNodes.push(radio);
+            /**
+             * Set of existing file IDs already listed on the UI.
+             * @type {Set<number>}
+             */
+            const existing = new Set();
+            /** @type {NodeListOf<HTMLDivElement>} */
+            const listings = fileList.querySelectorAll('.file-available');
+            for (const listing of listings) {
+                // clear existing entries no longer available
+                if (!data.available.hasOwnProperty(listing.value)) {
+                    listings.remove();
+                } else {
+                    existing.add(listing.value);
+                }
+            }
+
+            for (const fileId of Object.keys(data.available)) {
+                if (!existing.has(fileId)) {
+                    /** @type {HTMLInputElement} */
+                    const fileCheckbox = document.createElement('input');
+                    fileCheckbox.classList.add('bubble');
+                    fileCheckbox.classList.add('file-available');
+                    fileCheckbox.value = fileId;
+                    fileList.appendChild(fileCheckbox);
+                }
             }
         });
 }
 
+
 // update the file list periodically
-setInterval(updateFileList, 100_000);
+setInterval(updateFileList, 1_000);
