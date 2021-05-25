@@ -16,3 +16,12 @@
         width: 24em;
     }
 }
+
+fieldset {
+    border: 2px solid var(--color-tertiary-bg);
+    border-radius: .5rem;
+}
+
+fieldset legend {
+    color: var(--color-tertiary-bg);
+}

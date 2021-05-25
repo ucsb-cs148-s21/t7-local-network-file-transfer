@@ -34,7 +34,6 @@ export async function updateFileList() {
     /** @type {NodeListOf<HTMLElement>} */
     const listings = fileList.querySelectorAll('.download-listing-container');
     for (const listing of listings) {
-        console.log(listing)
         // clear existing entries no longer available
         if (!available.has(+listing.dataset.fileId)) {
             fileList.removeChild(listing);
@@ -79,7 +78,6 @@ function generateListing(filename, fileId) {
     checkbox.type = 'checkbox';
     checkbox.name = 'selection';
     checkbox.value = fileId;
-    checkbox.hidden = false;
 
     container.append(checkbox);
     container.append(label);

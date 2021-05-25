@@ -23,8 +23,15 @@
     --color-secondary-accent-bg: var(--color-blue-45);
     --color-secondary-accent-active: var(--color-purple-3);
 
+    --color-tertiary-accent-fg: var(--color-base);
+    --color-tertiary-accent-bg: var(--color-purple-3);
+    --color-tertiary-accent-active: var(--color-purple-45);
+    --color-tertiary-hover: var(--color-gray-45);
+
     --color-success-fg: var(--color-green-3);
     --color-success-bg: var(--color-base);
     --color-error-fg: var(--color-red-3);
     --color-error-bg: var(--color-base);
+
+    --color-focus: var(--color-blue-3);
 }
