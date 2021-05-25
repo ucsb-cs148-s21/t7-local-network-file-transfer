@@ -6,11 +6,10 @@
 }
 
 .selected-file {
-    color: var(--color-secondary-bg);
-    background-color: var(--color-secondary-fg);
+    opacity: 0.9;
 }
 
- .download-listing-container .download-listing {
+.selected-file, .download-listing-container .download-listing {
     color: var(--color-tertiary-fg);
     background-color: var(--color-tertiary-bg);
 }

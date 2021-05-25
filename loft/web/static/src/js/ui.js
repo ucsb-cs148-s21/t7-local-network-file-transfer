@@ -44,3 +44,19 @@ export function clearDisplay(which, after) {
         display.innerText = '';
     }, after);
 }
+
+/**
+ * Create a non-interactive bubble for a file.
+ * @param {string} name - file name
+ * @returns {HTMLElement}
+ */
+export function createBubble(name) {
+    if (name.length >= 24) {
+        name = name.slice(0, 23) + '…';
+    }
+
+    const bubble = document.createElement('div');
+    bubble.innerText = name;
+    bubble.classList.add('bubble');
+    return bubble;
+}

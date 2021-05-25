@@ -17,14 +17,17 @@
     </section>
 
     <form id="upload">
-        <label class="button button-secondary" title="Select File to Upload" tabindex=0>
+        <fieldset id="to-send">
+            <legend>Files Selected to Send</legend>
+        </fieldset>
+        <input id="file-selector" type="file" name="upload" tabindex=0 multiple />
+        <label for="file-selector" class="button button-secondary" title="Select File to Upload">
             Select Files…
-            <input id="file-selector" type="file" name="upload" multiple hidden />
         </label>
 
-        <label class="button" title="Send Selected Files" tabindex=0>
-            Send Selected Files
-            <input type="submit" hidden />
+        <input id="send-files" type="submit" tabindex=0 />
+        <label for="send-files" class="button" title="Send Selected Files">
+            Send Selected File(s)
         </label>
     </form>
 </section>
@@ -38,9 +41,9 @@
         <fieldset id="available">
             <legend>Files Available to Receive</legend>
         </fieldset>
-        <label class="button" title="Receive Selected Files" tabindex=0>
-            Receive File
-            <input type="submit" hidden />
+        <input id="receive-files" type="submit" tabindex=0 />
+        <label for="receive-files" class="button" title="Receive Selected Files">
+            Receive File(s)
         </label>
     </form>
 </section>

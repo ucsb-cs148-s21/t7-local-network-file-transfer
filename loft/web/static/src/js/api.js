@@ -13,7 +13,7 @@ const responseFailureNoOp = (status, text) => { };
  * Send all files from the given FormData.
  * @param {FormData} data - formdata with files to send
  * @param {ResponseFailureCallback} [onfail] - callback for failure responses
- * @returns {boolean} Whether or not the files uploaded successfully.
+ * @returns {Promise<boolean>} Whether or not the files uploaded successfully.
  */
 export async function send(data, onfail = responseFailureNoOp) {
     /** @type {Response} */
@@ -46,7 +46,7 @@ export function receive(ids) {
 /**
  * Get a listing of available file names and their IDs.
  * @param {ResponseFailureCallback} [onfail] - Handle response failures.
- * @returns {Map<number, string>?} Returns a mapping of file IDs to file names.
+ * @returns {Promise<Map<number, string>?>} Returns a mapping of file IDs to file names.
  */
 export async function list(onfail = responseFailureNoOp) {
     /** @type {Response} */

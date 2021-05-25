@@ -1,6 +1,18 @@
 
 @import './variables.css';
 
+input {
+    position: absolute;
+    top: -100vh;
+    margin: 0;
+
+    opacity: 0;
+}
+
+:focus + .button {
+    outline: dotted var(--color-focus);
+}
+
 .button, .bubble, .flash, fieldset {
     width: 100%;
     margin: .25em;
@@ -23,6 +35,8 @@
     color: var(--color-primary-fg);
     background-color: var(--color-primary-bg);
 
+    filter: drop-shadow(0.4rem 0.4rem 0.2rem lightgray);
+
     transition: color 0.2s ease;
     transition: background-color 0.2s ease;
 }
@@ -32,7 +46,7 @@
     background-color: var(--color-secondary-bg);
 }
 
-.button:hover, .button:focus {
+.button:hover, input:focus + .button {
     color: var(--color-accent-fg);
     background-color: var(--color-accent-bg);
 }
@@ -42,7 +56,7 @@
     background-color: var(--color-accent-active);
 }
 
-.button-secondary:hover, .button-secondary:focus {
+.button-secondary:hover, input:focus + .button-secondary {
     color: var(--color-secondary-accent-fg);
     background-color: var(--color-secondary-accent-bg);
 }

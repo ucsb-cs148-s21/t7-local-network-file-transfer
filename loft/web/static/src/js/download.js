@@ -68,7 +68,6 @@ function generateListing(filename, fileId) {
     label.classList.add('button-secondary');
     label.classList.add('download-listing');
     label.title = `Receive ${filename}`
-    label.tabIndex = 0;
     label.textContent = filename;
     label.htmlFor = 'download-selection-' + fileId;
 
@@ -78,6 +77,7 @@ function generateListing(filename, fileId) {
     checkbox.type = 'checkbox';
     checkbox.name = 'selection';
     checkbox.value = fileId;
+    checkbox.tabIndex = 0;
 
     container.append(checkbox);
     container.append(label);
