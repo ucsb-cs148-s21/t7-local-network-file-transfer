@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Client{% endblock %}
 {% block stylesheets %}
-<link href="{{ url_for('static', filename='src/index.css') }}" rel="stylesheet" />
 {% endblock %}
 {% block content %}
 
@@ -18,11 +17,15 @@
     </section>
 
     <form id="upload">
-        <label for="file-selector" class="button button-secondary" title="Select File to Upload" tabindex=0>Select
-            Files…</label>
-        <input id="file-selector" type="file" name="upload" multiple />
-        <label for="upload-file" class="button" title="Send Selected Files" tabindex=0>Send Selected Files</label>
-        <input id="upload-file" type="submit" />
+        <label class="button button-secondary" title="Select File to Upload" tabindex=0>
+            Select Files…
+            <input id="file-selector" type="file" name="upload" multiple hidden />
+        </label>
+
+        <label class="button" title="Send Selected Files" tabindex=0>
+            Send Selected Files
+            <input type="submit" hidden />
+        </label>
     </form>
 </section>
 
@@ -32,9 +35,13 @@
     </section>
 
     <form id="download">
-        <div id="available"></div>
-        <label for="download-file" class="button" title="Receive File" tabindex=0>Receive File</label>
-        <input id="download-file" type="submit" />
+        <fieldset id="available">
+            <legend>Files Available to Receive</legend>
+        </fieldset>
+        <label class="button" title="Receive Selected Files" tabindex=0>
+            Receive File
+            <input type="submit" hidden />
+        </label>
     </form>
 </section>
 

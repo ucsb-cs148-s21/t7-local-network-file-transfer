@@ -97,23 +97,60 @@ const download = document.querySelector('form#download');
 download.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // TODO: get the file id from file list
-    const id = 0;
+    const data = new FormData(this);
+    /** @type {FormDataEntryValue[]} */
+    const selected = data.getAll('selection');
+    if (selected.length < 1) {
+        displayMessage('download', 'failure', 'No files selected!');
+        return;
+    }
 
-    // Generate an anchor element with the `download` attribute and use that to
-    // send the GET request to the api.
-    const a = document.createElement('a');
-    a.href = '/api/files/' + id;
-    a.download = true;
+    for (const id of selected) {
+        // Generate an anchor element with the `download` attribute and use that to
+        // send the GET request to the api.
+        const a = document.createElement('a');
+        a.href = '/api/files/' + id;
+        a.download = true;
 
-    a.click();
+        a.click();
+    }
+
 });
 
 
-/** @type {HTMLFormElement} */
-const fileList = download.querySelector('#available');
+/**
+ * Generates a listing for the given file and file ID.
+ * @param {string} filename - Name of the file to list.
+ * @param {number} fileId - ID of the file.
+ * @returns {HTMLLabelElement} The listing for the file.
+ */
+function generateListing(filename, fileId) {
+    /** @type {HTMLLabelElement} */
+    const label = document.createElement('label');
+    label.dataset.fileId = fileId;
+    label.classList.add('button');
+    label.classList.add('button-secondary');
+    label.classList.add('download-listing');
+    label.title = `Receive ${filename}`
+    label.tabIndex = 0;
+    label.textContent = filename;
+
+    /** @type {HTMLInputElement} */
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.name = 'selection';
+    checkbox.value = fileId;
+    checkbox.hidden = true;
+
+    label.append(checkbox);
+
+    return label;
+}
+
+
+/** @type {HTMLFieldSetElement} */
+const fileList = download.querySelector('fieldset#available');
 function updateFileList() {
-    console.log('updating file list');
     fetch('/api/files', {
         method: 'GET',
     })
@@ -124,25 +161,20 @@ function updateFileList() {
              * @type {Set<number>}
              */
             const existing = new Set();
-            /** @type {NodeListOf<HTMLDivElement>} */
-            const listings = fileList.querySelectorAll('.file-available');
+            /** @type {NodeListOf<HTMLLabelElement>} */
+            const listings = fileList.querySelectorAll('.download-listing');
             for (const listing of listings) {
                 // clear existing entries no longer available
-                if (!data.available.hasOwnProperty(listing.value)) {
-                    listings.remove();
+                if (!data.available.hasOwnProperty(listing.dataset.fileId)) {
+                    fileList.removeChild(listing);
                 } else {
-                    existing.add(listing.value);
+                    existing.add(listing.dataset.fileId);
                 }
             }
 
-            for (const fileId of Object.keys(data.available)) {
-                if (!existing.has(fileId)) {
-                    /** @type {HTMLInputElement} */
-                    const fileCheckbox = document.createElement('input');
-                    fileCheckbox.classList.add('bubble');
-                    fileCheckbox.classList.add('file-available');
-                    fileCheckbox.value = fileId;
-                    fileList.appendChild(fileCheckbox);
+            for (const [id, name] of Object.entries(data.available)) {
+                if (!existing.has(id)) {
+                    fileList.append(generateListing(name, id));
                 }
             }
         });
