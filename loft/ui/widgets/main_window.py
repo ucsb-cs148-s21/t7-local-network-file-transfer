@@ -40,15 +40,23 @@ Please Close Loft and restart to make changes.
 
     open_received = QPushButton(text='Open Downloads')
     open_received.clicked.connect(gui.server.open_downloads)
-    
+
     display_selected_file = QLabel("Sending File: ")
     def select_to_send_func():
         file_name = gui.send_file_dialog(window)
         display_selected_file.clear()
         display_selected_file.setText("Sending File: \n" + file_name)
-    
+
     select_to_send = QPushButton(text='Send File…')
     select_to_send.clicked.connect(select_to_send_func)
+
+    def clear_file_func():
+        gui.clear_api_call(window)
+        display_selected_file.clear()
+        display_selected_file.setText("Sending File: ")
+
+    clear_file = QPushButton(text='Clear Selected Files')
+    clear_file.clicked.connect(clear_file_func)
 
     full_instr = QLabel(
         '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/usage.md>Full Instructions</a>')
@@ -62,7 +70,8 @@ Please Close Loft and restart to make changes.
     layout.addWidget(select_to_send, 2, 0, 1, 1)
     layout.addWidget(open_received, 2, 1, 1, 1)
     layout.addWidget(display_selected_file, 3, 0, 1, 1)
-    layout.addWidget(done_button, 4, 0, 1, 2)
+    layout.addWidget(clear_file, 4, 0, 1, 2)
+    layout.addWidget(done_button, 5, 0, 1, 2)
     layout.addWidget(full_instr)
 
     window.setTabOrder(start_button, select_to_send)

@@ -51,6 +51,10 @@ class Server:
     #     for path in paths:
     #         self.available.add(path)
 
+    def clear_sends(self):
+        '''Clear selected send file.'''
+        self.available.clear()
+
     def stop(self):
         '''TODO: Stop the server.'''
 

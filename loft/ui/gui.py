@@ -40,3 +40,7 @@ class Gui:
         # files, _ = QFileDialog.getOpenFileNames(parent, 'Select Files to Send',
         #                                         str(self.server.config.DOCUMENTS_FOLDER))
         # self.server.add_sends(Path(files))
+
+    def clear_api_call(self, parent: QWidget = None):
+        '''Clear container of file names called by API, and clear selected files on GUI...'''
+        self.server.clear_sends()

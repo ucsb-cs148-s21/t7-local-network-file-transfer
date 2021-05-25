@@ -50,5 +50,18 @@ class IdMap(typing.Generic[T]):
 
         return True
 
+    def clear(self) -> bool:
+        '''
+        Clear the IdMap. Returns false if IdMap is already empty.
+        '''
+        if not self.contents:
+            print('IdMap already empty.\n')
+            return False
+
+        self.contents.clear()
+        print('IdMap cleared~\n')
+
+        return True
+
     def items(self) -> typing.ItemsView[int, T]:
         return self.contents.items()
