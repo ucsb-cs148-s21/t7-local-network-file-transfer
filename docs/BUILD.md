@@ -8,7 +8,25 @@ Do you want to build your own Loft? Get started here!
 - [Building](#putting-it-all-together)
 
 ## Gathering the Materials ##
-Building your Loft can be challenging if you’ve never built one before, but it’s super rewarding to have a place to send your stuff! In order to build your Loft, you’ll need [Python 3.9](https://www.python.org). Install Python on your computer and download this repository. You can either download the repository as a `.zip` file or use [Git](https://git-scm.com).
+Building your Loft can be challenging if you’ve never built one before, but it’s super rewarding to have a place to send your stuff! In order to build your Loft, you’ll need [Python 3.9](https://www.python.org). On Windows, you’ll also need the [C++ Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019). Install Python on your computer and download this repository. You can either download the repository as a `.zip` file or use [Git](https://git-scm.com).
+
+> By default, Loft uses port `2402` on your computer in order to connect. If that port is not available, set the key `PORT` in `loft/config.py` to an available port before building.
+
+### The Nuts and Bolts ###
+Loft depends on:
+- `Flask`
+- `netifaces`
+- `pyinstaller`
+- `PyQt5`
+- `Werkzeug`
+
+#### Allen Wrenches ####
+On macOS, you'll need `cx-Freeze` instead of `pyinstaller`.
+
+### Hammers and Jackhammers ###
+For development, your Loft will need:
+- `autopep8`
+- `pytest`
 
 ## Putting it All Together ##
 
@@ -25,7 +43,7 @@ Building your Loft can be challenging if you’ve never built one before, but it
     > git clone 'https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer.git'
     > Set-Location t7-local-network-file-transfer
     ```
-2. Set up and activate a Python virtual environment (recommended).
+2. Set up and activate a Python virtual environment.
     ```shell
     $ python3 -m venv .venv
     $ source .venv/bin/activate
@@ -37,11 +55,11 @@ Building your Loft can be challenging if you’ve never built one before, but it
     ```
 3. Install dependencies.
     ```shell
-    $ python3 -m pip install -r requirements.txt
+    $ pip install -r requirements.txt
     ```
 
     ```powershell
-    > py -3 -m pip install -r requirements.txt
+    > pip install -r requirements.txt
     ```
 4. Build your Loft!
     ```shell

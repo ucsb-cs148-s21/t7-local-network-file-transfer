@@ -2,7 +2,7 @@
 
 Mentor: Vicent Tieu
 
-Meeting Time: lec12
+Meeting Time: lec13
 
 Type of Meeting: Stand-Up
 
