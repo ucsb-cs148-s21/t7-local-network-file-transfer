@@ -1,18 +1,12 @@
 
 from pathlib import Path
 import sys
-import qrcode
 
-from PyQt5.QtWidgets import * 
-from PyQt5 import QtCore, QtGui
-from PyQt5.QtGui import * 
-from PyQt5.QtCore import * 
+from PyQt5.QtWidgets import QApplication, QFileDialog, QWidget
 
 from loft.config import Config
 from loft.web import Server
-from loft.ui.widgets import create_main_window
-# from loft.ui.widgets.qrcode import Window
-# from loft.ui.widgets.qrcode import Image
+from loft.ui.widgets import MainWindow
 
 
 class Gui:
@@ -29,10 +23,8 @@ class Gui:
         self.server = Server(config, *args, **kwargs)
         self.gui = QApplication(sys.argv)
 
-        self.main_window = create_main_window(config.APP_NAME, self)
+        self.main_window = MainWindow(self, config.APP_NAME)
         self.main_window.show()
-        
-  
 
     def run_and_exit(self):
         '''Run the GUI.'''
