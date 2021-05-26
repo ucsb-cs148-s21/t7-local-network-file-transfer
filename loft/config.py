@@ -37,6 +37,8 @@ class Config:
 
     # location of user config file
     config_filepath: str = 'LOFT_CONFIG'
+    # whether or not to use HTTPS
+    https: bool = False
 
 
 class DebugConfig(Config):

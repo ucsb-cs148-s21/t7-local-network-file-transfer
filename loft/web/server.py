@@ -10,7 +10,6 @@ from loft.config import Config
 from loft.util.file import open_, get_data
 from loft.util.id_map import IdMap
 
-
 class Server:
     '''
     Abstract layer over the server.
@@ -27,30 +26,44 @@ class Server:
         except RuntimeError:    # env var is not set
             pass
 
-        certificates: typing.Tuple[str, str] = self.generate_certificates()
-
-        self.thread: Thread = Thread(target=lambda: run_simple(
-            config.HOST,
-            config.PORT,
-            self.flask,
-            threaded=True,
-            ssl_context=certificates,
-        ), daemon=True)
+        # whether or not the server can be run
+        self.initialized = False
+        self.thread: Thread = None
 
         # A dictionary of the available files for download.
         self.available: IdMap[Path] = IdMap()
 
+
+    def init(self):
+        '''Initialize the server.'''
+        context = self.generate_certificates() if self.config.https else None
+        self.thread: Thread = Thread(target=lambda: run_simple(
+            self.config.HOST,
+            self.config.PORT,
+            self.flask,
+            threaded=True,
+            ssl_context=context,
+        ), daemon=True)
+                
         self.flask.register_error_handler(
             404, lambda err: (render_template('404.html'), str(err)))
+            
+        self.register()
+        self.initialized = True
 
     def run(self):
         '''Run the server.'''
-        self.register()
+        if not self.initialized:
+            return
+
         if not self.thread.is_alive():
             self.thread.start()
 
     def add_sends(self, path: Path):
         '''Add a single file to send.'''
+        if not self.initialized:
+            return
+
         self.available.add(path)
 
     # def add_sends(self, paths: typing.List[str]):
