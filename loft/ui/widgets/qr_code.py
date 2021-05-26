@@ -1,5 +1,5 @@
 
-from PyQt5 import QtCore
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QImage, QPainter, QPixmap
 from PyQt5.QtWidgets import QGridLayout, QLabel
 import qrcode
@@ -18,8 +18,8 @@ class QrCodeContainer(QGridLayout):
 
         self.link = QLabel(text=f'<font color=#0000ee>{address}</font>')
 
-        self.addWidget(self.image, 0, 0)
-        self.addWidget(self.link, 1, 0)
+        self.addWidget(self.image, 0, 0, Qt.AlignCenter)
+        self.addWidget(self.link, 1, 0, Qt.AlignCenter)
 
 
 class QrCodeImage(qrcode.image.base.BaseImage):
@@ -31,7 +31,7 @@ class QrCodeImage(qrcode.image.base.BaseImage):
         self.box_size = box_size
         size = (width + border * 2) * box_size
         self._image = QImage(size, size, QImage.Format_RGB16)
-        self._image.fill(QtCore.Qt.white)
+        self._image.fill(Qt.white)
 
     def pixmap(self):
         return QPixmap.fromImage(self._image)
@@ -42,4 +42,4 @@ class QrCodeImage(qrcode.image.base.BaseImage):
                          (row + self.border) * self.box_size,
                          self.box_size,
                          self.box_size,
-                         QtCore.Qt.black)
+                         Qt.black)

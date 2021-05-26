@@ -1,5 +1,5 @@
 
-from PyQt5 import QtCore
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QGridLayout, QLabel, QPushButton, QWidget
 
 
@@ -20,7 +20,7 @@ class MainWindow(QWidget):
         self.setGeometry(0, 0, 400, 300)
         self.move(400, 400)
         # Keep the window on top so that user remembers to close when they're done
-        self.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint)
+        self.setWindowFlag(Qt.WindowStaysOnTopHint)
 
         self.layout = QGridLayout(self)
 
@@ -46,7 +46,7 @@ class MainWindow(QWidget):
         full_instr = QLabel(
             '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/usage.md>Full Instructions</a>')
         full_instr.setTextInteractionFlags(
-            QtCore.Qt.TextInteractionFlag.LinksAccessibleByMouse)
+            Qt.TextInteractionFlag.LinksAccessibleByMouse)
         full_instr.setOpenExternalLinks(True)
 
         self.layout.addLayout(self.qr_code, 0, 0, 1, 2)
