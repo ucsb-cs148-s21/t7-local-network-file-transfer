@@ -1,6 +1,7 @@
 
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
+from loft.ui.widgets.qrcode import *
 
 from loft.util.net import get_ip_thru_gateway as get_ip
 
@@ -23,15 +24,10 @@ def create_main_window(title: str, gui) -> QWidget:
     start_button.toggled.connect(lambda: start_button.setDisabled(True))
     start_button.toggled.connect(lambda: select_to_send.setDisabled(True))
 
+    ip_address = "http://{}:{}".format(get_ip(), gui.server.config.PORT)
+    qr_image = qrcode.make(ip_address, image_factory = Image).pixmap()
     connect_msg = QLabel(text='''
-Note: Send file cannot be modified after starting.<br />
-Please Close Loft and restart to make changes.
-<ol>
-    <li>Select Send Files if sending.</li>
-    <li>Start Connection.</li>
-    <li>On your other device, open <font color="#0000ee">http://{}:{}</font>.</li>
-    <li>Close Loft after transfering.</li>
-</ol>
+    <p><font color="#0000ee">http://{}:{}</font></p>
 '''.format(get_ip(), gui.server.config.PORT))
 
     done_button = QPushButton(text='Done Transferring')
@@ -56,8 +52,10 @@ Please Close Loft and restart to make changes.
     layout.addWidget(done_button, 3, 0, 1, 2)
     layout.addWidget(full_instr)
 
+    window.setPixmap(qr_image)
     window.setTabOrder(select_to_send, open_received)
     window.setTabOrder(open_received, start_button)
     window.setTabOrder(start_button, done_button)
     window.setTabOrder(done_button, full_instr)
+
     return window
