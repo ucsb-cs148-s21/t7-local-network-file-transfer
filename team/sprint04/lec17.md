@@ -10,7 +10,7 @@ Team:
 - [x] Ethan Wu
 - [x] Douglas Yuan 
 - [x] Zackery Mondin
-- [] Andrew Tran 
+- [o] Andrew Tran 
 - [x] Kevin Pham
 
 ## Standup ##
