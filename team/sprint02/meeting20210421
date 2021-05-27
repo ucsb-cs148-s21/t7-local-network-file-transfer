@@ -1,0 +1,19 @@
+
+# Local Network File Transfer #
+
+Mentor: Vincent (not present)
+
+Meeting Time: 2021-04-21
+
+Type of Meeting: Stand-Up
+
+Team: 
+- [x] Ethan Wu
+- [x] Douglas Yuan 
+- [ ] Zackery Mondin (Excused)
+- [x] Andrew Tran 
+- [x] Kevin Pham
+
+- Ethan: factoring application for structure, need to get static files working, intend to start nice UI soon
+- Kevin: worked out file upload
+- Andrew: got multiprocessing working, but only with the default werkzeug server, need to get involved in factoring
