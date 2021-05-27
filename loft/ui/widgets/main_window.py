@@ -1,15 +1,11 @@
 
-from PyQt5.QtWidgets import *
-from PyQt5 import QtCore
-
 from pathlib import Path
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QGridLayout, QLabel, QPushButton, QWidget
+from PyQt5.QtWidgets import QGridLayout, QGroupBox, QLabel, QPushButton, QWidget
 
 
 from loft.ui.widgets.qr_code import QrCodeContainer
-from loft.util.file import open_
 from loft.util.id_map import IdMap
 from loft.util.net import get_ip_thru_gateway as get_ip
 
@@ -57,7 +53,8 @@ class MainWindow(QWidget):
         open_received.clicked.connect(self.gui.server.open_downloads)
 
         select_to_send = QPushButton(text='Send Files…')
-        select_to_send.clicked.connect(lambda: self.select_file(self, file_list))
+        select_to_send.clicked.connect(
+            lambda: self.select_file(self, file_list))
 
         file_list: QGroupBox = build_file_list()
 
