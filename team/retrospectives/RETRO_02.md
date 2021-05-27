@@ -19,4 +19,4 @@ Team:
 - Next retro leader should try to help the team point out things that don't work, as the stop column is very short.
 
 ## Retro Outcome ##
-Multiple kanban boards are functioning well, goals are all set and completed nicely, overall experiments went well.
+Multiple kanban boards are functioning well, goals are all set and completed nicely, overall experiments went well. The increased organization from dividing up user and non-user stories made division of labor easier to envision for the duration of the sprint.

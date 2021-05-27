@@ -10,8 +10,25 @@ class QrCodeContainer(QGridLayout):
 
     def __init__(self, host: str, port: int, protocol: str = 'http'):
         QGridLayout.__init__(self)
-        address = f'{protocol}://{host}:{port}'
-        qr_image: QPixmap = qrcode.make(address, image_factory=QrCodeImage).pixmap()
+        self.protocol = protocol
+        self.host = host
+        self.port = port
+
+        self.image = None
+        self.link = None
+
+        self.set_protocol(protocol)
+
+    def set_protocol(self, protocol: str = 'http'):
+        '''Change the protocol and update the QR code accordingly.'''
+        if self.image:
+            self.removeWidget(self.image)
+        if self.link:
+            self.removeWidget(self.link)
+
+        address = f'{protocol}://{self.host}:{self.port}'
+        qr_image: QPixmap = qrcode.make(
+            address, image_factory=QrCodeImage).pixmap()
 
         self.image = QLabel()
         self.image.setPixmap(qr_image)

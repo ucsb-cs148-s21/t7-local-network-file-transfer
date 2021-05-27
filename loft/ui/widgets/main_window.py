@@ -30,9 +30,18 @@ class MainWindow(QWidget):
         self.qr_code = QrCodeContainer(get_ip(), self.gui.server.config.PORT)
         start_button = QPushButton(text='Start Connection')
         start_button.setCheckable(True)
-        start_button.toggled.connect(self.gui.server.run)
-        start_button.toggled.connect(lambda: start_button.setDisabled(True))
-        start_button.toggled.connect(lambda: select_to_send.setDisabled(True))
+
+        def start_connection_callback():
+            '''
+            Callback for starting the connection. Initializes the server and
+            disables buttons that should not be used after server startup.
+            '''
+            self.gui.server.init()
+            start_button.setDisabled(True)
+            toggle_https.setDisabled(True)
+            self.gui.server.run()
+
+        start_button.toggled.connect(start_connection_callback)
 
         done_button = QPushButton(text='Done Transferring')
         done_button.clicked.connect(self.close)
@@ -42,6 +51,16 @@ class MainWindow(QWidget):
 
         select_to_send = QPushButton(text='Send Files…')
         select_to_send.clicked.connect(lambda: self.gui.send_file_dialog(self))
+
+        toggle_https = QPushButton(text='Toggle HTTPS')
+        toggle_https.setCheckable(True)
+
+        def toggle_https_callback():
+            '''Toggle HTTPS on the server configuration.'''
+            self.gui.server.config.https = not self.gui.server.config.https
+            self.qr_code.set_protocol('https' if self.gui.server.config.https else 'http')
+
+        toggle_https.toggled.connect(toggle_https_callback)
 
         full_instr = QLabel(
             '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/usage.md>Full Instructions</a>')
@@ -53,6 +72,7 @@ class MainWindow(QWidget):
 
         self.layout.addWidget(select_to_send, 1, 0, 1, 1)
         self.layout.addWidget(open_received, 1, 1, 1, 1)
-        self.layout.addWidget(start_button, 2, 0, 1, 2)
-        self.layout.addWidget(done_button, 3, 0, 1, 2)
+        self.layout.addWidget(toggle_https, 2, 0, 1, 2)
+        self.layout.addWidget(start_button, 3, 0, 1, 2)
+        self.layout.addWidget(done_button, 4, 0, 1, 2)
         self.layout.addWidget(full_instr)
