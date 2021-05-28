@@ -95,7 +95,7 @@ Files sent from the Native UI can be downloaded by selecting the `Receive Files
 <br></br>
 
 ### Shutting Down Loft ###
-You cannot shut down from the web GUI. When you are done transferring files, select the `Done Transferring` button on the Native GUI 
+You cannot shut down from the web UI. When you are done transferring files, select the `Done Transferring` button on the Native UI 
 to shut down Loft. Remember to not leave Loft running while not in use!
 <br></br>
 
