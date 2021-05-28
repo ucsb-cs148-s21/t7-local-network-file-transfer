@@ -10,6 +10,8 @@
 	<string>icon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>Loft-0.1.1</string>
+	<key>NSRequiresAquaSystemAppearance</key>
+	<string>False</string>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 </dict>
