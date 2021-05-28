@@ -50,20 +50,6 @@ other way around. Instead, it is hosting the tools and processes that are requir
 started up (and shut down) from the host machine.
 
 Depending on your role, you will interact with a different side of Loft, both of which are described just below.
-## Using Loft 🧠 ##
-
-### Knowing Your Role ###
-There are two possible roles fulfilled by a Loft user: Host and Client. The <i>Host</i> is the laptop/desktop that 
-installed and initializes Loft; it can send stuff to (and receive stuff from) the Client. The <i>Client</i> is any other device,
-but usually a phone or tablet; it can send to (and receive from) the Host. **Before going any further**, make sure the 
-Host and Client are on the same local connection.
-
-⚠️ The host-client denomination can be hard to grasp. In terms of file transfer functionality, both devices can freely send 
-& receive files! The host is not necessarily "hosting" files that the client wants to receive; in fact it is often the 
-other way around. Instead, it is hosting the tools and processes that are required for Loft to function. As such, the app must be 
-started up (and shut down) from the host machine.
-
-Depending on your role, you will interact with a different side of Loft, both of which are described just below.
 
 ### Host: Using the Native UI ###
 You are the Host. Initialize Loft. You will interact with Loft's remote control, the native UI, which should appear on your screen now:
@@ -92,6 +78,26 @@ Files received from the Client can be seen by selecting the `Open Downloads` but
 If there is any uncertainty about how to operate the native UI, clicking on the `Full Instructions` text at the bottom-left of the window 
 will open a detailed instruction file in your web browser.
 <br></br>
+
+### Client: Using the Web UI ###
+You are the Client. You interact with Loft's web UI. After the Host has started Loft's connection, scan the QR code or directly navigate to
+the link displayed on the Native UI. The web UI should appear in your web browser now:
+
+<img src="https://s3.amazonaws.com/filepicker-images-rapgenius/64K085t6QueD9Ha4rvOY_Screen%20Shot%202021-05-27%20at%207.16.43%20PM.png" height="320px" width="469px" /> 
+
+#### Sending Files From the Web UI ####
+You can send files by first selecting files with the `Select Files…` button. Underneath it, the file names will appear in individual bubbles 
+for confirmation. Files can be reselected at any time by using `Select Files…` again. Then, select the `Send Selected Files` button.
+
+#### Receiving Files to the Web UI ####
+Files sent from the Native UI can be downloaded by selecting the `Receive Files` button.
+<br></br>
+
+### Shutting Down Loft ###
+You cannot shut down from the web GUI. When you are done transferring files, select the `Done Transferring` button on the Native GUI 
+to shut down Loft. Remember to not leave Loft running while not in use!
+<br></br>
+
 
 ## Sending and Receiving Files from the Native UI ##
 Select `Start Connection` to begin sending and receiving files. Use the `Select Files…` button to select files to send. When finished, use the `Done Transferring` button to close Loft. Files received from the Web UI can be seen by selecting the `Open Downloads` button. If the `Select Files…` button is grayed out, you must restart Loft. **Do not leave Loft running while not in use.**
