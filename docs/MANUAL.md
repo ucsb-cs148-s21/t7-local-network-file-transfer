@@ -1,5 +1,17 @@
 # User Manual #
 
+## Table of Contents 📑 ##
+- [Product Description](#product-description-)
+- [Product Purpose](#product-purpose-)
+- [Intended Audience](#intended-audience-)
+- [Using Loft](#using-loft-)
+    - [Host or Client?](#knowing-your-role)
+    - [Using the Native UI](#host-using-the-native-ui)
+    - [Using the Web UI](#client-using-the-web-ui)
+    - [Shutting Down](#shutting-down-loft)
+- [Known Issues](#known-issues-)
+- [Testing](#testing-)
+
 ## Sending and Receiving Files from the Native UI ##
 Select `Start Connection` to begin sending and receiving files. Use the `Select Files…` button to select files to send. When finished, use the `Done Transferring` button to close Loft. Files received from the Web UI can be seen by selecting the `Open Downloads` button. If the `Select Files…` button is grayed out, you must restart Loft. **Do not leave Loft running while not in use.**
 
