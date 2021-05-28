@@ -12,6 +12,16 @@
 - [Known Issues](#known-issues-)
 - [Testing](#testing-)
 
+## Product Description 🏠 ##
+>It’s not the cloud. It’s closer. It’s your Loft.
+
+Loft is a local web application that quickly and easily transfers files between your devices, without using the Internet! 
+
+Loft is built using a collection of Python libraries and frameworks (Flask, Werkzeug, PyQt); 
+[here](https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/docs/BUILD.md) are the detailed instructions to 
+build your own Loft! You can also find a prefabricated Loft [here](https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/releases) 🏚️.
+
+
 ## Sending and Receiving Files from the Native UI ##
 Select `Start Connection` to begin sending and receiving files. Use the `Select Files…` button to select files to send. When finished, use the `Done Transferring` button to close Loft. Files received from the Web UI can be seen by selecting the `Open Downloads` button. If the `Select Files…` button is grayed out, you must restart Loft. **Do not leave Loft running while not in use.**
 
