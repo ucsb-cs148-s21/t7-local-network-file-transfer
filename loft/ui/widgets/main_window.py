@@ -70,7 +70,7 @@ class MainWindow(QWidget):
         toggle_https.toggled.connect(toggle_https_callback)
 
         full_instr = QLabel(
-            '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/usage.md>Full Instructions</a>')
+            '<a href=https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/docs/MANUAL.md>Full Instructions</a>')
         full_instr.setTextInteractionFlags(
             Qt.TextInteractionFlag.LinksAccessibleByMouse)
         full_instr.setOpenExternalLinks(True)
