@@ -62,9 +62,6 @@ class Server:
 
     def add_sends(self, paths: typing.List[Path]):
         '''Add files to send.'''
-        if not self.initialized:
-            return
-
         self.available.clear()
         for path in paths:
             self.available.add(path)

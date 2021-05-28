@@ -77,13 +77,14 @@ class MainWindow(QWidget):
 
         self.layout.addLayout(self.qr_code, 0, 0, 1, 2)
 
-        self.layout.addWidget(select_to_send, 1, 0, 1, 1)
-        self.layout.addWidget(open_received, 1, 1, 1, 1)
-        self.layout.addWidget(toggle_https, 2, 0, 1, 2)
-        self.layout.addWidget(start_button, 3, 0, 1, 2)
-        self.layout.addWidget(file_list, 4, 0, 1, 1)
-        self.layout.addWidget(done_button, 5, 0, 1, 2)
-        self.layout.addWidget(full_instr)
+        self.layout.addWidget(toggle_https, 1, 0, 1, 2)
+        self.layout.addWidget(start_button, 2, 0, 1, 2)
+        self.layout.addWidget(select_to_send, 
+        3, 0, 1, 1)
+        self.layout.addWidget(open_received, 3, 1, 1, 1)
+        self.layout.addWidget(done_button, 4, 0, 1, 2)
+        self.layout.addWidget(file_list, 5, 0, 1, 1)
+        self.layout.addWidget(full_instr, 6, 0, 1, 1)
 
     def select_file(self, window: QWidget, file_list: QWidget):
         '''Callback for file selection.'''
