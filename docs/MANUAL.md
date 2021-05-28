@@ -25,6 +25,17 @@ build your own Loft! You can also find a prefabricated Loft [here](https://githu
 Loft's purpose is to provide multiple devices on the same local connection with a simple method to move files amongst each other. 
 The method is wireless, but does not involve an intermediate cloud storage platform (Google Drive, Dropbox, etc) or the cloud at all.
 
+## Intended Audience 👨‍👩‍👧‍👦 ##
+The motivation behind creating Loft was to satisfy a typical need that a college student may have: 
+transferring homework assignments.
+
+>Andrew needs to transfer a homework file he has scanned or annotated on his mobile device to his 
+>computer in order to submit it. Unfortunately he does not have a USB cable, AirDrop compatibility, or 
+>a fast internet connection. Loft is an ideal solution.
+
+But beyond students, anyone who just needs a simple solution to move files between devices on the same network 
+is also a member of Loft's intended audience.
+
 ## Sending and Receiving Files from the Native UI ##
 Select `Start Connection` to begin sending and receiving files. Use the `Select Files…` button to select files to send. When finished, use the `Done Transferring` button to close Loft. Files received from the Web UI can be seen by selecting the `Open Downloads` button. If the `Select Files…` button is grayed out, you must restart Loft. **Do not leave Loft running while not in use.**
 
