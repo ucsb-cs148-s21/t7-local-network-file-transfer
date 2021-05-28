@@ -53,7 +53,7 @@ by which Loft functions, which is why the app must be initialized from the host 
 
 Depending on your role, you will interact with a different side of Loft, both of which are described just below.
 
-### Using the Native UI ###
+### Host: Using the Native UI ###
 You are the Host. You will interact with Loft's remote control, the native UI, which appears upon initializing the app:
 
 <img src="https://s3.amazonaws.com/filepicker-images-rapgenius/7bPd20E4SzO7MGriFmot_Screen%20Shot%202021-05-27%20at%2011.46.48%20PM.png" height="400px" width="270px" /> 
@@ -70,7 +70,7 @@ Files received from the Client can be seen by selecting the `Open Downloads` but
 
 
 
-### Using the Web UI ###
+### Client: Using the Web UI ###
 You are the Client. You interact with Loft's web UI. After the Host has started Loft's connection, it appears at the QR code/link displayed 
 on the Native UI:
 
