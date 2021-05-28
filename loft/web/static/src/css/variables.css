@@ -1,0 +1,37 @@
+
+@import './palette.css';
+
+:root {
+    --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-header: 'Courier New', Courier, monospace;
+
+    /* color scheme */
+    --color-bg: white;
+    --color-base: var(--color-blue-1);
+    --color-primary-fg: var(--color-base);
+    --color-primary-bg: var(--color-green-3);
+    --color-secondary-fg: var(--color-base);
+    --color-secondary-bg: var(--color-blue-3);
+    --color-tertiary-fg: var(--color-base);
+    --color-tertiary-bg: var(--color-gray-3);
+
+    --color-accent-fg: var(--color-base);
+    --color-accent-bg: var(--color-green-45);
+    --color-accent-active: var(--color-purple-3);
+
+    --color-secondary-accent-fg: var(--color-base);
+    --color-secondary-accent-bg: var(--color-blue-45);
+    --color-secondary-accent-active: var(--color-purple-3);
+
+    --color-tertiary-accent-fg: var(--color-base);
+    --color-tertiary-accent-bg: var(--color-purple-3);
+    --color-tertiary-accent-active: var(--color-purple-45);
+    --color-tertiary-hover: var(--color-gray-45);
+
+    --color-success-fg: var(--color-green-3);
+    --color-success-bg: var(--color-base);
+    --color-error-fg: var(--color-red-3);
+    --color-error-bg: var(--color-base);
+
+    --color-focus: var(--color-blue-3);
+}

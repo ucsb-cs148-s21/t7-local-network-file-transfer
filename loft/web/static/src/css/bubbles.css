@@ -1,0 +1,66 @@
+
+@import './variables.css';
+
+input {
+    position: absolute;
+    top: -100vh;
+    margin: 0;
+
+    opacity: 0;
+}
+
+:focus + .button {
+    outline: dotted var(--color-focus);
+}
+
+.button, .bubble, .flash, fieldset {
+    width: 100%;
+    margin: .25em;
+    padding: .5em 1em;
+    display: block;
+
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 4px;
+}
+
+.button {
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    color: var(--color-primary-fg);
+    background-color: var(--color-primary-bg);
+
+    filter: drop-shadow(0.4rem 0.4rem 0.2rem lightgray);
+
+    transition: color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+
+.button-secondary {
+    color: var(--color-secondary-fg);
+    background-color: var(--color-secondary-bg);
+}
+
+.button:hover, input:focus + .button {
+    color: var(--color-accent-fg);
+    background-color: var(--color-accent-bg);
+}
+
+.button:active {
+    color: var(--color-base);
+    background-color: var(--color-accent-active);
+}
+
+.button-secondary:hover, input:focus + .button-secondary {
+    color: var(--color-secondary-accent-fg);
+    background-color: var(--color-secondary-accent-bg);
+}
+
+.button-secondary:active {
+    background-color: var(--color-secondary-accent-active);
+}

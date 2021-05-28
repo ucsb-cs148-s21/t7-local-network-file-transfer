@@ -53,13 +53,13 @@ def api(available: IdMap[Path]):
         basename: Path = file_path.name
 
         try:
-            return send_from_directory(dirname, basename, as_attachment=True, cache_timeout=0), 200
+            return send_from_directory(dirname, basename, as_attachment=True, max_age=0), 200
         except FileNotFoundError:
             abort(404, description='File ID {} not available.'.format(file_id))
 
     @api.route('/api/files', methods=['GET'])
     def inspect():
         '''Inspect what files are currently available.'''
-        return jsonify(available={k: v.name for k, v in available.items()})
+        return jsonify(available=[(k, v.name) for k, v in available.items()])
 
     return api

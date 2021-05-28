@@ -44,10 +44,10 @@ class Server:
             threaded=True,
             ssl_context=context,
         ), daemon=True)
-                
+
         self.flask.register_error_handler(
             404, lambda err: (render_template('404.html'), str(err)))
-            
+
         self.register()
         self.initialized = True
 
@@ -59,17 +59,11 @@ class Server:
         if not self.thread.is_alive():
             self.thread.start()
 
-    def add_sends(self, path: Path):
-        '''Add a single file to send.'''
-        if not self.initialized:
-            return
-
-        self.available.add(path)
-
-    # def add_sends(self, paths: typing.List[str]):
-    #     '''Add files to send.'''
-    #     for path in paths:
-    #         self.available.add(path)
+    def add_sends(self, paths: typing.List[Path]):
+        '''Add files to send.'''
+        self.available.clear()
+        for path in paths:
+            self.available.add(path)
 
     def stop(self):
         '''TODO: Stop the server.'''

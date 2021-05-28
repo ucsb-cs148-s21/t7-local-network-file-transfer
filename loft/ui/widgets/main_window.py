@@ -1,9 +1,12 @@
 
+from pathlib import Path
+
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QGridLayout, QLabel, QPushButton, QWidget
+from PyQt5.QtWidgets import QGridLayout, QGroupBox, QLabel, QPushButton, QWidget
 
 
 from loft.ui.widgets.qr_code import QrCodeContainer
+from loft.util.id_map import IdMap
 from loft.util.net import get_ip_thru_gateway as get_ip
 
 
@@ -50,7 +53,10 @@ class MainWindow(QWidget):
         open_received.clicked.connect(self.gui.server.open_downloads)
 
         select_to_send = QPushButton(text='Send Files…')
-        select_to_send.clicked.connect(lambda: self.gui.send_file_dialog(self))
+        select_to_send.clicked.connect(
+            lambda: self.select_file(self, file_list))
+
+        file_list: QGroupBox = build_file_list()
 
         toggle_https = QPushButton(text='Toggle HTTPS')
         toggle_https.setCheckable(True)
@@ -58,7 +64,8 @@ class MainWindow(QWidget):
         def toggle_https_callback():
             '''Toggle HTTPS on the server configuration.'''
             self.gui.server.config.https = not self.gui.server.config.https
-            self.qr_code.set_protocol('https' if self.gui.server.config.https else 'http')
+            self.qr_code.set_protocol(
+                'https' if self.gui.server.config.https else 'http')
 
         toggle_https.toggled.connect(toggle_https_callback)
 
@@ -70,9 +77,34 @@ class MainWindow(QWidget):
 
         self.layout.addLayout(self.qr_code, 0, 0, 1, 2)
 
-        self.layout.addWidget(select_to_send, 1, 0, 1, 1)
-        self.layout.addWidget(open_received, 1, 1, 1, 1)
-        self.layout.addWidget(toggle_https, 2, 0, 1, 2)
-        self.layout.addWidget(start_button, 3, 0, 1, 2)
+        self.layout.addWidget(toggle_https, 1, 0, 1, 2)
+        self.layout.addWidget(start_button, 2, 0, 1, 2)
+        self.layout.addWidget(select_to_send, 
+        3, 0, 1, 1)
+        self.layout.addWidget(open_received, 3, 1, 1, 1)
         self.layout.addWidget(done_button, 4, 0, 1, 2)
-        self.layout.addWidget(full_instr)
+        self.layout.addWidget(file_list, 5, 0, 1, 1)
+        self.layout.addWidget(full_instr, 6, 0, 1, 1)
+
+    def select_file(self, window: QWidget, file_list: QWidget):
+        '''Callback for file selection.'''
+        self.gui.send_file_dialog(window)
+        update_file_list(file_list, self.gui.server.available)
+
+
+def build_file_list() -> QGroupBox:
+    '''Create the file list.'''
+
+    return QLabel(text='No files selected.')
+
+
+def update_file_list(file_list: QWidget, available: IdMap[Path]):
+    '''Update the given file list.'''
+    if available.size() < 1:
+        contents = 'No files selected.'
+    else:
+        contents = 'To Send:\n'
+        for _id, name in available.items():
+            contents += '\t' + name.name + '\n'
+
+    file_list.setProperty('text', contents)

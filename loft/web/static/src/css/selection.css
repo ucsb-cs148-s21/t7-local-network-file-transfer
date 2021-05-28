@@ -1,0 +1,36 @@
+
+@import './variables.css';
+
+:focus {
+    outline: dotted var(--color-focus);
+}
+
+.selected-file {
+    opacity: 0.9;
+}
+
+.selected-file, .download-listing-container .download-listing {
+    color: var(--color-tertiary-fg);
+    background-color: var(--color-tertiary-bg);
+}
+
+.download-listing-container input[type='checkbox'] {
+    display: none;
+}
+
+.download-listing-container :checked + .download-listing {
+    color: var(--color-tertiary-accent-fg);
+    background-color: var(--color-tertiary-accent-bg);
+}
+
+.download-listing-container .download-listing:hover {
+    background-color: var(--color-tertiary-hover);
+}
+
+.download-listing-container :checked + .download-listing:active {
+    background-color: var(--color-secondary-accent-active);
+}
+
+.download-listing-container :checked + .download-listing:hover {
+    background-color: var(--color-tertiary-accent-active);
+}

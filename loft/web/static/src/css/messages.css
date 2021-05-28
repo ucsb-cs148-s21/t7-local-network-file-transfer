@@ -1,0 +1,27 @@
+
+@import './variables.css';
+
+.error, .success {
+    border-radius: 4px;
+}
+
+.error {
+    color: var(--color-error-fg);
+    background-color: var(--color-error-bg);
+}
+
+.success {
+    color: var(--color-success-fg);
+    background-color: var(--color-success-bg);
+}
+
+.success {
+    color: var(--color-success-fg);
+    background-color: var(--color-success-bg);
+}
+
+.messages div {
+    text-align: center;
+
+    font-style: italic;
+}
