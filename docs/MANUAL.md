@@ -23,8 +23,7 @@ build your own Loft! You can also find a prefabricated Loft [here](https://githu
 
 ## Product Purpose 🎯 ##
 Loft's purpose is to provide multiple devices on the same local connection with a simple method to move files amongst each other. 
-The method is wireless, but does not involve using an intermediate cloud storage platform (Google Drive, 
-Dropbox, etc) or the cloud at all.
+The method is wireless, but does not involve an intermediate cloud storage platform (Google Drive, Dropbox, etc) or the cloud at all.
 
 ## Intended Audience 👨‍👩‍👧‍👦 ##
 
