@@ -60,9 +60,9 @@ You are the Host. Initialize Loft. You will interact with Loft's remote control,
 First, decide if you would like the Loft web UI to be situated at an HTTPS address for extra security. If so, select `Toggle HTTPS`. If not, 
 leave it untouched. Then, select `Start Connection`. 
 
-Now the main visual component of the native UI is the beautiful, giant QR code. On your client device, scan this QR code to bring up 
-the web UI on the client's web browser. As a fallback (when the client cannot easily scan the QR), navigate directly to the 
-blue URL underneath the code. A new QR code will be generated if HTTPS is toggled.
+Now the main visual component of the native UI is the beautiful, giant QR code. On your client device, scan this QR code to discover the web UI. 
+As a fallback (if the client cannot easily scan the QR), navigate directly to the blue URL underneath the code. A new QR code will be generated 
+if HTTPS is toggled.
 
 #### Sending Files From the Native UI ####
 Use the `Send Files…` button to select files to send. For confirmation, the names of the selected files will display at the bottom of the 
