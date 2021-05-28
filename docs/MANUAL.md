@@ -21,6 +21,9 @@ Loft is built using a collection of Python libraries and frameworks (Flask, Werk
 [here](https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/blob/main/docs/BUILD.md) are the detailed instructions to 
 build your own Loft! You can also find a prefabricated Loft [here](https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/releases) 🏚️.
 
+## Product Purpose 🎯 ##
+Loft's purpose is to provide multiple devices on the same local connection with a simple method to move files amongst each other. 
+The method is wireless, but does not involve an intermediate cloud storage platform (Google Drive, Dropbox, etc) or the cloud at all.
 
 ## Sending and Receiving Files from the Native UI ##
 Select `Start Connection` to begin sending and receiving files. Use the `Select Files…` button to select files to send. When finished, use the `Done Transferring` button to close Loft. Files received from the Web UI can be seen by selecting the `Open Downloads` button. If the `Select Files…` button is grayed out, you must restart Loft. **Do not leave Loft running while not in use.**
