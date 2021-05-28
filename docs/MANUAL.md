@@ -84,16 +84,27 @@ will open a detailed instruction file in your web browser.
 You are the Client. You interact with Loft's web UI. After the Host has started Loft's connection, scan the QR code or directly navigate to
 the link displayed on the Native UI. The web UI should appear in your web browser now:
 
-<img src="https://s3.amazonaws.com/filepicker-images-rapgenius/64K085t6QueD9Ha4rvOY_Screen%20Shot%202021-05-27%20at%207.16.43%20PM.png" height="320px" width="469px" /> 
+<img src="https://s3.amazonaws.com/filepicker-images-rapgenius/AEJRdzMDTOOnoXR5pWOP_Screen%20Shot%202021-05-28%20at%2011.15.41%20AM.png" height="310px" width="369px" /> 
 
 #### Sending Files From the Web UI ####
-You can send files by first selecting files with the `Select Files…` button. Underneath it, the file names will appear in individual bubbles 
-for confirmation. Files can be reselected at any time by using `Select Files…` again. Then, select the `Send Selected Files` button.
+You can send files by first selecting files with the `Select Files…` button. In the `Files Selected to Send` area, the file names will 
+appear in individual bubbles for confirmation. These can be reselected at any time by using `Select Files…` again. Now, select the 
+`Send Selected Files` button to perform the transfer. If the transfer is successful, a "Files Sent Successfully" message should appear 
+above the module.
+
+<img src="https://s3.amazonaws.com/filepicker-images-rapgenius/dN30AI96Q9KmFbolnDlw_Screen%20Shot%202021-05-28%20at%2011.34.38%20AM.png" height="285px" width="369px" /> 
+<sup> The Web UI with files selected to send. </sup>
 
 #### Receiving Files to the Web UI ####
-Files sent from the Native UI can be downloaded by selecting the `Receive Files` button.
-<br></br>
+Files sent from the Host will appear as individual bubbles in the `Files Available to Receive` area. If the Host updates the set of files 
+they are sending, the `Files Available to Receive` will instantly update according to the changes. You don't have to accept all of these files. 
+Select only the bubbles that contain the files you want; they will turn purple as confirmation. Now, select the `Receive Files` button to download them. 
 
+<img src="https://s3.amazonaws.com/filepicker-images-rapgenius/vE90OmH6T46vQlY9fH9V_Screen%20Shot%202021-05-28%20at%2011.55.52%20AM.png" height="255px" width="369px" /> 
+<sup> The Web UI with files available to receive. </sup> 
+
+<sup> The client has selected two of these files to download, and has left one greyed out. </sup>
+<br></br>
 ### Shutting Down Loft ###
 You cannot shut down from the web UI. When you are done transferring files, select the `Done Transferring` button on the Native UI 
 to shut down Loft. Remember to not leave Loft running while not in use!
