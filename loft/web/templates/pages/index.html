@@ -50,5 +50,8 @@
 
 {% endblock %}
 {% block scripts %}
-<script src="{{ url_for('static', filename='src/index.js') }}" type='module'></script>
+<script src="{{ url_for('static', filename='src/js/api.js') }}"></script>
+<script src="{{ url_for('static', filename='src/js/ui.js') }}"></script>
+<script src="{{ url_for('static', filename='src/js/upload.js') }}"></script>
+<script src="{{ url_for('static', filename='src/js/download.js') }}"></script>
 {% endblock %}
