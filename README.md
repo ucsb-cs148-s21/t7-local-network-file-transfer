@@ -6,7 +6,7 @@ Loft makes moving files _easy_, without using the Internet! Anyone who just need
 ## Table of Contents ##
 - [User Manual](docs/MANUAL.md)
 - [Build Instructions](docs/BUILD.md)
-- [Design](docs/DOCS.md)
+- [Design](docs/DESIGN.md)
 
 ## Repository Structure ##
 - `loft/` Source files and assets.

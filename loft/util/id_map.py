@@ -5,7 +5,11 @@ T = typing.TypeVar('T')
 
 
 class IdMap(typing.Generic[T]):
-    '''Object for tracking what files are available for download.'''
+    '''
+    Object for tracking what files are available for download. Assigns each
+    inserted item a new, unique ID. When an object is removed, its ID is not
+    recycled.
+    '''
 
     def __init__(self):
         self.contents: typing.Dict[int, T] = {}
@@ -33,6 +37,9 @@ class IdMap(typing.Generic[T]):
         Get whether or not the given value id is currently mapped to a value.
         '''
         return val_id in self.contents
+
+    def clear(self):
+        return self.contents.clear()
 
     def size(self) -> int:
         '''Get the number of values in the IdMap.'''

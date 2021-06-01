@@ -18,6 +18,7 @@ Loft depends on:
 - `netifaces`
 - `pyinstaller`
 - `PyQt5`
+- `qrcode`
 - `Werkzeug`
 
 #### Allen Wrenches ####

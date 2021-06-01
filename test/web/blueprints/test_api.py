@@ -100,8 +100,10 @@ def test_list():
         data = response.get_json()
         assert 'available' in data
         assert len(data['available']) == 2
-        assert data['available']['0'] == 'foo.ext'
-        assert data['available']['1'] == 'bar.ext2'
+        assert data['available'][0][0] == 0
+        assert data['available'][0][1] == 'foo.ext'
+        assert data['available'][1][0] == 1
+        assert data['available'][1][1] == 'bar.ext2'
 
 
 def test_list_empty():
@@ -131,7 +133,8 @@ def test_get():
             l_data = l_r.get_json()
             assert 'available' in l_data
             assert len(l_data['available']) == 1
-            assert l_data['available']['0'] == path.name
+            assert l_data['available'][0][0] == 0
+            assert l_data['available'][0][1] == path.name
 
             response: Response = c.get('/api/files/0')
 
