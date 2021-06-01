@@ -19,7 +19,7 @@ class Config:
 
     # Password Hash
     DEFAULT_PASSWORD: str = 'lofty'
-    SET_PASSWORD: str = ''
+    PASSWORD: dict = {"password":"lofty"}
 
     # Flask Configuration
 

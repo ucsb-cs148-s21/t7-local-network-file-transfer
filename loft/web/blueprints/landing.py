@@ -10,7 +10,7 @@ def landing():
     auth = HTTPBasicAuth()
 
     users = {
-        "loft": generate_password_hash(Config.DEFAULT_PASSWORD)
+        "loft": generate_password_hash(Config.PASSWORD["password"])
     }
 
     @auth.verify_password
