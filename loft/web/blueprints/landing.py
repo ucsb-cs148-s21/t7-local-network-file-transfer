@@ -2,6 +2,7 @@
 from flask import Blueprint, render_template
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
+from loft.config import Config 
 
 def landing():
     landing = Blueprint('landing', __name__)
@@ -9,7 +10,7 @@ def landing():
     auth = HTTPBasicAuth()
 
     users = {
-        "loft": generate_password_hash("test")
+        "loft": generate_password_hash(Config.DEFAULT_PASSWORD)
     }
 
     @auth.verify_password
