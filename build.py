@@ -14,7 +14,7 @@ In ``bash`` or similar::
 
     $ python3 -m venv .venv     # optional
     $ source .venv/bin/activate # optional
-    $ python3 -m pip install -r requirements.txt
+    $ pip install -r requirements.txt
     $ python3 -OO -m build
 
 Windows
@@ -23,8 +23,8 @@ In PowerShell::
 
     PS > py -m venv .venv           # optional
     PS > .venv/Scripts/Activate.ps1 # optional
-    PS > py -m pip install -r requirements.txt
-    PS > py -OO -m build
+    PS > pip install -r requirements.txt
+    PS > py -3 -OO -m build
 '''
 from pathlib import Path
 import platform
