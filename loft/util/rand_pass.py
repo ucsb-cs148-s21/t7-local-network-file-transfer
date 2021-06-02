@@ -1,4 +1,7 @@
 from random import randint
 
 def generate_random():
-    return randint(000000, 999999)
+    password = ''
+    for i in range(0, 6):
+        password += str(randint(0,9))
+    return password
