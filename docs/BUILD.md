@@ -14,7 +14,9 @@ Building your Loft can be challenging if you’ve never built one before, but it
 
 ### The Nuts and Bolts ###
 Loft depends on:
+- `cryptography`
 - `Flask`
+- `Flask-HTTPAuth`
 - `netifaces`
 - `pyinstaller`
 - `PyQt5`
