@@ -3,6 +3,8 @@
 
 Loft makes moving files _easy_, without using the Internet! Anyone who just needs a simple solution to moving files between two devices on the same network can use Loft.
 
+This release excludes HTTPS support in order to build the Windows binary.
+
 ## Table of Contents ##
 - [User Manual](docs/MANUAL.md)
 - [Build Instructions](docs/BUILD.md)
