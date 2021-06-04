@@ -3,7 +3,7 @@
 ``build.py``
 ============
 
-Build script for Loft.
+Build script for Loft. Must be run from inside a venv named ``.venv``.
 
 Usage
 -----
@@ -12,8 +12,8 @@ Linux & macOS
 ^^^^^^^^^^^^^
 In ``bash`` or similar::
 
-    $ python3 -m venv .venv     # optional
-    $ source .venv/bin/activate # optional
+    $ python3 -m venv .venv
+    $ source .venv/bin/activate
     $ pip install -r requirements.txt
     $ python3 -OO -m build
 
@@ -21,8 +21,8 @@ Windows
 ^^^^^^^
 In PowerShell::
 
-    PS > py -m venv .venv           # optional
-    PS > .venv/Scripts/Activate.ps1 # optional
+    PS > py -m venv .venv
+    PS > .venv/Scripts/Activate.ps1
     PS > pip install -r requirements.txt
     PS > py -3 -OO -m build
 '''
@@ -46,12 +46,25 @@ RESOURCES: typing.List[Path] = [
 
 def main():
     pathsep: str = ';' if platform.system() == 'Windows' else ':'
-    PyInstaller.__main__.run([
+
+    args = [
         str(ENTRY_POINT),
         '-n', str(NAME),
         '--onefile',
+        '--clean',
         '--noconsole',
-    ] + [f(res) for res in RESOURCES for f in (lambda _: '--add-data', lambda res: f'{res}{pathsep}{res}')])
+        # '--hidden-import', 'cryptography',
+        # '--hidden-import', 'cffi',
+        # '--additional-hooks-dir', 'hooks',
+        '--debug', 'all',
+    ] + [f(res) for res in RESOURCES for f in (lambda _: '--add-data', lambda res: f'{res}{pathsep}{res}')]
+
+    if platform.system() == 'Windows':
+        venv = Path('.venv')
+        if venv.is_dir():
+            args += ['--paths', str(Path('.venv', 'Lib', 'site-packages'))]
+
+    PyInstaller.__main__.run(args)
 
 
 if __name__ == '__main__':
