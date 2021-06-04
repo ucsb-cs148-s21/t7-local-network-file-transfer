@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Utility;
+Icon=loft
+Name=loft
+Type=Application
+Exec=loft
+
+X-AppImage-Version=074560c

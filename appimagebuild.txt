@@ -1,0 +1,1 @@
+./linuxdeploy-x86_64.AppImage --appdir Appdir -e dist/loft --output appimage --create-desktop-file --icon-file loft.png
