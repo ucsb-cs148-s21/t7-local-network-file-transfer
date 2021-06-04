@@ -2,12 +2,15 @@
 from pathlib import Path
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QGridLayout, QGroupBox, QLabel, QPushButton, QWidget
+from PyQt5.QtWidgets import QGridLayout, QGroupBox, QLabel, QLineEdit, QPushButton, QTextEdit, QWidget
 
 
 from loft.ui.widgets.qr_code import QrCodeContainer
 from loft.util.id_map import IdMap
 from loft.util.net import get_ip_thru_gateway as get_ip
+from loft.util.rand_pass import generate_random
+
+from loft.config import Config
 
 
 class MainWindow(QWidget):
@@ -20,7 +23,7 @@ class MainWindow(QWidget):
         self.gui = gui
         self.setWindowTitle(title)
 
-        self.setGeometry(0, 0, 400, 300)
+        self.setGeometry(0, 0, 400, 500)
         self.move(400, 400)
         # Keep the window on top so that user remembers to close when they're done
         self.setWindowFlag(Qt.WindowStaysOnTopHint)
@@ -31,6 +34,29 @@ class MainWindow(QWidget):
 
     def setup(self):
         self.qr_code = QrCodeContainer(get_ip(), self.gui.server.config.PORT)
+
+        Config.PASSWORD["password"] = str(generate_random())
+
+        username = QLineEdit("loft")
+        username.setReadOnly(True)
+        password = QLineEdit(Config.PASSWORD['password'])
+        password.setReadOnly(True)
+        password.setEchoMode(QLineEdit.Password)
+
+        password_show_button = QPushButton(text = 'Show Password')
+        password_show_button.setCheckable(True)
+
+        def password_visibility():
+            if (password_show_button.isChecked()):
+                password.setEchoMode(QLineEdit.Normal)
+                password_show_button.setText("Hide Password")
+            else:
+                password.setEchoMode(QLineEdit.Password)
+                password_show_button.setText("Show Password")
+
+        password_show_button.clicked.connect(password_visibility)
+
+
         start_button = QPushButton(text='Start Connection')
         start_button.setCheckable(True)
 
@@ -75,16 +101,35 @@ class MainWindow(QWidget):
             Qt.TextInteractionFlag.LinksAccessibleByMouse)
         full_instr.setOpenExternalLinks(True)
 
-        self.layout.addLayout(self.qr_code, 0, 0, 1, 2)
 
-        self.layout.addWidget(toggle_https, 1, 0, 1, 2)
-        self.layout.addWidget(start_button, 2, 0, 1, 2)
-        self.layout.addWidget(select_to_send, 
-        3, 0, 1, 1)
-        self.layout.addWidget(open_received, 3, 1, 1, 1)
-        self.layout.addWidget(done_button, 4, 0, 1, 2)
-        self.layout.addWidget(file_list, 5, 0, 1, 1)
-        self.layout.addWidget(full_instr, 6, 0, 1, 1)
+        self.layout.addLayout(self.qr_code, 0, 0, 1, 4)
+        
+        security_box = QGroupBox("Security")
+        security_grid = QGridLayout()
+        security_box.setLayout(security_grid)
+
+        security_grid.addWidget(QLabel("User Name:"), 0, 0, 1, 1)
+        security_grid.addWidget(username, 0, 1, 1, 1)
+        security_grid.addWidget(QLabel("Password:"), 1, 0, 1, 1)
+        security_grid.addWidget(password, 1, 1, 1, 1)
+        security_grid.addWidget(password_show_button, 2, 0, 1, 2)
+        security_grid.addWidget(toggle_https, 3, 0, 1, 2)
+
+        self.layout.addWidget(security_box, 1, 0)
+
+        transfer_box = QGroupBox("Transfer")
+        transfer_grid = QGridLayout()
+        transfer_box.setLayout(transfer_grid)
+
+        transfer_grid.addWidget(start_button, 0, 0, 1, 2)
+        transfer_grid.addWidget(select_to_send, 1, 0, 1, 1)
+        transfer_grid.addWidget(open_received, 1, 1, 1, 1)
+        transfer_grid.addWidget(done_button, 2, 0, 1, 2)
+        transfer_grid.addWidget(file_list, 3, 0, 1, 2)
+
+        self.layout.addWidget(transfer_box, 2, 0)
+        self.layout.addWidget(full_instr, 6, 0, 1, 2)
+
 
     def select_file(self, window: QWidget, file_list: QWidget):
         '''Callback for file selection.'''

@@ -17,6 +17,10 @@ class Config:
         self.DOWNLOADS_FOLDER.mkdir(parents=True, exist_ok=True)
         self.DOCUMENTS_FOLDER.mkdir(parents=True, exist_ok=True)
 
+    # Password Hash
+    DEFAULT_PASSWORD: str = 'lofty'
+    PASSWORD: dict = {"password":"lofty"}
+
     # Flask Configuration
 
     HOST: str = '0.0.0.0'
