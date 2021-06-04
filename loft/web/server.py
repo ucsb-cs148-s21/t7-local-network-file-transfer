@@ -36,7 +36,8 @@ class Server:
 
     def init(self):
         '''Initialize the server.'''
-        context = self.generate_certificates() if self.config.https else None
+        # context = self.generate_certificates() if self.config.https else None
+        context = None
         self.thread: Thread = Thread(target=lambda: run_simple(
             self.config.HOST,
             self.config.PORT,
