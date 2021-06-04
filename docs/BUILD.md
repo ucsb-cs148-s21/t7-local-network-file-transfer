@@ -3,6 +3,10 @@ Do you want to build your own Loft? Get started here!
 
 > Is building your own Loft too difficult? Then head over [here](https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/releases) to get a prefabricated Loft.
 
+#### Important ####
+- Unfortunately, building on macOS does not work.
+- Thanks to an incompatibility between `pyinstaller` and `cryptography`, building on Windows only works on the `feature/no-https` branch, which completely disables the HTTPS option.
+
 ## Table of Contents ##
 - [Dependencies](#gathering-the-materials)
 - [Building](#putting-it-all-together)
@@ -24,7 +28,7 @@ Loft depends on:
 - `Werkzeug`
 
 #### Allen Wrenches ####
-On macOS, you'll need `cx-Freeze` instead of `pyinstaller`.
+On macOS, you'll need `cx-Freeze` instead of `pyinstaller`. After running `pip install -r requirements.txt`, run `pip install cx_Freeze`.
 
 ### Hammers and Jackhammers ###
 For development, your Loft will need:

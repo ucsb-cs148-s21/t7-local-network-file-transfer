@@ -53,10 +53,6 @@ def main():
         '--onefile',
         '--clean',
         '--noconsole',
-        # '--hidden-import', 'cryptography',
-        # '--hidden-import', 'cffi',
-        # '--additional-hooks-dir', 'hooks',
-        '--debug', 'all',
     ] + [f(res) for res in RESOURCES for f in (lambda _: '--add-data', lambda res: f'{res}{pathsep}{res}')]
 
     if platform.system() == 'Windows':
