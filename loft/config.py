@@ -19,7 +19,7 @@ class Config:
 
     # Password Hash
     DEFAULT_PASSWORD: str = 'lofty'
-    PASSWORD: dict = {"password":"lofty"}
+    PASSWORD: dict = {"password": "lofty"}
 
     # Flask Configuration
 
@@ -41,16 +41,18 @@ class Config:
 
     # location of user config file
     config_filepath: str = 'LOFT_CONFIG'
-    # whether or not to use HTTPS
-    https: bool = False
+    # # whether or not to use HTTPS
+    # https: bool = False
 
 
 class DebugConfig(Config):
     '''Configuration for testing.'''
     TESTING: bool = True
 
-    DOWNLOADS_FOLDER: Path = Path('test', 'artifacts.tmp', 'downloads').resolve()
-    DOCUMENTS_FOLDER: Path = Path('test', 'artifacts.tmp', 'documents').resolve()
+    DOWNLOADS_FOLDER: Path = Path(
+        'test', 'artifacts.tmp', 'downloads').resolve()
+    DOCUMENTS_FOLDER: Path = Path(
+        'test', 'artifacts.tmp', 'documents').resolve()
 
     def __del__(self):
         shutil.rmtree(self.DOWNLOADS_FOLDER, ignore_errors=True)

@@ -4,11 +4,12 @@ from threading import Thread
 import typing
 
 from flask import Flask, render_template
-from werkzeug.serving import run_simple, make_ssl_devcert
+from werkzeug.serving import run_simple  # , make_ssl_devcert
 
 from loft.config import Config
-from loft.util.file import open_, get_data
+from loft.util.file import open_  # , get_data
 from loft.util.id_map import IdMap
+
 
 class Server:
     '''
@@ -32,7 +33,6 @@ class Server:
 
         # A dictionary of the available files for download.
         self.available: IdMap[Path] = IdMap()
-
 
     def init(self):
         '''Initialize the server.'''
@@ -79,15 +79,15 @@ class Server:
         self.flask.register_blueprint(landing())
         self.flask.register_blueprint(api(self.available))
 
-    def generate_certificates(self) -> typing.Tuple[str, str]:
-        '''Generate SSL certificates if they do not already exist.'''
-        data_folder: Path = get_data()
+    # def generate_certificates(self) -> typing.Tuple[str, str]:
+    #     '''Generate SSL certificates if they do not already exist.'''
+    #     data_folder: Path = get_data()
 
-        key_name: str = 'ssl_key'
+    #     key_name: str = 'ssl_key'
 
-        cert: Path = Path(data_folder, key_name + '.crt')
-        priv: Path = Path(data_folder, key_name + '.key')
-        if cert.is_file() and priv.is_file():
-            return str(cert), str(priv)
+    #     cert: Path = Path(data_folder, key_name + '.crt')
+    #     priv: Path = Path(data_folder, key_name + '.key')
+    #     if cert.is_file() and priv.is_file():
+    #         return str(cert), str(priv)
 
-        return make_ssl_devcert(data_folder / 'ssl_key', host=self.config.HOST)
+    #     return make_ssl_devcert(data_folder / 'ssl_key', host=self.config.HOST)

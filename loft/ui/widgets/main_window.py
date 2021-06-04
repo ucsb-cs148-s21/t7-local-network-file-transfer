@@ -43,7 +43,7 @@ class MainWindow(QWidget):
         password.setReadOnly(True)
         password.setEchoMode(QLineEdit.Password)
 
-        password_show_button = QPushButton(text = 'Show Password')
+        password_show_button = QPushButton(text='Show Password')
         password_show_button.setCheckable(True)
 
         def password_visibility():
@@ -55,7 +55,6 @@ class MainWindow(QWidget):
                 password_show_button.setText("Show Password")
 
         password_show_button.clicked.connect(password_visibility)
-
 
         start_button = QPushButton(text='Start Connection')
         start_button.setCheckable(True)
@@ -85,7 +84,8 @@ class MainWindow(QWidget):
         file_list: QGroupBox = build_file_list()
 
         toggle_https = QPushButton(text='Toggle HTTPS')
-        toggle_https.setCheckable(True)
+        # toggle_https.setCheckable(True)
+        toggle_https.setDisabled(True)
 
         def toggle_https_callback():
             '''Toggle HTTPS on the server configuration.'''
@@ -101,9 +101,8 @@ class MainWindow(QWidget):
             Qt.TextInteractionFlag.LinksAccessibleByMouse)
         full_instr.setOpenExternalLinks(True)
 
-
         self.layout.addLayout(self.qr_code, 0, 0, 1, 4)
-        
+
         security_box = QGroupBox("Security")
         security_grid = QGridLayout()
         security_box.setLayout(security_grid)
@@ -129,7 +128,6 @@ class MainWindow(QWidget):
 
         self.layout.addWidget(transfer_box, 2, 0)
         self.layout.addWidget(full_instr, 6, 0, 1, 2)
-
 
     def select_file(self, window: QWidget, file_list: QWidget):
         '''Callback for file selection.'''
