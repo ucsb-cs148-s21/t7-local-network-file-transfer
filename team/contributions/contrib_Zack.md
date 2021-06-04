@@ -8,3 +8,4 @@
 - Noticed an issue with our program being slow on windows so I worked to get it fixed, however, Ethan addded server threading in a future commmit which served as a fix for it.
 - Setup the https toggle feature with Ethan.
 - Before code freeze I worked to try and get the packaging working again for windows because the https feature broke it, however, Ethan and I were unable to fix it but Ethan was able to package with Windows by disabling https
+- Overall I served as the tester for all new features making sure each aspect of our program worked
