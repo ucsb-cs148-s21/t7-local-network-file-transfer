@@ -2,8 +2,8 @@
 
 # Code
 - Worked on the upload feature to send files from one device to another
-- Worked on the webpage UI, so users get feedback when files are uploaded
-- Implemented the QR code into the GUI for users to scan easily on their phone
+- Worked on the webpage UI, so users get feedback when files are uploaded, had some help from Ethan to  merge
+- Implemented the QR code into the GUI for users to scan easily on their phone, had some help from Ethan to merge and implement.
 - Worked on GUI to add instructions
 - Did PR reviews
 
