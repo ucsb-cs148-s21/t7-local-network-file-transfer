@@ -8,6 +8,9 @@ Loft makes moving files _easy_, without using the Internet! Anyone who just need
 - [Build Instructions](docs/BUILD.md)
 - [Design](docs/DESIGN.md)
 
+## Releases ##
+Head over to [releases](https://github.com/ucsb-cs148-s21/t7-local-network-file-transfer/releases) for a prepackaged executable.
+
 ## Repository Structure ##
 - `loft/` Source files and assets.
   - `loft/ui` Native UI.
