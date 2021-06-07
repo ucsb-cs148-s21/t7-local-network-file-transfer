@@ -73,7 +73,7 @@ For development, your Loft will need:
     > py -3 -OO -m build
     ```
 
-Your new Loft will now be inside the `dist/` directory. Feel free to set it up somewhere convenient, like `~/Applications` on Mac! You can now delete the Loft repository.
+On Windows and Linux, your new Loft will now be inside the `dist/` directory. For Mac, Loft will be located in `build/` instead. Feel free to set it up somewhere convenient, like `~/Applications` on Mac! You can now delete the Loft repository.
 ```shell
 $ cd ~/Desktop
 $ rm -rf t7-local-network-file-transfer
