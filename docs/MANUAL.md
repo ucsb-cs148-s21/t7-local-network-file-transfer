@@ -54,11 +54,12 @@ Depending on your role, you will interact with a different side of Loft, both of
 ### Host: Using the Native UI ###
 You are the Host. Initialize Loft. You will interact with Loft's remote control, the native UI, which should appear on your screen now:
 
-<img src="https://s3.amazonaws.com/filepicker-images-rapgenius/7bPd20E4SzO7MGriFmot_Screen%20Shot%202021-05-27%20at%2011.46.48%20PM.png" height="400px" width="270px" /> 
+<img src="https://s3.amazonaws.com/filepicker-images-rapgenius/OxCU5x7Ria9lkZGkL5Tc_Screen%20Shot%202021-06-07%20at%203.35.01%20PM.png" height="540px" width="280px" /> 
 
 #### Connect ####
-First, decide if you would like the Loft web UI to be situated at an HTTPS address for extra security. If so, select `Toggle HTTPS`. If not, 
-leave it untouched. Then, select `Start Connection`. 
+Let's look at the Security box. First, note the auto-generated username/password. Every time Loft is initialized, these credentials will change. The client must enter these credentials to access the Web UI.
+Then, decide if you would like the Loft web UI to be situated at an HTTPS address for extra security. If so, select `Toggle HTTPS`. If not, 
+leave it untouched. Then, in the Transfer box, select `Start Connection`. 
 
 Now the main visual component of the native UI is the beautiful, giant QR code. On your client device, scan this QR code to discover the web UI. 
 As a fallback (if the client cannot easily scan the QR), navigate directly to the blue URL underneath the code. A new QR code will be generated 
@@ -67,10 +68,10 @@ if HTTPS is toggled.
 #### Sending Files From the Native UI ####
 Use the `Send Files…` button to select files to send. For confirmation, the names of the selected files will display at the bottom of the 
 UI, replacing the `No files selected` text. These files are immediately available to the client for download. Files can be reselected at 
-any time by using `Select Files…` again, and this new set of files will be made available to the client. 
+any time by using `Send Files…` again, and this new set of files will be made available to the client. 
 
 <img src="https://s3.amazonaws.com/filepicker-images-rapgenius/ZtcLlRIITAiapgHWn41L_Screen%20Shot%202021-05-28%20at%202.37.16%20AM.png" height="440px" width="290px" /> 
-<sup>The Native GUI with HTTPS toggled and files selected. N.b. the QR code has changed.</sup>
+<sup>The Native GUI with HTTPS toggled and files selected.</sup>
 
 #### Receiving Files to the Native UI ####
 Files received from the Client can be seen by selecting the `Open Downloads` button. **Do not leave Loft running while not in use.**
@@ -82,7 +83,7 @@ will open a detailed instruction file in your web browser.
 
 ### Client: Using the Web UI ###
 You are the Client. You interact with Loft's web UI. After the Host has started Loft's connection, scan the QR code or directly navigate to
-the link displayed on the Native UI. The web UI should appear in your web browser now:
+the link displayed on the Native UI. You should see a login dialog; enter the username/password shown on the Native UI. The web UI should appear in your web browser now:
 
 <img src="https://s3.amazonaws.com/filepicker-images-rapgenius/AEJRdzMDTOOnoXR5pWOP_Screen%20Shot%202021-05-28%20at%2011.15.41%20AM.png" height="310px" width="369px" /> 
 
