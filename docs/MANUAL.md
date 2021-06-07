@@ -115,6 +115,8 @@ to shut down Loft. Remember to not leave Loft running while not in use!
 1. The Web UI remains open after Loft has been closed.
 2. Since we manually generate our own HTTPS certificates, using HTTPS raises an untrusted certificate warning on the client side.
 You will need to disregard the warning and proceed to the web address.
+3. The Windows executable excludes HTTPS support due to an incompatibility between the dependency and our packager. The functionality 
+is still available if run from source.
 
 ## Testing 🔬 ##
 Loft is tested using `pytest`. Test Loft by running `make test` in the repository root.
